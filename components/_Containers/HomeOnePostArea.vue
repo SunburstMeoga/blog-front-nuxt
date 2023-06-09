@@ -20,11 +20,11 @@
               news_item: 'gallery_item_dark',
             }"
           />
-          <div class="post-add mt-30">
+          <!-- <div class="post-add mt-30">
             <a href="#"
               ><img src="@/assets/images/ads/one_ad.png" alt="ad"
             /></a>
-          </div>
+          </div> -->
           <buisness-news class="pt-40" v-if="!dark" />
           <buisness-news
             v-else

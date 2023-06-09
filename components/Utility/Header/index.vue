@@ -12,11 +12,11 @@
             </div>
           </div>
           <div class="col-lg-8">
-            <div class="header-centerbar-ad">
+          <!--   <div class="header-centerbar-ad">
               <a href="#">
                 <img src="@/assets/images/ads/one_ad.png" alt=""
               /></a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
