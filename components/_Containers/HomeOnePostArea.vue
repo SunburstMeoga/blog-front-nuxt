@@ -1,67 +1,48 @@
- <template>
+<template>
   <section class="all-post-area">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <entertainment-news v-if="!dark" />
-          <entertainment-news
-            v-else
-            :darkClass="{
+          <entertainment-news v-else :darkClass="{
               item: 'trending-news-item-dark',
               title: 'section-title-2',
-            }"
-          />
+            }" />
           <sports-news v-if="!dark" />
-          <sports-news
-            v-else
-            :darkClass="{
+          <sports-news v-else :darkClass="{
               item: 'trending-news-item-dark',
               title: 'section-title-2',
               news_item: 'gallery_item_dark',
-            }"
-          />
+            }" />
           <div class="post-add mt-30">
-            <a href="#"
-              ><img src="@/assets/images/ads/one_ad.png" alt="ad"
-            /></a>
+            <a href="#"><img src="@/assets/images/ads/one_ad.png" alt="ad" /></a>
           </div>
           <buisness-news class="pt-40" v-if="!dark" />
-          <buisness-news
-            v-else
-            class="pt-40"
-            :darkClass="{
+          <buisness-news v-else class="pt-40" :darkClass="{
               item: 'business-post-item-dark',
               title: 'section-title-2',
-            }"
-          />
+            }" />
         </div>
         <div class="col-lg-4">
           <div class="all-post-sidebar">
             <share-post v-if="!dark" />
-            <share-post
-              v-else
-              :darkClass="{
+            <share-post v-else :darkClass="{
                 title: 'section-title-2',
                 item: 'most-share-post-item-dark',
-              }"
-            />
+              }" />
             <div class="upcoming-matches-post mt-35">
-              <div
-                :class="[
+              <div :class="[
                   'section-title d-flex justify-content-between align-items-cente',
                   dark ? 'section-title-2' : '',
-                ]"
-              >
+                ]">
                 <h3 class="title">Upcoming Matches</h3>
                 <a href="#">ALL SEE</a>
               </div>
               <div class="upcoming-matches-post-items">
-                <div
-                  :class="[
+                <div :class="[
                     'upcoming-matches-post-item d-flex align-items-center',
                     dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]"
-                >
+                  ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-1.png" alt="flag" />
                   </div>
@@ -78,12 +59,10 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  :class="[
+                <div :class="[
                     'upcoming-matches-post-item d-flex align-items-center',
                     dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]"
-                >
+                  ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-2.png" alt="flag" />
                   </div>
@@ -100,12 +79,10 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  :class="[
+                <div :class="[
                     'upcoming-matches-post-item d-flex align-items-center',
                     dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]"
-                >
+                  ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-3.png" alt="flag" />
                   </div>
@@ -122,12 +99,10 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  :class="[
+                <div :class="[
                     'upcoming-matches-post-item d-flex align-items-center',
                     dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]"
-                >
+                  ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-4.png" alt="flag" />
                   </div>
@@ -144,12 +119,10 @@
                     </div>
                   </div>
                 </div>
-                <div
-                  :class="[
+                <div :class="[
                     'upcoming-matches-post-item d-flex align-items-center',
                     dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]"
-                >
+                  ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-5.png" alt="flag" />
                   </div>
@@ -168,12 +141,10 @@
                 </div>
               </div>
             </div>
-            <div
-              :class="[
+            <div :class="[
                 'newsletter-box mt-45',
                 dark ? 'newsletter-box-dark' : '',
-              ]"
-            >
+              ]">
               <h5 class="title">Newsletter</h5>
               <p>
                 Your email address will not be this published. Required fields
@@ -188,21 +159,16 @@
               <span>We hate spam as much as you do</span>
             </div>
             <div class="Categories-post mt-40">
-              <div
-                :class="[
+              <div :class="[
                   'section-title d-flex justify-content-between align-items-center',
                   dark ? 'section-title-2' : '',
-                ]"
-              >
+                ]">
                 <h3 class="title">Categories</h3>
                 <a href="#">ALL SEE</a>
               </div>
               <div class="Categories-item">
                 <div class="item">
-                  <img
-                    src="@/assets/images/categories-1.jpg"
-                    alt="categories"
-                  />
+                  <img src="@/assets/images/categories-1.jpg" alt="categories" />
                   <div class="Categories-content">
                     <a href="#">
                       <span>Restaurant</span>
@@ -211,10 +177,7 @@
                   </div>
                 </div>
                 <div class="item">
-                  <img
-                    src="@/assets/images/categories-2.jpg"
-                    alt="categories"
-                  />
+                  <img src="@/assets/images/categories-2.jpg" alt="categories" />
                   <div class="Categories-content">
                     <a href="#">
                       <span>Entertainment</span>
@@ -223,10 +186,7 @@
                   </div>
                 </div>
                 <div class="item">
-                  <img
-                    src="@/assets/images/categories-3.jpg"
-                    alt="categories"
-                  />
+                  <img src="@/assets/images/categories-3.jpg" alt="categories" />
                   <div class="Categories-content">
                     <a href="#">
                       <span>Financial</span>
@@ -235,10 +195,7 @@
                   </div>
                 </div>
                 <div class="item">
-                  <img
-                    src="@/assets/images/categories-4.jpg"
-                    alt="categories"
-                  />
+                  <img src="@/assets/images/categories-4.jpg" alt="categories" />
                   <div class="Categories-content">
                     <a href="#">
                       <span>Business</span>
@@ -247,10 +204,7 @@
                   </div>
                 </div>
                 <div class="item">
-                  <img
-                    src="@/assets/images/categories-5.jpg"
-                    alt="categories"
-                  />
+                  <img src="@/assets/images/categories-5.jpg" alt="categories" />
                   <div class="Categories-content">
                     <a href="#">
                       <span>Scientists</span>
@@ -259,10 +213,7 @@
                   </div>
                 </div>
                 <div class="item">
-                  <img
-                    src="@/assets/images/categories-6.jpg"
-                    alt="categories"
-                  />
+                  <img src="@/assets/images/categories-6.jpg" alt="categories" />
                   <div class="Categories-content">
                     <a href="#">
                       <span>International’s</span>
@@ -272,9 +223,7 @@
                 </div>
               </div>
               <div class="sidebar-add pt-35">
-                <a href="#"
-                  ><img src="@/assets/images/ads/two_ad.jpg" alt="ad"
-                /></a>
+                <a href="#"><img src="@/assets/images/ads/two_ad.jpg" alt="ad" /></a>
               </div>
             </div>
           </div>
@@ -300,5 +249,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

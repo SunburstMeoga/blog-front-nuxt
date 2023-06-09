@@ -1,13 +1,14 @@
 <template>
     <div>
-        <h2>布局layouts</h2>
+        <video-pop-up />
         <Nuxt />
     </div>
 </template>
   
 <script>
+import VideoPopUp from '../components/Utility/VideoPopUp.vue'
 export default {
-
+    components: { VideoPopUp }
 }
 </script>
   
