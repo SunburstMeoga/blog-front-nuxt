@@ -1,9 +1,14 @@
 <template>
-  <Tutorial/>
+  <div>
+    <home-one />
+  </div>
 </template>
 
 <script>
+import HomeOne from "../components/Home/index";
 export default {
-  name: 'IndexPage'
-}
+  components: { HomeOne },
+};
 </script>
+
+<style></style>
