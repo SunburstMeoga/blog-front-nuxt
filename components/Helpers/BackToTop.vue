@@ -13,15 +13,15 @@
 
 <script>
 export default {
-  created() {
-    document.addEventListener("scroll", this.topToBottom);
+  mounted() {
+    window.document.addEventListener("scroll", this.topToBottom);
   },
   methods: {
     topToBottom() {
-      const result = document.querySelector(".go-top");
+      const result = window.document.querySelector(".go-top");
       if (
-        document.body.scrollTop > window.innerHeight ||
-        document.documentElement.scrollTop > window.innerHeight
+        window.document.body.scrollTop > window.innerHeight ||
+        window.document.window.documentElement.scrollTop > window.innerHeight
       ) {
         result.classList.add("active");
       } else {
@@ -32,5 +32,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
