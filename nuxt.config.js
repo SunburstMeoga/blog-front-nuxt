@@ -18,6 +18,12 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    "assets/css/bootstrap.min.css",
+    "assets/css/custom.css",
+    "assets/css/default.css",
+    "assets/css/font-awesome.min.css",
+    "assets/css/magnific-popup.css",
+    "assets/css/style.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

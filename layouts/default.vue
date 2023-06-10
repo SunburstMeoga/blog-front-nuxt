@@ -1,14 +1,14 @@
 <template>
     <div>
-        <video-pop-up />
+        <top-bar />
         <Nuxt />
     </div>
 </template>
   
 <script>
-import VideoPopUp from '../components/Utility/VideoPopUp.vue'
+import TopBar from '../components/Utility/Header/index.vue'
 export default {
-    components: { VideoPopUp }
+    components: { TopBar }
 }
 </script>
   
