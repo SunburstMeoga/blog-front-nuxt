@@ -10,9 +10,7 @@
             <row-card :key="index" :datas="data" />
           </template>
         </slider>
-        <span @click="next" class="next slick-arrow d-lg-block d-none"
-          ><i class="fal fa-angle-right"></i
-        ></span>
+        <span @click="next" class="next slick-arrow d-lg-block d-none"><i class="fal fa-angle-right"></i></span>
       </div>
     </div>
   </div>
@@ -53,10 +51,16 @@ export default {
       ],
     },
   }),
+  mounted() {
+    this.$axios.get('https://blogapi.nickwongon99.top/api/blogs/list').then(res => {
+      console.log(res.data);
+    });
+  },
   methods: {
     //post area
     next() {
-      this.$refs.postSlider.next();
+      console.log('this', this)
+      // this.$refs.postSlider.next();
     },
   },
 };
