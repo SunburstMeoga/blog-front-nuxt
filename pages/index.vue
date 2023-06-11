@@ -8,7 +8,7 @@
 
     <!--====== POST PART START ======-->
 
-    <post-part-home-one />
+    <post-part-home-one :blogList="blogList" />
 
     <!--====== POST PART ENDS ======-->
 
@@ -82,11 +82,23 @@ export default {
   },
   data: () => ({
     sidebar: false,
+    blogList: []
   }),
   methods: {
     toggleSidebar() {
       this.sidebar = !this.sidebar;
     },
+  },
+
+  async asyncData({ $axios }) {
+    // $axios.$get('https://blogapi.nickwongon99.top/api/blogs/list').then(res => {
+    //   console.log(res)
+    //   return { docs: [{ slug: 'slugone' }, { slug: 'slugtwo' }] }
+    // }).catch(err => {
+    //   console.log(err)
+    // })
+    const { data } = await $axios.$get('https://blogapi.nickwongon99.top/api/blogs/list')
+    return { blogList: data.docs }
   },
 };
 </script>

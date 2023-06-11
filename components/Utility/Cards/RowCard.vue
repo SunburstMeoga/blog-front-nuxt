@@ -2,19 +2,15 @@
   <router-link to="/posts/postOne" v-if="category" class="gallery_item">
     <template v-if="datas">
       <div class="gallery_item_thumb">
-        <img
-          v-if="datas.image"
-          :src="require(`@/assets/images/${datas.image}`)"
-          alt="gallery"
-        />
+        <img v-if="datas.image_path" :src="require(`@/assets/images/${datas.image_path}`)" alt="gallery" />
       </div>
       <div class="gallery_item_content">
         <div class="post-meta">
           <div class="meta-categories">
-            <a href="#">{{ datas.category.name }}</a>
+            <a href="#">{{ datas.slug }}</a>
           </div>
           <div class="meta-date">
-            <span>{{ datas.category.create_At }}</span>
+            <span>{{ datas.created_at }}</span>
           </div>
         </div>
         <h4 class="title">
@@ -23,16 +19,9 @@
       </div>
     </template>
   </router-link>
-  <router-link
-    to="/posts/postOne"
-    v-else-if="countingtwo"
-    class="post-gallery-style-2 most-view-style-2"
-  >
+  <router-link to="/posts/postOne" v-else-if="countingtwo" class="post-gallery-style-2 most-view-style-2">
     <div class="post-gallery-thumb">
-      <img
-        :src="require(`@/assets/images/gallery-post/${datas.image}`)"
-        alt="gallery"
-      />
+      <img :src="require(`@/assets/images/gallery-post/${datas.image_path}`)" alt="gallery" />
       <span>{{ count }}</span>
     </div>
     <div class="post-gallery-content">
@@ -51,11 +40,7 @@
   </router-link>
   <router-link to="/posts/postOne" v-else-if="trending" class="gallery_item">
     <div class="gallery_item_thumb">
-      <img
-        v-if="datas.image"
-        :src="require(`@/assets/images/${datas.image}`)"
-        alt="gallery"
-      />
+      <img v-if="datas.image" :src="require(`@/assets/images/${datas.image}`)" alt="gallery" />
       <div v-if="datas.trending" class="icon"><i class="fas fa-bolt"></i></div>
     </div>
     <div class="gallery_item_content">
@@ -73,11 +58,7 @@
       <!-- <span v-if="counting">{{ counting }}</span> -->
     </div>
   </router-link>
-  <router-link
-    to="/posts/postOne"
-    v-else-if="counting"
-    class="gallery_item gallery_item-style-2"
-  >
+  <router-link to="/posts/postOne" v-else-if="counting" class="gallery_item gallery_item-style-2">
     <div class="gallery_item_thumb">
       <img src="@/assets/images/most-post/most-1.jpg" alt="gallery" />
       <div class="icon"><i class="fas fa-bolt"></i></div>
@@ -100,11 +81,7 @@
   <router-link to="/posts/postOne" v-else-if="sports" class="gallery_item">
     <template v-if="datas">
       <div class="gallery_item_thumb">
-        <img
-          v-if="datas.image"
-          :src="require(`@/assets/images/sports/${datas.image}`)"
-          alt="gallery"
-        />
+        <img v-if="datas.image" :src="require(`@/assets/images/sports/${datas.image}`)" alt="gallery" />
       </div>
       <div class="gallery_item_content">
         <div class="post-meta">
@@ -121,18 +98,10 @@
       </div>
     </template>
   </router-link>
-  <router-link
-    to="/posts/postOne"
-    v-else
-    class="single__post d-lg-flex text-center text-lg-left"
-  >
+  <router-link to="/posts/postOne" v-else class="single__post d-lg-flex text-center text-lg-left">
     <template v-if="datas">
       <div class="post-thumb mb-3 mb-lg-0">
-        <img
-          v-if="datas.image"
-          :src="require(`@/assets/images/${datas.image}`)"
-          alt="post"
-        />
+        <img v-if="datas.image" :src="require(`@/assets/images/${datas.image}`)" alt="post" />
       </div>
       <div class="post-content">
         <h4 class="title">
