@@ -5,49 +5,28 @@
         <div class="col-lg-8">
           <div class="post_gallery_slider">
             <slider :settings="BigCardsSettings" ref="BigCards">
-              <template v-for="(single, index) in postGallery">
+              <template v-for="(single, index) in smallPostGallery">
                 <big-video-card-with-des :datas="single" :key="index" />
               </template>
             </slider>
           </div>
           <div class="post_gallery_inner_slider" style="position: relative">
-            <span
-              @click="postGalleryPrev"
-              class="prev slick-arrow"
-              style="display: block"
-              ><i class="fal fa-angle-left"></i
-            ></span>
+            <span @click="postGalleryPrev" class="prev slick-arrow" style="display: block"><i
+                class="fal fa-angle-left"></i></span>
             <slider :settings="miniCardsSettings" ref="miniCards">
-              <template v-for="(multi, index) in postGallery">
+              <template v-for="(multi, index) in smallPostGallery">
                 <div class="item" :key="index">
-                  <img
-                    :src="
-                      require(`@/assets/images/gallery-post/${multi.picture}`)
-                    "
-                    alt=""
-                  />
+                  <img :src="multi.image_url" alt="post" />
                 </div>
               </template>
             </slider>
-            <span
-              @click="postGalleryNext"
-              class="next slick-arrow"
-              style="display: block"
-              ><i class="fal fa-angle-right"></i
-            ></span>
+            <span @click="postGalleryNext" class="next slick-arrow" style="display: block"><i
+                class="fal fa-angle-right"></i></span>
           </div>
         </div>
         <div class="col-lg-4">
-          <home-one
-            :trendingShortPost="false"
-            :signup="false"
-            :trendingBigPost="false"
-            :ad="false"
-            :sharePost="false"
-            :darkClass="darkClass"
-            role="sidebar"
-            :datas="smallPostGallery"
-          />
+          <home-one :trendingShortPost="false" :signup="false" :trendingBigPost="false" :ad="false" :sharePost="false"
+            :darkClass="darkClass" role="sidebar" :datas="smallPostGallery" />
         </div>
       </div>
     </div>
@@ -65,13 +44,18 @@ export default {
   props: {
     darkClass: {
       type: Object,
-      default: () => {},
+      default: () => { },
     },
+    smallPostGallery: {
+      type: Array,
+      default: () => [],
+    }
   },
   data: () => ({
     //post gallery
+
     postGallery: postGallery.data,
-    smallPostGallery: smallPostGallery.data,
+    // smallPostGallery: smallPostGallery.data,
     selectedGallery: "trendy",
     miniCardsSettings: {
       slidesToShow: 8,

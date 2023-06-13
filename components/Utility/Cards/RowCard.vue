@@ -1,16 +1,16 @@
 <template>
-  <router-link to="/posts/postOne" v-if="category" class="gallery_item">
+  <router-link :to="{ name: 'details-id', params: { id: datas.id } }" v-if="category" class="gallery_item">
     <template v-if="datas">
-      <div class="gallery_item_thumb">
-        <img v-if="datas.image_path" :src="require(`@/assets/images/${datas.image_path}`)" alt="gallery" />
+      <div class="gallery_item_thumb" style="width: 100px; height: 77px; overflow: hidden;">
+        <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       </div>
       <div class="gallery_item_content">
         <div class="post-meta">
           <div class="meta-categories">
-            <a href="#">{{ datas.slug }}</a>
+            <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
           </div>
           <div class="meta-date">
-            <span>{{ datas.created_at }}</span>
+            <span>March 27, 2020</span>
           </div>
         </div>
         <h4 class="title">
@@ -19,7 +19,8 @@
       </div>
     </template>
   </router-link>
-  <router-link to="/posts/postOne" v-else-if="countingtwo" class="post-gallery-style-2 most-view-style-2">
+  <router-link :to="{ name: 'details-id', params: { id: datas.id } }" v-else-if="countingtwo"
+    class="post-gallery-style-2 most-view-style-2" style="border: 1px solid blue;">
     <div class="post-gallery-thumb">
       <img :src="require(`@/assets/images/gallery-post/${datas.image_path}`)" alt="gallery" />
       <span>{{ count }}</span>
@@ -38,7 +39,8 @@
       </div>
     </div>
   </router-link>
-  <router-link to="/posts/postOne" v-else-if="trending" class="gallery_item">
+  <router-link :to="{ name: 'details-id', params: { id: datas.id } }" v-else-if="trending" class="gallery_item"
+    style="border: 1px solid green;">
     <div class="gallery_item_thumb">
       <img v-if="datas.image" :src="require(`@/assets/images/${datas.image}`)" alt="gallery" />
       <div v-if="datas.trending" class="icon"><i class="fas fa-bolt"></i></div>
@@ -58,7 +60,8 @@
       <!-- <span v-if="counting">{{ counting }}</span> -->
     </div>
   </router-link>
-  <router-link to="/posts/postOne" v-else-if="counting" class="gallery_item gallery_item-style-2">
+  <router-link :to="{ name: 'details-id', params: { id: datas.id } }" v-else-if="counting"
+    class="gallery_item gallery_item-style-2" style="border: 1px solid orange;">
     <div class="gallery_item_thumb">
       <img src="@/assets/images/most-post/most-1.jpg" alt="gallery" />
       <div class="icon"><i class="fas fa-bolt"></i></div>
@@ -78,7 +81,8 @@
       <span>{{ count }}</span>
     </div>
   </router-link>
-  <router-link to="/posts/postOne" v-else-if="sports" class="gallery_item">
+  <router-link :to="{ name: 'details-id', params: { id: datas.id } }" v-else-if="sports" class="gallery_item"
+    style="border: 1px solid black;">
     <template v-if="datas">
       <div class="gallery_item_thumb">
         <img v-if="datas.image" :src="require(`@/assets/images/sports/${datas.image}`)" alt="gallery" />
@@ -98,16 +102,19 @@
       </div>
     </template>
   </router-link>
-  <router-link to="/posts/postOne" v-else class="single__post d-lg-flex text-center text-lg-left">
+  <router-link :to="{ name: 'details-id', params: { id: datas.id } }" v-else
+    class="single__post d-lg-flex text-center text-lg-left">
     <template v-if="datas">
-      <div class="post-thumb mb-3 mb-lg-0">
-        <img v-if="datas.image" :src="require(`@/assets/images/${datas.image}`)" alt="post" />
+      <div class="post-thumb mb-3 mb-lg-0" style="width: 100px; height: 77px; overflow: hidden;">
+        <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       </div>
       <div class="post-content">
         <h4 class="title">
           <a href="#" class="line-clumb">{{ datas.title }}</a>
         </h4>
-        <p class="line-clumb-one">{{ datas.description }}</p>
+        <!-- <p class="line-clumb-one">{{ datas.slug }}</p> -->
+        <p class="line-clumb-one"> People have been infected in United</p>
+        <!-- <div v-html="datas.content"></div> -->
       </div>
     </template>
   </router-link>

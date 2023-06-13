@@ -13,7 +13,7 @@
     <!--====== POST PART ENDS ======-->
 
     <!--====== POST GALLERY PART START ======-->
-    <post-gallery />
+    <post-gallery :smallPostGallery="blogList" />
 
     <!--====== POST GALLERY PART ENDS ======-->
 
@@ -98,6 +98,7 @@ export default {
     //   console.log(err)
     // })
     const { data } = await $axios.$get('https://blogapi.nickwongon99.top/api/blogs/list')
+    console.log(data)
     return { blogList: data.docs }
   },
 };

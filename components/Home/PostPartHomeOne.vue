@@ -2,7 +2,9 @@
   <div class="post-area">
     <div class="container">
       <div class="post-slider" style="position: relative">
-        <span class="prev slick-arrow" style="display: block"><i class="fal fa-angle-left"></i></span>
+        <!-- <span class="prev slick-arrow" style="display: block"
+            ><i class="fal fa-angle-left"></i
+          ></span> -->
         <slider :settings="settings" ref="postSlider">
           <template v-for="(data, index) in blogList">
             <row-card :key="index" :datas="data" />

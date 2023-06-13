@@ -1,75 +1,40 @@
 <template>
-  <div
-    :class="[
-      'post_gallery_sidebar',
-      darkClass && 'section' in darkClass ? darkClass.section : '',
-    ]"
-  >
+  <div :class="[
+    'post_gallery_sidebar',
+    darkClass && 'section' in darkClass ? darkClass.section : '',
+  ]">
     <ul class="nav nav-pills" id="pills-tab" role="tablist">
       <li class="nav-item" @click.prevent="selectGalleryTab('trendy')">
-        <a
-          :class="['nav-link', selectedGallery === 'trendy' ? 'active' : '']"
-          data-toggle="pill"
-          role="tab"
-          aria-controls="pills-home"
-          aria-selected="true"
-          >TRENDY</a
-        >
+        <a :class="['nav-link', selectedGallery === 'trendy' ? 'active' : '']" data-toggle="pill" role="tab"
+          aria-controls="pills-home" aria-selected="true">TRENDY</a>
       </li>
       <li class="nav-item" @click.prevent="selectGalleryTab('latest')">
-        <a
-          :class="['nav-link', selectedGallery === 'latest' ? 'active' : '']"
-          data-toggle="pill"
-          href="#pills-profile"
-          role="tab"
-          aria-controls="pills-profile"
-          aria-selected="false"
-          >LATEST</a
-        >
+        <a :class="['nav-link', selectedGallery === 'latest' ? 'active' : '']" data-toggle="pill" href="#pills-profile"
+          role="tab" aria-controls="pills-profile" aria-selected="false">LATEST</a>
       </li>
       <li class="nav-item" @click.prevent="selectGalleryTab('popular')">
-        <a
-          :class="['nav-link', selectedGallery === 'popular' ? 'active' : '']"
-          class="nav-link"
-          data-toggle="pill"
-          href="#pills-contact"
-          role="tab"
-          aria-controls="pills-contact"
-          aria-selected="false"
-          >POPULAR</a
-        >
+        <a :class="['nav-link', selectedGallery === 'popular' ? 'active' : '']" class="nav-link" data-toggle="pill"
+          href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">POPULAR</a>
       </li>
     </ul>
     <div class="tab-content">
-      <div
-        :class="[
+      <div :class="[
           'tab-pane fade',
           selectedGallery === 'trendy' ? 'show active' : '',
-        ]"
-        role="tabpanel"
-        aria-labelledby="pills-home-tab"
-      >
+        ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="post_gallery_items" v-if="datas && datas.length > 0">
           <template v-for="(small, index) in datas.slice(0, 5)">
-            <row-card
-              :class="[darkClass && 'item' in darkClass ? darkClass.item : '']"
-              :category="true"
-              :datas="small"
-              :key="index"
-            />
+            <row-card :class="[darkClass && 'item' in darkClass ? darkClass.item : '']" :category="true" :datas="small"
+              :key="index" />
           </template>
         </div>
       </div>
     </div>
     <div class="tab-content">
-      <div
-        :class="[
+      <div :class="[
           'tab-pane fade',
           selectedGallery === 'latest' ? 'show active' : '',
-        ]"
-        role="tabpanel"
-        aria-labelledby="pills-home-tab"
-      >
+        ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div v-if="datas && datas.length > 0" class="post_gallery_items">
           <template v-for="(small, index) in datas.slice(0, 5)">
             <row-card :category="true" :datas="small" :key="index" />
@@ -78,14 +43,10 @@
       </div>
     </div>
     <div class="tab-content">
-      <div
-        :class="[
+      <div :class="[
           'tab-pane fade',
           selectedGallery === 'popular' ? 'show active' : '',
-        ]"
-        role="tabpanel"
-        aria-labelledby="pills-home-tab"
-      >
+        ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div v-if="datas && datas.length > 0" class="post_gallery_items">
           <template v-for="(small, index) in datas.slice(0, 5)">
             <row-card :category="true" :datas="small" :key="index" />
@@ -99,23 +60,15 @@
         <h3 class="title">Trending News</h3>
       </div>
       <div class="trending-sidebar-slider position-relative">
-        <span
-          @click.prevent="trendingNewsPrev"
-          class="prev slick-arrow"
-          style="display: block"
-          ><i class="fal fa-angle-left"></i
-        ></span>
+        <span @click.prevent="trendingNewsPrev" class="prev slick-arrow" style="display: block"><i
+            class="fal fa-angle-left"></i></span>
         <slider :settings="trendingNews" ref="trendingNews">
           <template v-for="(data, index) in datas">
             <divide-card stype="col" :datas="data" :key="index" />
           </template>
         </slider>
-        <span
-          @click.prevent="trendingNewsNext"
-          class="next slick-arrow"
-          style="display: block"
-          ><i class="fal fa-angle-right"></i
-        ></span>
+        <span @click.prevent="trendingNewsNext" class="next slick-arrow" style="display: block"><i
+            class="fal fa-angle-right"></i></span>
       </div>
     </div>
     <div v-if="trendingShortPost" class="trending-news-post-items">
@@ -199,7 +152,7 @@ export default {
     },
     darkClass: {
       type: Object,
-      default: () => {},
+      default: () => { },
     },
     signup: {
       type: Boolean,
