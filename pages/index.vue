@@ -90,14 +90,14 @@ export default {
     },
   },
 
-  async asyncData({ $axios }) {
+  async asyncData({ $blogApi }) {
     // $axios.$get('https://blogapi.nickwongon99.top/api/blogs/list').then(res => {
     //   console.log(res)
     //   return { docs: [{ slug: 'slugone' }, { slug: 'slugtwo' }] }
     // }).catch(err => {
     //   console.log(err)
     // })
-    const { data } = await $axios.$get('https://blogapi.nickwongon99.top/api/blogs/list')
+    const { data } = await $blogApi.getBlogList()
     console.log(data)
     return { blogList: data.docs }
   },
