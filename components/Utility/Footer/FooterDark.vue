@@ -59,9 +59,9 @@
                           <li><a href="#">訃告</a></li>
                           <li><a href="#">更正</a></li>
                           <li><a href="#">教育</a></li>
-                          <li><a href="#">Today’s Paper</a></li>
+                          <li><a href="#">今日新聞</a></li>
                           <li><a href="#">更正</a></li>
-                          <li><a href="#">Foods</a></li>
+                          <li><a href="#">食品</a></li>
                         </ul>
                       </div>
                     </div>
@@ -73,12 +73,12 @@
                       </div>
                       <div class="list d-flex justify-content-between">
                         <ul>
-                          <li><a href="#">Crossword</a></li>
-                          <li><a href="#">Food</a></li>
-                          <li><a href="#">Automobiles</a></li>
+                          <li><a href="#">填字遊戲</a></li>
+                          <li><a href="#">食品</a></li>
+                          <li><a href="#">汽車</a></li>
                           <li><a href="#">教育</a></li>
                           <li><a href="#">健康</a></li>
-                          <li><a href="#">Magazine</a></li>
+                          <li><a href="#">雜誌</a></li>
                           <li><a href="#">Weddings</a></li>
                         </ul>
                         <ul>
@@ -108,7 +108,7 @@
                             <li><a href="#">Contributing Writers</a></li>
                             <li><a href="#">商業 News</a></li>
                             <li><a href="#">Collections</a></li>
-                            <li><a href="#">Today’s Paper</a></li>
+                            <li><a href="#">今日新聞</a></li>
                             <li><a href="#">Saturday Review</a></li>
                             <li><a href="#">Product Review</a></li>
                           </ul>
