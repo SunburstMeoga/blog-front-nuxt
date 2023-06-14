@@ -1,10 +1,8 @@
 <template>
   <div class="topbar-trending">
-    <span>Trending</span>
+    <span>熱門</span>
     <div class="trending-slider">
-      <span @click="prev" class="prev slick-arrow" style="display: block"
-        ><i class="fal fa-angle-left"></i
-      ></span>
+      <span @click="prev" class="prev slick-arrow" style="display: block"><i class="fal fa-angle-left"></i></span>
       <slider ref="carousel" :settings="settings">
         <div class="trending-item">
           <p>Top 10 Best Movies of 2018 So Far: Great Movies To Watch Now</p>
@@ -16,9 +14,7 @@
           <p>Top 10 Best Movies of 2018 So Far: Great Movies To Watch Now</p>
         </div>
       </slider>
-      <span @click="next" class="next slick-arrow" style="display: block"
-        ><i class="fal fa-angle-right"></i
-      ></span>
+      <span @click="next" class="next slick-arrow" style="display: block"><i class="fal fa-angle-right"></i></span>
     </div>
   </div>
 </template>
@@ -47,5 +43,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

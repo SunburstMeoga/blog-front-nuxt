@@ -79,16 +79,16 @@
                           <li><a href="#">教育</a></li>
                           <li><a href="#">健康</a></li>
                           <li><a href="#">雜誌</a></li>
-                          <li><a href="#">Weddings</a></li>
+                          <li><a href="#">婚禮</a></li>
                         </ul>
                         <ul>
-                          <li><a href="#">Classifieds</a></li>
+                          <li><a href="#">分類廣告</a></li>
                           <li><a href="#">Photographies</a></li>
-                          <li><a href="#">NYT Store</a></li>
+                          <li><a href="#">紐約時報商店</a></li>
                           <li><a href="#">Journalisms</a></li>
-                          <li><a href="#">Public Editor</a></li>
-                          <li><a href="#">Tools & Services</a></li>
-                          <li><a href="#">My Account</a></li>
+                          <li><a href="#">公共編輯器</a></li>
+                          <li><a href="#">工具與服務</a></li>
+                          <li><a href="#">我的賬戶</a></li>
                         </ul>
                       </div>
                     </div>
@@ -99,12 +99,12 @@
                     <div class="col-lg-5 col-md-5">
                       <div class="widget widget-list">
                         <div class="section-title section-title-2">
-                          <h3 class="title">Opinion</h3>
+                          <h3 class="title">觀點</h3>
                         </div>
                         <div class="list">
                           <ul>
-                            <li><a href="#">Today’s Opinion</a></li>
-                            <li><a href="#">Op-Ed Contributing</a></li>
+                            <li><a href="#">Today’s 觀點</a></li>
+                            <li><a href="#">專欄投稿</a></li>
                             <li><a href="#">Contributing Writers</a></li>
                             <li><a href="#">商業 News</a></li>
                             <li><a href="#">Collections</a></li>
@@ -266,21 +266,18 @@
                   <div class="col-lg-12 col-md-6">
                     <div class="widget wedget-service">
                       <div class="section-title section-title-2">
-                        <h3 class="title">Newspark news services</h3>
+                        <h3 class="title">Decme news services</h3>
                       </div>
                       <div class="service-item">
                         <ul>
                           <li>
-                            <a href="#"><i class="fal fa-mobile-android-alt"></i> On your
-                              mobile</a>
+                            <a href="#"><i class="fal fa-mobile-android-alt"></i> 在您的手機上</a>
                           </li>
                           <li>
-                            <a href="#"><i class="fal fa-microphone-alt"></i> On smart
-                              speakers</a>
+                            <a href="#"><i class="fal fa-microphone-alt"></i> 關於智能音箱</a>
                           </li>
                           <li>
-                            <a href="#"><i class="fal fa-envelope"></i> Contact Newspark
-                              news</a>
+                            <a href="#"><i class="fal fa-envelope"></i> 聯繫 Decme新聞</a>
                           </li>
                         </ul>
                       </div>
@@ -305,10 +302,10 @@
               ">
               <p>© Copyright 2020, All Rights Reserved</p>
               <ul>
-                <li><a href="#">About</a></li>
+                <li><a href="#">關於</a></li>
                 <li><a href="#">Advertise</a></li>
-                <li><a href="#">Privacy & Policy</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">隱私政策</a></li>
+                <li><a href="#">聯繫我們</a></li>
               </ul>
             </div>
           </div>

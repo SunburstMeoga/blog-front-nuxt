@@ -4,14 +4,9 @@
       <div class="row align-items-center">
         <div class="col-lg-8">
           <div class="topbar-trending">
-            <span>Trending</span>
+            <span>熱門</span>
             <div class="trending-slider">
-              <span
-                @click="prev"
-                class="prev slick-arrow"
-                style="display: block"
-                ><i class="fal fa-angle-left"></i
-              ></span>
+              <span @click="prev" class="prev slick-arrow" style="display: block"><i class="fal fa-angle-left"></i></span>
               <slider :settings="settings" ref="carousel">
                 <template v-for="(data, index) in news">
                   <div :key="index" class="trending-item">
@@ -21,12 +16,8 @@
                   </div>
                 </template>
               </slider>
-              <span
-                @click="next"
-                class="next slick-arrow"
-                style="display: block"
-                ><i class="fal fa-angle-right"></i
-              ></span>
+              <span @click="next" class="next slick-arrow" style="display: block"><i
+                  class="fal fa-angle-right"></i></span>
             </div>
           </div>
         </div>
@@ -95,5 +86,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

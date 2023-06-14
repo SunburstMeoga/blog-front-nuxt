@@ -4,7 +4,7 @@
       <div class="row align-items-center">
         <div class="col-lg-8">
           <div class="topbar-trending">
-            <span>Trending</span>
+            <span>熱門</span>
             <div class="trending-slider">
               <span @click="prev" class="prev slick-arrow" style="display: block"><i class="fal fa-angle-left"></i></span>
               <slider :settings="settings" ref="carousel">
