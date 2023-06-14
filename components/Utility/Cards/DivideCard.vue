@@ -11,7 +11,7 @@
           <div class="post-meta">
             <div class="meta-categories">
               <router-link to="/buisness">{{
-                datas.categoryIds[0].category_id.name
+                datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds && datas.categoryIds[0].category_id.name
               }}</router-link>
             </div>
             <div class="meta-date">
@@ -64,7 +64,7 @@
     <div class="trending-news-content">
       <div class="post-meta">
         <div class="meta-categories">
-          <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
+          <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
           <span>March 27, 2020</span>
@@ -83,7 +83,7 @@
     <div class="finance-thumb">
       <img :src="datas.image_url" alt="finance" />
       <div class="finance-date">
-        <span>{{ datas.categoryIds[0].category_id.name }}</span>
+        <span>{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</span>
       </div>
     </div>
     <div class="finance-content">

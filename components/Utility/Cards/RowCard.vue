@@ -7,7 +7,7 @@
       <div class="gallery_item_content">
         <div class="post-meta">
           <div class="meta-categories">
-            <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
+            <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
           </div>
           <div class="meta-date">
             <span>March 27, 2020</span>
@@ -31,7 +31,7 @@
       </h5>
       <div class="meta-post-2-style">
         <div class="meta-post-categores">
-          <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
+          <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-post-date">
           <span>March 27, 2020</span>
@@ -48,7 +48,7 @@
     <div class="gallery_item_content">
       <div class="post-meta">
         <div class="meta-categories">
-          <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
+          <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 &&  datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
           <span>March 27, 2020</span>
@@ -69,7 +69,7 @@
     <div class="gallery_item_content">
       <div class="post-meta">
         <div class="meta-categories">
-          <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
+          <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 &&  datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
           <span>March 26, 2020</span>
@@ -90,7 +90,7 @@
       <div class="gallery_item_content">
         <div class="post-meta">
           <div class="meta-categories">
-            <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
+            <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
           </div>
           <div class="meta-date">
             <span>March 26, 2020</span>
