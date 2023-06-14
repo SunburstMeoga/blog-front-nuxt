@@ -4,16 +4,12 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title">
-            <h3 class="title">Our latest news</h3>
+            <h3 class="title">我們的最新消息 news</h3>
           </div>
         </div>
       </div>
       <div class="row">
-        <div
-          v-for="(data, index) in Posts.slice(0, 3)"
-          :key="index"
-          class="col-lg-4"
-        >
+        <div v-for="(data, index) in Posts.slice(0, 3)" :key="index" class="col-lg-4">
           <divide-card stype="col" :datas="data" />
         </div>
       </div>

@@ -13,7 +13,7 @@
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                                     <li class="breadcrumb-item"><a href="#">Worldnews</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        Health
+                                        健康
                                     </li>
                                 </ol>
                             </nav>
@@ -147,7 +147,7 @@
                                 <h5 class="title">What’s the debate over masks?</h5>
                                 <p>
                                     Both the US Centers for Disease Control (CDC) and the World
-                                    Health Organization (WHO) are reassessing their guidance on
+                                    健康 Organization (WHO) are reassessing their guidance on
                                     face masks, as experts race to find ways to fight the highly
                                     contagious virus.
                                 </p>
@@ -213,7 +213,7 @@
                                 <h5 class="title">Which states are not in lockdown?</h5>
                                 <p>
                                     Both the US Centers for Disease Control (CDC) and the World
-                                    Health Organization (WHO) are reassessing their guidance on
+                                    健康 Organization (WHO) are reassessing their guidance on
                                     face masks, as experts race to find ways to fight the highly
                                     contagious virus.
                                 </p>
@@ -354,27 +354,27 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                         <div class="section-title">
-                            <h3 class="title">Leave an opinion</h3>
+                            <h3 class="title">發表意見</h3>
                         </div>
                         <div class="post-form-box">
                             <form action="#">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="input-box">
-                                            <input type="text" placeholder="Full name" />
+                                            <input type="text" placeholder="全名" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="input-box">
-                                            <input type="text" placeholder="Email address" />
+                                            <input type="text" placeholder="電子郵件地址" />
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="input-box">
                                             <textarea name="#" id="#" cols="30" rows="10"
-                                                placeholder="Tell us about your opinion…"></textarea>
+                                                placeholder="告訴我們您的意見……"></textarea>
                                             <button class="main-btn" type="button">
-                                                POST OPINION
+                                                發表意見
                                             </button>
                                         </div>
                                     </div>
@@ -388,14 +388,14 @@
 
         <!--====== POST FORM PART ENDS ======-->
 
-        <!--====== POST COMMENTS PART START ======-->
+        <!--====== 發表評論 PART START ======-->
 
         <section class="post-comments-area pb-100">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                         <div class="section-title">
-                            <h3 class="title">Post Comments</h3>
+                            <h3 class="title">發表評論</h3>
                         </div>
                         <div class="post-comments-list">
                             <div class="post-comments-item">
@@ -403,7 +403,7 @@
                                     <img src="@/assets/images/comments-1.png" alt="comments" />
                                 </div>
                                 <div class="post">
-                                    <a href="#">Reply</a>
+                                    <a href="#">回复</a>
                                     <h5 class="title">Rafiqul islam</h5>
                                     <p>
                                         We’ve invested every aspect of how we serve our users over
@@ -417,7 +417,7 @@
                                     <img src="@/assets/images/comments-2.png" alt="comments" />
                                 </div>
                                 <div class="post">
-                                    <a href="#">Reply</a>
+                                    <a href="#">回复</a>
                                     <h5 class="title">Rafiqul islam</h5>
                                     <p>
                                         We’ve invested every aspect of how we serve our users over
@@ -431,7 +431,7 @@
                                     <img src="@/assets/images/comments-3.png" alt="comments" />
                                 </div>
                                 <div class="post">
-                                    <a href="#">Reply</a>
+                                    <a href="#">回复</a>
                                     <h5 class="title">Rafiqul islam</h5>
                                     <p>
                                         We’ve invested every aspect of how we serve our users over
@@ -445,7 +445,7 @@
                                     <img src="@/assets/images/comments-4.png" alt="comments" />
                                 </div>
                                 <div class="post">
-                                    <a href="#">Reply</a>
+                                    <a href="#">回复</a>
                                     <h5 class="title">Rafiqul islam</h5>
                                     <p>
                                         We’ve invested every aspect of how we serve our users over
@@ -456,14 +456,14 @@
                             </div>
                         </div>
                         <div class="post-load-btn">
-                            <a class="main-btn" href="#">LOAD MORE</a>
+                            <a class="main-btn" href="#">加載更多</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--====== POST COMMENTS PART ENDS ======-->
+        <!--====== 發表評論 PART ENDS ======-->
 
         <!--====== ADD PART ENDS ======-->
 

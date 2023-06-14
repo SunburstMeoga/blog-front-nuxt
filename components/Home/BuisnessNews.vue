@@ -1,23 +1,18 @@
 <template>
   <div class="business-news-post">
-    <div
-      :class="[
-        'section-title d-flex justify-content-between align-items-center',
-        darkClass && 'title' in darkClass ? darkClass.title : '',
-      ]"
-    >
-      <h3 class="title">Business News</h3>
+    <div :class="[
+      'section-title d-flex justify-content-between align-items-center',
+      darkClass && 'title' in darkClass ? darkClass.title : '',
+    ]">
+      <h3 class="title">商業 News</h3>
       <a href="#">ALL SEE</a>
     </div>
     <div class="business-post">
       <template v-for="(data, index) in TrendingPosts.slice(0, 4)">
-        <div
-          :key="index"
-          :class="[
+        <div :key="index" :class="[
             'business-post-item  mb-40',
             darkClass && 'item' in darkClass ? darkClass.item : '',
-          ]"
-        >
+          ]">
           <divide-card :readMore="true" stype="row" :datas="data" />
         </div>
       </template>
@@ -41,5 +36,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

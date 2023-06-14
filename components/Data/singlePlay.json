@@ -3,50 +3,50 @@
     {
       "_id": "61810a96f94ed7881da838db",
       "title": "SMEs still cry for a lifeline",
-      "action":"trending",
+      "action": "trending",
       "image": "play-post-1.jpg",
       "category": {
-        "name": "Technology",
+        "name": "技術",
         "create_At": "March 27, 2020"
       }
     },
     {
       "_id": "61810a96ed484972a85cc109",
       "title": "Copa America: Luis Suarez From Devastated US",
-      "action":"play",
+      "action": "play",
       "image": "play-post-2.jpg",
       "category": {
-        "name": "Technology",
+        "name": "技術",
         "create_At": "March 27, 2020"
       }
     },
     {
       "_id": "61810a9659b5fc229a8c1389",
       "title": "Ruthless Australia crush England in first Ashes Test",
-      "action":"trending",
+      "action": "trending",
       "image": "play-post-1.jpg",
       "category": {
-        "name": "Technology",
+        "name": "技術",
         "create_At": "March 27, 2020"
       }
     },
     {
       "_id": "61810a9688b5023a5fb07812",
       "title": "Black Zang’s “Bangla Hype” lives up to the hype",
-      "action":"play",
+      "action": "play",
       "image": "play-post-2.jpg",
       "category": {
-        "name": "Technology",
+        "name": "技術",
         "create_At": "March 27, 2020"
       }
     },
     {
       "_id": "61810a961523248bb75b0f33",
       "title": "Nurul Alam Atique opens up about ‘Lal Moroger Jhuti’",
-      "action":"trending",
+      "action": "trending",
       "image": "play-post-1.jpg",
       "category": {
-        "name": "Technology",
+        "name": "技術",
         "create_At": "March 27, 2020"
       }
     }

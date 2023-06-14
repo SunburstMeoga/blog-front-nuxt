@@ -145,18 +145,18 @@
                 'newsletter-box mt-45',
                 dark ? 'newsletter-box-dark' : '',
               ]">
-              <h5 class="title">Newsletter</h5>
+              <h5 class="title">時事通訊</h5>
               <p>
-                Your email address will not be this published. Required fields
-                are News Today.
+                您的電子郵件地址不會被公開。 必填字段
+                是今日新聞。
               </p>
               <form action="#">
                 <div class="input-box">
-                  <input type="text" placeholder="Your email address" />
-                  <button type="button">SIGN UP</button>
+                  <input type="text" placeholder="您的電子郵件地址" />
+                  <button type="button">報名</button>
                 </div>
               </form>
-              <span>We hate spam as much as you do</span>
+              <span>我們和您一樣討厭垃圾郵件</span>
             </div>
             <div class="Categories-post mt-40">
               <div :class="[
@@ -180,7 +180,7 @@
                   <img src="@/assets/images/categories-2.jpg" alt="categories" />
                   <div class="Categories-content">
                     <a href="#">
-                      <span>Entertainment</span>
+                      <span>娛樂</span>
                       <img src="@/assets/images/arrow.svg" alt="" />
                     </a>
                   </div>
@@ -198,7 +198,7 @@
                   <img src="@/assets/images/categories-4.jpg" alt="categories" />
                   <div class="Categories-content">
                     <a href="#">
-                      <span>Business</span>
+                      <span>商業</span>
                       <img src="@/assets/images/arrow.svg" alt="" />
                     </a>
                   </div>

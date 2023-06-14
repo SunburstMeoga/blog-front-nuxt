@@ -75,15 +75,15 @@
             }
           ]
         },
-                {
+        {
           "id": 12,
           "link": "/dark",
           "linkText": "Home Dark",
-           "child": true,
-            "third_menu": [
+          "child": true,
+          "third_menu": [
             {
               "id": 12,
-             "link": "/dark-two",
+              "link": "/dark-two",
               "linkText": "Dark Two"
             },
             {
@@ -137,18 +137,17 @@
         {
           "id": 31,
           "linkText": "Post 1",
-          "link":"/posts/postOne"  
+          "link": "/posts/postOne"
         },
         {
           "id": 32,
           "linkText": "Post 2",
-          "link":"/posts/posttwo"
+          "link": "/posts/posttwo"
         },
         {
           "id": 33,
           "linkText": "Post 3",
-          "link":"/posts/postthree"
-         
+          "link": "/posts/postthree"
         }
       ]
     },
@@ -161,12 +160,12 @@
         {
           "id": 41,
           "link": "/business",
-          "linkText": "Business"
+          "linkText": "商業"
         },
         {
           "id": 42,
           "link": "/entertainment",
-          "linkText": "Entertainment"
+          "linkText": "娛樂"
         },
         {
           "id": 43,
@@ -176,7 +175,7 @@
         {
           "id": 44,
           "link": "/sports",
-          "linkText": "Sports"
+          "linkText": "運動"
         },
         {
           "id": 45,
@@ -189,19 +188,19 @@
       "id": 5,
       "linkText": "World",
       "link": "/404",
-      "child":false
+      "child": false
     },
     {
       "id": 6,
-      "linkText": "Sports",
+      "linkText": "運動",
       "link": "/sports",
-      "child":false
+      "child": false
     },
     {
       "id": 7,
       "linkText": "Contact",
       "link": "/contact",
-      "child":false
+      "child": false
     }
   ]
 }

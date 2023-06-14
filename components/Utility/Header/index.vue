@@ -14,8 +14,7 @@
           <div class="col-lg-8">
             <div class="header-centerbar-ad">
               <a href="#">
-                <img src="@/assets/images/ads/one_ad.png" alt=""
-              /></a>
+                <img src="@/assets/images/ads/one_ad.png" alt="" /></a>
             </div>
           </div>
         </div>
@@ -25,16 +24,8 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-8 col-sm-3 col-3">
-            <svg
-              class="menu-drawer"
-              style="cursor: pointer"
-              @click.prevent="hideSidebar"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              fill="currentColor"
-              height="24"
-            >
+            <svg class="menu-drawer" style="cursor: pointer" @click.prevent="hideSidebar"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" fill="currentColor" height="24">
               <path fill="none" d="M0 0h24v24H0z"></path>
               <path d="M3 4h18v2H3V4zm6 7h12v2H9v-2zm-6 7h18v2H3v-2z"></path>
             </svg>
@@ -85,14 +76,15 @@
                   </li>
                 </ul>
               </div>
-              <div class="nice-select-item">
-                <select class="select-lang">
+              <div class="nice-select-item" style="cursor: pointer">
+                <!-- <select class="select-lang">
                   <option data-display="English">English</option>
                   <option value="1">Bangla</option>
                   <option value="2">Hindi</option>
                   <option value="3">option</option>
                   <option value="4">Potato</option>
-                </select>
+                </select> -->
+                連接錢包
               </div>
               <div class="header-temperature">
                 <div class="icon">

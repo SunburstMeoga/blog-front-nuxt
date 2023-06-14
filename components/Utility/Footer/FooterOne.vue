@@ -26,10 +26,10 @@
             <div class="col-lg-5 col-md-7">
               <div class="footer-newaletter">
                 <div class="input-box">
-                  <input type="text" placeholder="Your email address" />
-                  <button type="button">SIGN UP</button>
+                  <input type="text" placeholder="您的電子郵件地址" />
+                  <button type="button">報名</button>
                 </div>
-                <p>We hate spam as much as you do</p>
+                <p>我們和您一樣討厭垃圾郵件</p>
               </div>
             </div>
           </div>
@@ -42,25 +42,25 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="widget widget-list">
                       <div class="section-title section-title-2">
-                        <h3 class="title">News categories</h3>
+                        <h3 class="title">新聞分類</h3>
                       </div>
                       <div class="list d-flex justify-content-between">
                         <ul>
-                          <li><a href="#">Politics</a></li>
-                          <li><a href="#">Business</a></li>
-                          <li><a href="#">Technology</a></li>
-                          <li><a href="#">Science</a></li>
-                          <li><a href="#">Health</a></li>
-                          <li><a href="#">Sports</a></li>
-                          <li><a href="#">Entertainment</a></li>
+                          <li><a href="#">政治</a></li>
+                          <li><a href="#">商業</a></li>
+                          <li><a href="#">技術</a></li>
+                          <li><a href="#">科學</a></li>
+                          <li><a href="#">健康</a></li>
+                          <li><a href="#">運動</a></li>
+                          <li><a href="#">娛樂</a></li>
                         </ul>
                         <ul>
-                          <li><a href="#">Education</a></li>
-                          <li><a href="#">Obituaries</a></li>
-                          <li><a href="#">Corrections</a></li>
-                          <li><a href="#">Education</a></li>
+                          <li><a href="#">教育</a></li>
+                          <li><a href="#">訃告</a></li>
+                          <li><a href="#">更正</a></li>
+                          <li><a href="#">教育</a></li>
                           <li><a href="#">Today’s Paper</a></li>
-                          <li><a href="#">Corrections</a></li>
+                          <li><a href="#">更正</a></li>
                           <li><a href="#">Foods</a></li>
                         </ul>
                       </div>
@@ -69,15 +69,15 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="widget widget-list widget-list-2">
                       <div class="section-title section-title-2">
-                        <h3 class="title">Living</h3>
+                        <h3 class="title">直播</h3>
                       </div>
                       <div class="list d-flex justify-content-between">
                         <ul>
                           <li><a href="#">Crossword</a></li>
                           <li><a href="#">Food</a></li>
                           <li><a href="#">Automobiles</a></li>
-                          <li><a href="#">Education</a></li>
-                          <li><a href="#">Health</a></li>
+                          <li><a href="#">教育</a></li>
+                          <li><a href="#">健康</a></li>
                           <li><a href="#">Magazine</a></li>
                           <li><a href="#">Weddings</a></li>
                         </ul>
@@ -106,7 +106,7 @@
                             <li><a href="#">Today’s Opinion</a></li>
                             <li><a href="#">Op-Ed Contributing</a></li>
                             <li><a href="#">Contributing Writers</a></li>
-                            <li><a href="#">Business News</a></li>
+                            <li><a href="#">商業 News</a></li>
                             <li><a href="#">Collections</a></li>
                             <li><a href="#">Today’s Paper</a></li>
                             <li><a href="#">Saturday Review</a></li>
@@ -126,10 +126,8 @@
                               Cyber Monday Sale, Save 33% on Jannah theme during
                               our year-end Sale, Purchase a new license for your
                               next project…
-                              <a href="#"
-                                >@newspark #technology
-                                https://dribbble.com/subash_chandra</a
-                              >
+                              <a href="#">@newspark #technology
+                                https://dribbble.com/subash_chandra</a>
                             </p>
                             <span>March 26, 2020</span>
                           </div>
@@ -143,10 +141,8 @@
                               Cyber Monday Sale, Save 33% on Jannah theme during
                               our year-end Sale, Purchase a new license for your
                               next project…
-                              <a href="#"
-                                >@newspark #technology
-                                https://dribbble.com/subash_chandra</a
-                              >
+                              <a href="#">@newspark #technology
+                                https://dribbble.com/subash_chandra</a>
                             </p>
                             <span>March 26, 2020</span>
                           </div>
@@ -163,15 +159,13 @@
                   <div class="col-lg-12 col-md-6">
                     <div class="widget widget-news">
                       <div class="section-title section-title-2">
-                        <h3 class="title">News categories</h3>
+                        <h3 class="title">新聞分類</h3>
                       </div>
                       <div class="footer-news">
-                        <div
-                          class="
+                        <div class="
                             gallery_item gallery_item-style-2
                             footer_gallery_item
-                          "
-                        >
+                          ">
                           <div class="gallery_item_content">
                             <div class="post-meta">
                               <div class="meta-categories">
@@ -182,19 +176,15 @@
                               </div>
                             </div>
                             <h4 class="title">
-                              <a href="#" tabindex="0"
-                                >Nancy zhang a chinese busy woman and dhaka</a
-                              >
+                              <a href="#" tabindex="0">Nancy zhang a chinese busy woman and dhaka</a>
                             </h4>
                             <span>1</span>
                           </div>
                         </div>
-                        <div
-                          class="
+                        <div class="
                             gallery_item gallery_item-style-2
                             footer_gallery_item
-                          "
-                        >
+                          ">
                           <div class="gallery_item_content">
                             <div class="post-meta">
                               <div class="meta-categories">
@@ -205,20 +195,16 @@
                               </div>
                             </div>
                             <h4 class="title">
-                              <a href="#" tabindex="0"
-                                >Success is not a good teacher failure makes you
-                                humble</a
-                              >
+                              <a href="#" tabindex="0">Success is not a good teacher failure makes you
+                                humble</a>
                             </h4>
                             <span>2</span>
                           </div>
                         </div>
-                        <div
-                          class="
+                        <div class="
                             gallery_item gallery_item-style-2
                             footer_gallery_item
-                          "
-                        >
+                          ">
                           <div class="gallery_item_content">
                             <div class="post-meta">
                               <div class="meta-categories">
@@ -229,20 +215,16 @@
                               </div>
                             </div>
                             <h4 class="title">
-                              <a href="#" tabindex="0"
-                                >Cheap smartphone sensor could help you old food
-                                safe</a
-                              >
+                              <a href="#" tabindex="0">Cheap smartphone sensor could help you old food
+                                safe</a>
                             </h4>
                             <span>3</span>
                           </div>
                         </div>
-                        <div
-                          class="
+                        <div class="
                             gallery_item gallery_item-style-2
                             footer_gallery_item
-                          "
-                        >
+                          ">
                           <div class="gallery_item_content">
                             <div class="post-meta">
                               <div class="meta-categories">
@@ -253,19 +235,15 @@
                               </div>
                             </div>
                             <h4 class="title">
-                              <a href="#" tabindex="0"
-                                >Class property employ ancho red multi humble</a
-                              >
+                              <a href="#" tabindex="0">Class property employ ancho red multi humble</a>
                             </h4>
                             <span>4</span>
                           </div>
                         </div>
-                        <div
-                          class="
+                        <div class="
                             gallery_item gallery_item-style-2
                             footer_gallery_item
-                          "
-                        >
+                          ">
                           <div class="gallery_item_content">
                             <div class="post-meta">
                               <div class="meta-categories">
@@ -276,10 +254,8 @@
                               </div>
                             </div>
                             <h4 class="title">
-                              <a href="#" tabindex="0"
-                                >Best garden wing supplies for the horticu
-                                ltural</a
-                              >
+                              <a href="#" tabindex="0">Best garden wing supplies for the horticu
+                                ltural</a>
                             </h4>
                             <span>5</span>
                           </div>
@@ -295,22 +271,16 @@
                       <div class="service-item">
                         <ul>
                           <li>
-                            <a href="#"
-                              ><i class="fal fa-mobile-android-alt"></i> On your
-                              mobile</a
-                            >
+                            <a href="#"><i class="fal fa-mobile-android-alt"></i> On your
+                              mobile</a>
                           </li>
                           <li>
-                            <a href="#"
-                              ><i class="fal fa-microphone-alt"></i> On smart
-                              speakers</a
-                            >
+                            <a href="#"><i class="fal fa-microphone-alt"></i> On smart
+                              speakers</a>
                           </li>
                           <li>
-                            <a href="#"
-                              ><i class="fal fa-envelope"></i> Contact Newspark
-                              news</a
-                            >
+                            <a href="#"><i class="fal fa-envelope"></i> Contact Newspark
+                              news</a>
                           </li>
                         </ul>
                       </div>
@@ -327,14 +297,12 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div
-              class="
+            <div class="
                 copyright-item
                 d-block d-md-flex
                 justify-content-between
                 align-items-center
-              "
-            >
+              ">
               <p>© Copyright 2020, All Rights Reserved</p>
               <ul>
                 <li><a href="#">About</a></li>

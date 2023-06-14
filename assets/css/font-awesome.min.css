@@ -5840,15 +5840,15 @@ readers do not read off random characters that represent icons */
   content: "\f364";
 }
 
-.fa-reply:before {
+.fa-回复:before {
   content: "\f3e5";
 }
 
-.fa-reply-all:before {
+.fa-回复-all:before {
   content: "\f122";
 }
 
-.fa-replyd:before {
+.fa-回复d:before {
   content: "\f3e6";
 }
 

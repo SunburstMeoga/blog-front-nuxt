@@ -3,89 +3,57 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <div
-            :class="[
-              'section-title',
-              darkClass && 'title' in darkClass ? darkClass.title : '',
-            ]"
-          >
-            <h3 class="title">Trending News</h3>
+          <div :class="[
+            'section-title',
+            darkClass && 'title' in darkClass ? darkClass.title : '',
+          ]">
+            <h3 class="title">熱門新聞</h3>
           </div>
           <div class="trending-news-slider position-relative">
-            <span
-              @click="trandingPrev"
-              class="prev slick-arrow"
-              style="display: block"
-              ><i class="fal fa-angle-left"></i
-            ></span>
+            <span @click="trandingPrev" class="prev slick-arrow" style="display: block"><i
+                class="fal fa-angle-left"></i></span>
             <slider :settings="trendingSettings" ref="trendingSlider">
               <template v-for="(data, index) in TrendingPosts">
                 <div :key="index" class="px-2">
-                  <divide-card
-                    :class="[
+                  <divide-card :class="[
                       darkClass && 'item' in darkClass ? darkClass.item : '',
-                    ]"
-                    stype="col"
-                    :datas="data"
-                  />
+                    ]" stype="col" :datas="data" />
                 </div>
               </template>
             </slider>
-            <span
-              @click="trandingNext"
-              class="next slick-arrow"
-              style="display: block"
-              ><i class="fal fa-angle-right"></i
-            ></span>
+            <span @click="trandingNext" class="next slick-arrow" style="display: block"><i
+                class="fal fa-angle-right"></i></span>
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6">
-              <div
-                :class="[
+              <div :class="[
                   'trending-news-post-items',
                   darkClass && 'news_section' in darkClass
                     ? darkClass.news_section
                     : '',
-                ]"
-              >
-                <template
-                  v-for="(small, index) in smallPostGallery.slice(0, 3)"
-                >
-                  <row-card
-                    :class="[
+                ]">
+                <template v-for="(small, index) in smallPostGallery.slice(0, 3)">
+                  <row-card :class="[
                       darkClass && 'news_item' in darkClass
                         ? darkClass.news_item
                         : '',
-                    ]"
-                    :key="index"
-                    :trending="true"
-                    :datas="small"
-                  />
+                    ]" :key="index" :trending="true" :datas="small" />
                 </template>
               </div>
             </div>
             <div class="col-lg-6 col-md-6">
-              <div
-                :class="[
+              <div :class="[
                   'trending-news-post-items',
                   darkClass && 'news_section' in darkClass
                     ? darkClass.news_section
                     : '',
-                ]"
-              >
-                <template
-                  v-for="(small, index) in smallPostGallery.slice(3, 6)"
-                >
-                  <row-card
-                    :class="[
+                ]">
+                <template v-for="(small, index) in smallPostGallery.slice(3, 6)">
+                  <row-card :class="[
                       darkClass && 'news_item' in darkClass
                         ? darkClass.news_item
                         : '',
-                    ]"
-                    :key="index"
-                    :trending="true"
-                    :datas="small"
-                  />
+                    ]" :key="index" :trending="true" :datas="small" />
                 </template>
               </div>
             </div>
@@ -100,57 +68,30 @@
               </div>
             </div>
             <div class="trending-sidebar-slider position-relative">
-              <span
-                @click="tssPrev"
-                class="prev slick-arrow"
-                style="display: block"
-                ><i class="fal fa-angle-left"></i
-              ></span>
-              <slider
-                :settings="trendingSidebarSlide"
-                ref="trendingSidebarSlide"
-              >
+              <span @click="tssPrev" class="prev slick-arrow" style="display: block"><i
+                  class="fal fa-angle-left"></i></span>
+              <slider :settings="trendingSidebarSlide" ref="trendingSidebarSlide">
                 <div class="post_gallery_items">
-                  <template
-                    v-for="(small, index) in smallPostGallery.slice(0, 6)"
-                  >
-                    <row-card
-                      :class="[
+                  <template v-for="(small, index) in smallPostGallery.slice(0, 6)">
+                    <row-card :class="[
                         darkClass && 'news_item' in darkClass
                           ? darkClass.news_item
                           : '',
-                      ]"
-                      :key="index"
-                      :counting="true"
-                      :count="index + 1"
-                      :datas="small"
-                    />
+                      ]" :key="index" :counting="true" :count="index + 1" :datas="small" />
                   </template>
                 </div>
                 <div class="post_gallery_items">
-                  <template
-                    v-for="(small, index) in smallPostGallery.slice(0, 6)"
-                  >
-                    <row-card
-                      :class="[
+                  <template v-for="(small, index) in smallPostGallery.slice(0, 6)">
+                    <row-card :class="[
                         darkClass && 'news_item' in darkClass
                           ? darkClass.news_item
                           : '',
-                      ]"
-                      :key="index"
-                      :counting="true"
-                      :count="index + 1"
-                      :datas="small"
-                    />
+                      ]" :key="index" :counting="true" :count="index + 1" :datas="small" />
                   </template>
                 </div>
               </slider>
-              <span
-                @click="tssNext"
-                class="next slick-arrow"
-                style="display: block"
-                ><i class="fal fa-angle-right"></i
-              ></span>
+              <span @click="tssNext" class="next slick-arrow" style="display: block"><i
+                  class="fal fa-angle-right"></i></span>
             </div>
           </div>
         </div>
