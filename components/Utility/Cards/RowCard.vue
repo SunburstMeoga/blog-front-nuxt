@@ -22,7 +22,7 @@
   <router-link :to="{ name: 'details-id', params: { id: datas.id } }" v-else-if="countingtwo"
     class="post-gallery-style-2 most-view-style-2" style="border: 1px solid blue;">
     <div class="post-gallery-thumb">
-      <img :src="require(`@/assets/images/gallery-post/${datas.image_path}`)" alt="gallery" />
+      <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       <span>{{ count }}</span>
     </div>
     <div class="post-gallery-content">
@@ -31,10 +31,10 @@
       </h5>
       <div class="meta-post-2-style">
         <div class="meta-post-categores">
-          <a href="#">{{ datas.category.name }}</a>
+          <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-post-date">
-          <span>{{ datas.category.create_At }}</span>
+          <span>March 27, 2020</span>
         </div>
       </div>
     </div>
@@ -42,16 +42,16 @@
   <router-link :to="{ name: 'details-id', params: { id: datas.id } }" v-else-if="trending" class="gallery_item"
     style="border: 1px solid green;">
     <div class="gallery_item_thumb">
-      <img v-if="datas.image" :src="require(`@/assets/images/${datas.image}`)" alt="gallery" />
+      <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       <div v-if="datas.trending" class="icon"><i class="fas fa-bolt"></i></div>
     </div>
     <div class="gallery_item_content">
       <div class="post-meta">
         <div class="meta-categories">
-          <a href="#">{{ datas.category.name }}</a>
+          <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
-          <span>{{ datas.category.create_At }}</span>
+          <span>March 27, 2020</span>
         </div>
       </div>
       <h4 class="title">
@@ -69,7 +69,7 @@
     <div class="gallery_item_content">
       <div class="post-meta">
         <div class="meta-categories">
-          <a href="#">{{ datas.category.name }}</a>
+          <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
           <span>March 26, 2020</span>
@@ -85,15 +85,15 @@
     style="border: 1px solid black;">
     <template v-if="datas">
       <div class="gallery_item_thumb">
-        <img v-if="datas.image" :src="require(`@/assets/images/sports/${datas.image}`)" alt="gallery" />
+        <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       </div>
       <div class="gallery_item_content">
         <div class="post-meta">
           <div class="meta-categories">
-            <a href="#">{{ datas.category.name }}</a>
+            <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
           </div>
           <div class="meta-date">
-            <span>{{ datas.category.create_At }}</span>
+            <span>March 26, 2020</span>
           </div>
         </div>
         <h4 class="title">

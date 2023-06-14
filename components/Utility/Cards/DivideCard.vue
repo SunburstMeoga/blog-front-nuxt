@@ -2,7 +2,7 @@
   <div v-if="stype === 'row'" class="row">
     <div class="col-lg-6 col-md-6">
       <div class="business-post-thumb">
-        <img :src="require(`@/assets/images/` + datas.image)" alt="feature" />
+        <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       </div>
     </div>
     <div class="col-lg-6 col-md-6">
@@ -11,18 +11,18 @@
           <div class="post-meta">
             <div class="meta-categories">
               <router-link to="/buisness">{{
-                datas.category.name
+                datas.categoryIds[0].category_id.name
               }}</router-link>
             </div>
             <div class="meta-date">
-              <span>{{ datas.category.create_At }}</span>
+              <span>March 27, 2020</span>
             </div>
           </div>
           <h3 class="title">
             <router-link to="/posts/postOne">{{ datas.title }}</router-link>
           </h3>
           <p class="text">
-            {{ datas.article }}
+            Lotto Zheng
           </p>
           <a v-if="readMore" href="#">Read more</a>
         </div>
@@ -31,17 +31,14 @@
   </div>
   <div v-else-if="stype === 'row-style-2'" class="bussiness-post-item">
     <div class="bussiness-post-thumb">
-      <img
-        :src="require(`@/assets/images/business-post/${datas.image}`)"
-        alt="business"
-      />
+      <img :src="datas.image_url" alt="business" />
     </div>
     <div class="bussiness-post-content">
       <h3 class="title">
         <router-link to="/posts/postOne">{{ datas.title }}</router-link>
       </h3>
       <div class="meta-date-link">
-        <span>{{ datas.category.create_At }}</span>
+        <span>March 27, 2020</span>
         <ul>
           <li>
             <a href="#"><i class="fal fa-bookmark"></i></a>
@@ -54,14 +51,12 @@
       <p>
         {{ datas.article }}
       </p>
-      <a href="#"
-        >LEARN MORE <img src="@/assets/images/arrow-2.svg" alt=""
-      /></a>
+      <a href="#">LEARN MORE <img src="@/assets/images/arrow-2.svg" alt="" /></a>
     </div>
   </div>
   <div v-else-if="stype === 'col'" class="trending-news-item">
     <div class="trending-news-thumb">
-      <img :src="require(`@/assets/images/` + datas.image)" alt="feature" />
+      <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       <div v-if="datas.action === 'trending'" class="icon">
         <a href="#"><i class="fas fa-bolt"></i></a>
       </div>
@@ -69,37 +64,34 @@
     <div class="trending-news-content">
       <div class="post-meta">
         <div class="meta-categories">
-          <a href="#">{{ datas.category.name }}</a>
+          <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
-          <span>{{ datas.category.create_At }}</span>
+          <span>March 27, 2020</span>
         </div>
       </div>
       <h3 class="title">
         <router-link to="/posts/postOne">{{ datas.title }}</router-link>
       </h3>
       <p class="text">
-        {{ datas.article }}
+        Lotto Zheng
       </p>
       <a v-if="readMore" href="#">Read more</a>
     </div>
   </div>
   <div v-else-if="stype === 'col-style-2'" class="finance-item">
     <div class="finance-thumb">
-      <img
-        :src="require(`@/assets/images/finance/${datas.image}`)"
-        alt="finance"
-      />
+      <img :src="datas.image_url" alt="finance" />
       <div class="finance-date">
-        <span>{{ datas.category.name }}</span>
+        <span>{{ datas.categoryIds[0].category_id.name }}</span>
       </div>
     </div>
     <div class="finance-content">
       <h3 class="title">
-        <router-link to="/posts/postOne">{{ datas.title }}}</router-link>
+        <router-link to="/posts/postOne">{{ datas.title }}</router-link>
       </h3>
       <p class="line-clumb">
-        {{ datas.article }}
+        Lotto Zheng
       </p>
       <ul>
         <li>
