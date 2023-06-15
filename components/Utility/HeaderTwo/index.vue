@@ -23,14 +23,12 @@
               </div>
             </div>
             <div class="col-lg-2">
-              <div
-                class="
+              <div class="
                   header-temperature
                   justify-content-end
                   d-none d-lg-flex
                   align-items-center
-                "
-              >
+                ">
                 <div class="icon">
                   <img src="@/assets/images/temperature-icon.svg" alt="" />
                 </div>
@@ -50,22 +48,12 @@
           <div class="menubar-bg">
             <div class="row align-items-center">
               <div class="col-lg-9 col-sm-3 col-3">
-                <svg
-                  class="menu-drawer"
-                  style="cursor: pointer"
-                  @click.prevent="hideSidebar"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  fill="currentColor"
-                  height="24"
-                >
+                <svg class="menu-drawer" style="cursor: pointer" @click.prevent="hideSidebar"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" fill="currentColor" height="24">
                   <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path
-                    d="M3 4h18v2H3V4zm6 7h12v2H9v-2zm-6 7h18v2H3v-2z"
-                  ></path>
+                  <path d="M3 4h18v2H3V4zm6 7h12v2H9v-2zm-6 7h18v2H3v-2z"></path>
                 </svg>
-                <nav-items style="margin-left: 10px" class="header-two" />
+                <nav-items style="margin-left: 10px" class="header-two" @handleNavItem="handleNavItem" />
               </div>
               <div class="col-lg-3 col-sm-9 col-9">
                 <div class="header-menu-rightbar">
@@ -91,6 +79,9 @@ export default {
     hideSidebar(e) {
       this.$emit("toggleSidebar", e);
     },
+    handleNavItem(item) {
+      console.log(item)
+    }
   },
 };
 </script>

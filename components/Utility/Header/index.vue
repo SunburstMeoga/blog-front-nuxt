@@ -72,19 +72,16 @@
                     <a href="#"><i class="fal fa-search"></i></a>
                   </li>
                   <li>
-                    <a href="#"><i class="fal fa-user-circle"></i></a>
+                    <a href="#">链接钱包</a>
                   </li>
                 </ul>
               </div>
               <div class="nice-select-item" style="cursor: pointer">
-                <!-- <select class="select-lang">
+                <select class="select-lang">
                   <option data-display="English">English</option>
-                  <option value="1">Bangla</option>
-                  <option value="2">Hindi</option>
-                  <option value="3">option</option>
-                  <option value="4">Potato</option>
-                </select> -->
-                連接錢包
+                  <option value="1">简体中文</option>
+                  <option value="2">繁体中文</option>
+                </select>
               </div>
               <div class="header-temperature">
                 <div class="icon">

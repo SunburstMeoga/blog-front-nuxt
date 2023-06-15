@@ -24,11 +24,17 @@ export default {
     "assets/css/default.css",
     "assets/css/style.css",
     "assets/css/custom.css",
+    'quill/dist/quill.snow.css', 'quill/dist/quill.bubble.css', 'quill/dist/quill.core.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/request'
+    '@/plugins/request',
+    '@/plugins/element-ui',
+    {
+      src: '@/plugins/nuxt-quill-plugin.js',
+      ssr: false //仅在客户端渲染
+    }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -131,25 +131,8 @@
     {
       "id": 3,
       "linkText": "寫博客",
-      "child": true,
-      "icon": "angle-down",
-      "submenu": [
-        {
-          "id": 31,
-          "linkText": "Post 1",
-          "link": "/posts/postOne"
-        },
-        {
-          "id": 32,
-          "linkText": "Post 2",
-          "link": "/posts/posttwo"
-        },
-        {
-          "id": 33,
-          "linkText": "Post 3",
-          "link": "/posts/postthree"
-        }
-      ]
+      "link": "/blog/edit",
+      "child": false
     },
     {
       "id": 4,
