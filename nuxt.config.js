@@ -18,13 +18,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    "assets/css/tailwind.css",
     "assets/css/bootstrap.min.css",
     "assets/css/font-awesome.min.css",
     "assets/css/magnific-popup.css",
     "assets/css/default.css",
     "assets/css/style.css",
     "assets/css/custom.css",
-    "assets/css/tailwind.css",
     'quill/dist/quill.snow.css', 'quill/dist/quill.bubble.css', 'quill/dist/quill.core.css',
 
   ],
