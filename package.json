@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env NODE_ENV=development BASE_URL=https://blogapi.nickwongon99.top nuxt",
+    "prod": "cross-env NODE_ENV=production BASE_URL=https://blogapi.nickwongon99.top nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
@@ -12,6 +13,7 @@
     "@babel/core": "^7.12.0",
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.19.3",
+    "cross-env": "^7.0.3",
     "element-ui": "2.15.8",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",

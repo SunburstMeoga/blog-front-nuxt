@@ -36,6 +36,10 @@ export default {
       ssr: false //仅在客户端渲染
     }
   ],
+  env: {
+    baseUrl: process.env.BASE_URL,
+    nodeEnv: process.env.NODE_ENV
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
