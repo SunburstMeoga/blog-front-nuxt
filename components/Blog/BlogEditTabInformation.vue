@@ -1,6 +1,6 @@
 <template>
     <div class="container custom-container">
-        <div class="flex">
+        <div class="flex justify-start items-center text-9xl">
             <div>封面图片</div>
             <div>
                 <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/"
@@ -11,8 +11,8 @@
             </div>
         </div>
         <div class="editor-box mt-10">
-            <div class="quill-editor" :content="content" v-quill:myQuillEditor="options" :style="cusStyle"
-                :width="toolBarwidth" @change="handleEditorChange">
+            <div class="quill-editor" style="height: 250px;" :content="content" v-quill:myQuillEditor="options"
+                :style="cusStyle" :width="toolBarwidth" @change="handleEditorChange">
             </div>
         </div>
     </div>
@@ -144,7 +144,7 @@ export default {
     right: 0;
     bottom: 0;
     padding: 0 4px;
-    height: 40px;
+    height: 80px;
     line-height: 40px;
     text-align: center;
     font-size: 12px;
@@ -175,4 +175,5 @@ export default {
     width: 178px;
     height: 178px;
     display: block;
-}</style>
+}
+</style>
