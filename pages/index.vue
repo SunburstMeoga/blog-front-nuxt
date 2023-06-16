@@ -89,7 +89,12 @@ export default {
       this.sidebar = !this.sidebar;
     },
   },
+  mounted() {
+    console.log('this', this.Config, this.Web3)
+    let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
+    console.log('web3Contract', web3Contract)
 
+  },
   async asyncData({ $blogApi }) {
     // $axios.$get('https://blogapi.nickwongon99.top/api/blogs/list').then(res => {
     //   console.log(res)

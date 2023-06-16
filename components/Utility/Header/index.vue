@@ -67,14 +67,7 @@
           <div class="col-lg-4 col-sm-9 col-9">
             <div class="header-menu-rightbar">
               <div class="header-menu-search">
-                <ul>
-                  <li>
-                    <a href="#"><i class="fal fa-search"></i></a>
-                  </li>
-                  <li>
-                    <a href="#">链接钱包</a>
-                  </li>
-                </ul>
+                <a href="#">链接钱包</a>
               </div>
               <div class="nice-select-item" style="cursor: pointer">
                 <select class="select-lang">

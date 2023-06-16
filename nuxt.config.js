@@ -34,6 +34,10 @@ export default {
     '@/plugins/request',
     '@/plugins/element-ui',
     {
+      src: '@/plugins/contract',
+      ssr: false //仅在客户端渲染
+    },
+    {
       src: '@/plugins/nuxt-quill-plugin.js',
       ssr: false //仅在客户端渲染
     }
