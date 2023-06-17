@@ -43,8 +43,8 @@ export default {
     }
   ],
   env: {
-    baseUrl: process.env.BASE_URL,
-    nodeEnv: process.env.NODE_ENV
+    BASE_URL: process.env.BASE_URL,
+    NODE_ENV: process.env.NODE_ENV
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components

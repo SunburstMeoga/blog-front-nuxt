@@ -66,7 +66,7 @@
           </div>
           <div class="col-lg-4 col-sm-9 col-9">
             <div class="header-menu-rightbar">
-              <div class="header-menu-search">
+              <div class="header-menu-search" @click="connectWallet">
                 <a href="#">链接钱包</a>
               </div>
               <div class="nice-select-item" style="cursor: pointer">
@@ -112,8 +112,62 @@ export default {
   data: () => ({
     value: null,
     options: ["English", "Bangla", "Hinde"],
+    walletAddress: ''
   }),
   methods: {
+    async getLoginToken() {
+      console.log('获取登入token', this.$authApi, this.$blogApi)
+      const data = await this.$authApi.getLoginToken({ wallet_address: this.walletAddress })
+      console.log('获取登入token成功', data)
+      this.$message({
+        type: 'success',
+        message: '登录成功!'
+      });
+    },
+    showConfirmBox() {
+      let confirmButtonText = '确定'
+      this.$confirm('是否确认登录?', '是否登录', {
+        closeOnClickModal: false,
+        closeOnPressEscape: false,
+        beforeClose: function (action, instance, done) {
+          // console.log(action, instance, done)
+          if (action === 'cancel' || action === 'close') {
+            done()
+          } else {
+            confirmButtonText = '正在登陆...'
+            console.log(confirmButtonText)
+          }
+
+        },
+        confirmButtonText: confirmButtonText,
+        cancelButtonText: '取消',
+        type: 'info',
+        center: true
+      }).then(() => {
+        this.getLoginToken()
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消'
+        });
+      });
+    },
+    handleConnect() {
+
+    },
+    async connectWallet() {
+      console.log('Login')
+      try {
+        const accounts = await ethereum.request({
+          method: 'eth_requestAccounts',
+        })
+        this.showConfirmBox()
+        console.log('链接小狐狸', accounts)
+        this.walletAddress = accounts[0]
+      } catch (error) {
+        console.error(error)
+      }
+    },
     hideSidebar(e) {
       this.$emit("toggleSidebar", e);
     },

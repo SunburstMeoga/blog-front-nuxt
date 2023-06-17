@@ -1,5 +1,7 @@
 // 引入我们刚刚创建的index.js api文件
 import blogApi from '@/api/blog.js'
+import authApi from '@/api/authentication.js'
+
 
 export default function ({ $axios, store }, inject) {
     function axiosConfig($axios) {
@@ -8,7 +10,7 @@ export default function ({ $axios, store }, inject) {
         $axios.setBaseURL(process.env.BASE_URL)
         // 设置请求拦截
         $axios.onRequest((config) => {
-            console.log('process.env.BASE_URL', process.env.BASE_URL)
+            // console.log('process.env.BASE_URL', process.env)
             // 用于调试
             if (process.env.DEBUG) {
                 console.log('$axios.onRequest', config)
@@ -84,5 +86,7 @@ export default function ({ $axios, store }, inject) {
         return $axios
     }
     inject('blogApi', blogApi(axiosConfig($axios.create())))
+    inject('authApi', authApi(axiosConfig($axios.create())))
+
 }
 
