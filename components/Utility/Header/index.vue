@@ -114,37 +114,46 @@ export default {
     options: ["English", "Bangla", "Hinde"],
     walletAddress: ''
   }),
+  mounted() {
+    // let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
+    // console.log(web3Contract)
+  },
   methods: {
-    async getLoginToken() {
-      console.log('获取登入token', this.$authApi, this.$blogApi)
-      const data = await this.$authApi.getLoginToken({ wallet_address: this.walletAddress })
-      console.log('获取登入token成功', data)
-      this.$message({
-        type: 'success',
-        message: '登录成功!'
-      });
+    loginWithIdentityToken(walletAddress, identityToken) {
+      this.$authApi.loginWithIdentityToken({ wallet_address: walletAddress, identity_token: identityToken }).then(res => {
+        console.log('登录状态', res)
+      }).catch(err => {
+        console.log('err', err)
+      })
+    },
+    contractSaveToken(contractToken) {
+      let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
+      return web3Contract.methods.saveToken(contractToken).call()
     },
     showConfirmBox() {
-      let confirmButtonText = '确定'
+      let _self = this
       this.$confirm('是否确认登录?', '是否登录', {
         closeOnClickModal: false,
         closeOnPressEscape: false,
-        beforeClose: function (action, instance, done) {
-          // console.log(action, instance, done)
+        beforeClose: async function (action, instance, done) {
           if (action === 'cancel' || action === 'close') {
             done()
           } else {
-            confirmButtonText = '正在登陆...'
-            console.log(confirmButtonText)
+            instance.confirmButtonText = '正在登录...'
+            const { contract_token, identity_token } = await _self.$authApi.getLoginToken({ wallet_address: _self.walletAddress })
+            const contractResult = await _self.contractSaveToken(contract_token)
+            console.log('contract_token', contract_token, identity_token)
+            console.log('contractResult', contractResult)
+            _self.loginWithIdentityToken(window.ethereum.selectedAddress, identity_token)
+            // _self.getLoginToken()
           }
-
         },
-        confirmButtonText: confirmButtonText,
+        confirmButtonText: '确认',
         cancelButtonText: '取消',
         type: 'info',
         center: true
       }).then(() => {
-        this.getLoginToken()
+        // this.getLoginToken()
       }).catch(() => {
         this.$message({
           type: 'info',
@@ -156,13 +165,11 @@ export default {
 
     },
     async connectWallet() {
-      console.log('Login')
       try {
         const accounts = await ethereum.request({
           method: 'eth_requestAccounts',
         })
         this.showConfirmBox()
-        console.log('链接小狐狸', accounts)
         this.walletAddress = accounts[0]
       } catch (error) {
         console.error(error)
