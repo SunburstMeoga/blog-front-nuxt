@@ -142,28 +142,30 @@ export default {
             instance.confirmButtonText = '正在登录...'
             console.log('window.ethereum.selectedAddress', window.ethereum.selectedAddress)
             const { contract_token, identity_token, wallet_address } = await _self.$authApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
+
             let web3Contract = new _self.Web3.eth.Contract(_self.Config.con_abi, _self.Config.con_addr)
+            let data = web3Contract.methods.saveToken(contract_token).encodeABI() //gas
             web3Contract.methods.saveToken(contract_token).call().then((result) => {
               _self.Web3.eth.sendTransaction({
                 to: _self.Config.con_addr,
                 from: window.ethereum.selectedAddress,
-                value: result
+                value: result,
+                data: data
               })
                 .on('receipt', (receipt) => {
                   console.log('receipt', receipt)
+                  _self.loginWithIdentityToken(receipt.from, identity_token)
                 })
                 .on('error', (error) => {
                   console.log(error)
                 })
-              console.log(result)
-              _self.loginWithIdentityToken(wallet_address, identity_token)
+              // console.log(result)
+              // _self.loginWithIdentityToken(wallet_address, identity_token)
 
             }).catch((err) => {
               console.log(err)
             })
-            console.log('contract_token', contract_token)
-            console.log('identity_token', identity_token)
-            console.log('wallet_address', wallet_address)
+
 
             // _self.getLoginToken()
           }
