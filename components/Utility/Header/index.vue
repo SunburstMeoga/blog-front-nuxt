@@ -67,25 +67,29 @@
           <div class="col-lg-4 col-sm-9 col-9">
             <div class="header-menu-rightbar">
               <div class="header-menu-search" @click="connectWallet">
-                <a href="#">链接钱包</a>
+                <a href="#" class="font-bold">{{ $t('login.connectWallet') }}</a>
               </div>
-              <div class="nice-select-item" style="cursor: pointer">
-                <select class="select-lang">
+              <div class="nice-select-item">
+                <!-- <select class="select-lang">
                   <option data-display="English">English</option>
                   <option value="1">简体中文</option>
                   <option value="2">繁体中文</option>
-                </select>
+                </select> -->
+                <el-select size="small" v-model="selectValue" @change="languageChange" placeholder="请选择">
+                  <el-option v-for="item in languageOptions" :key="item.value" :label="item.label" :value="item.value">
+                  </el-option>
+                </el-select>
               </div>
               <div class="header-temperature">
-                <div class="icon">
+                <!-- <div class="icon">
                   <img src="@/assets/images/temperature-icon.svg" alt="" />
-                </div>
-                <div class="temperature-content text-center">
+                </div> -->
+                <!-- <div class="temperature-content text-center">
                   <h5 class="title">
                     13 <sup>0<sub>C</sub></sup>
                   </h5>
                   <p>San Francisco</p>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -110,13 +114,23 @@ export default {
     },
   },
   data: () => ({
+    languageOptions: [{
+      value: 'zh_cn',
+      label: '简体中文'
+    }, {
+      value: 'zh_hk',
+      label: '繁體中文'
+    }, {
+      value: 'en_us',
+      label: 'English'
+    }],
+    selectValue: '',
     value: null,
     options: ["English", "Bangla", "Hinde"],
     walletAddress: ''
   }),
   mounted() {
-    // let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
-    // console.log(web3Contract)
+    localStorage.getItem('language') ? this.$i18n.locale = this.selectValue = localStorage.getItem('language') : ''
   },
   methods: {
     // loginWithIdentityToken(walletAddress, identityToken) {
@@ -126,9 +140,14 @@ export default {
     //     console.log('err', err)
     //   })
     // },
-    contractSaveToken(contractToken) {
-      let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
-      return web3Contract.methods.saveToken(contractToken).call()
+    // contractSaveToken(contractToken) {
+    //   let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
+    //   return web3Contract.methods.saveToken(contractToken).call()
+    // },
+    languageChange(value) {
+      console.log('value', value)
+      localStorage.setItem('language', value)
+      this.$i18n.locale = value
     },
     showConfirmBox() {
       let _self = this
