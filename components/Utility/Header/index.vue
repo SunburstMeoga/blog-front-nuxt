@@ -29,39 +29,6 @@
               <path fill="none" d="M0 0h24v24H0z"></path>
               <path d="M3 4h18v2H3V4zm6 7h12v2H9v-2zm-6 7h18v2H3v-2z"></path>
             </svg>
-            <!-- <div
-              :class="[
-                'newspark-header-main-menu',
-                darkClass && 'menuItem' in darkClass ? darkClass.menuItem : '',
-              ]"
-            >
-              <ul v-if="nav_items">
-                <li v-for="(item, index) in nav_items" :key="index">
-                  <a
-                    >{{ item.linkText }}
-                    <i v-if="item.child" class="fal fa-angle-down"></i
-                  ></a>
-                  <ul v-if="item.child" class="sub-menu">
-                    <li v-for="(lvlTwo, index) in item.submenu" :key="index">
-                      <router-link :to="`${lvlTwo.link}`">
-                        {{ lvlTwo.linkText }}
-                        <i v-if="lvlTwo.child" class="fal fa-angle-down"></i
-                      ></router-link>
-                      <ul v-if="lvlTwo.child" class="sub-menu">
-                        <li
-                          v-for="(lvlThree, index) in lvlTwo.third_menu"
-                          :key="index"
-                        >
-                          <router-link :to="`${lvlThree.link}`">{{
-                            lvlThree.linkText
-                          }}</router-link>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div> -->
             <nav-items :darkClass="darkClass" />
           </div>
           <div class="col-lg-4 col-sm-9 col-9">
@@ -70,26 +37,10 @@
                 <a href="#" class="font-bold">{{ $t('login.connectWallet') }}</a>
               </div>
               <div class="nice-select-item">
-                <!-- <select class="select-lang">
-                  <option data-display="English">English</option>
-                  <option value="1">简体中文</option>
-                  <option value="2">繁体中文</option>
-                </select> -->
                 <el-select size="small" v-model="selectValue" @change="languageChange" placeholder="请选择">
                   <el-option v-for="item in languageOptions" :key="item.value" :label="item.label" :value="item.value">
                   </el-option>
                 </el-select>
-              </div>
-              <div class="header-temperature">
-                <!-- <div class="icon">
-                  <img src="@/assets/images/temperature-icon.svg" alt="" />
-                </div> -->
-                <!-- <div class="temperature-content text-center">
-                  <h5 class="title">
-                    13 <sup>0<sub>C</sub></sup>
-                  </h5>
-                  <p>San Francisco</p>
-                </div> -->
               </div>
             </div>
           </div>
@@ -144,6 +95,7 @@ export default {
     //   let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
     //   return web3Contract.methods.saveToken(contractToken).call()
     // },
+
     languageChange(value) {
       console.log('value', value)
       localStorage.setItem('language', value)

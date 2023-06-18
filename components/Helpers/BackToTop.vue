@@ -21,7 +21,7 @@ export default {
       const result = window.document.querySelector(".go-top");
       if (
         window.document.body.scrollTop > window.innerHeight ||
-        window.document.window.documentElement.scrollTop > window.innerHeight
+        window.documentElement.scrollTop > window.innerHeight
       ) {
         result.classList.add("active");
       } else {
