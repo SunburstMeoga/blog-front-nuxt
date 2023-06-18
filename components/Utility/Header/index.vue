@@ -119,13 +119,13 @@ export default {
     // console.log(web3Contract)
   },
   methods: {
-    loginWithIdentityToken(walletAddress, identityToken) {
-      this.$authApi.loginWithIdentityToken({ wallet_address: walletAddress, identity_token: identityToken }).then(res => {
-        console.log('登录状态', res)
-      }).catch(err => {
-        console.log('err', err)
-      })
-    },
+    // loginWithIdentityToken(walletAddress, identityToken) {
+    //   this.$authApi.loginWithIdentityToken({ wallet_address: walletAddress, identity_token: identityToken }).then(res => {
+    //     console.log('登录状态', res)
+    //   }).catch(err => {
+    //     console.log('err', err)
+    //   })
+    // },
     contractSaveToken(contractToken) {
       let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
       return web3Contract.methods.saveToken(contractToken).call()
@@ -140,9 +140,7 @@ export default {
             done()
           } else {
             instance.confirmButtonText = '正在登录...'
-            console.log('window.ethereum.selectedAddress', window.ethereum.selectedAddress)
             const { contract_token, identity_token, wallet_address } = await _self.$authApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
-
             let web3Contract = new _self.Web3.eth.Contract(_self.Config.con_abi, _self.Config.con_addr)
             let data = web3Contract.methods.saveToken(contract_token).encodeABI() //gas
             web3Contract.methods.saveToken(contract_token).call().then((result) => {
@@ -154,20 +152,19 @@ export default {
               })
                 .on('receipt', (receipt) => {
                   console.log('receipt', receipt)
-                  _self.loginWithIdentityToken(receipt.from, identity_token)
+                  const { status, user, token } = _self.$authApi.loginWithIdentityToken(receipt.from, identity_token).data
+                  console.log('status', status)
+                  console.log('user', user)
+                  console.log('token', token)
                 })
                 .on('error', (error) => {
                   console.log(error)
+                  instance.confirmButtonText = '登录失败，点击重新登录'
                 })
-              // console.log(result)
-              // _self.loginWithIdentityToken(wallet_address, identity_token)
 
             }).catch((err) => {
               console.log(err)
             })
-
-
-            // _self.getLoginToken()
           }
         },
         confirmButtonText: '确认',
