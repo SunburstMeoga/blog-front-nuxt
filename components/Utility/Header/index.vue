@@ -84,9 +84,10 @@ export default {
     localStorage.getItem('language') ? this.$i18n.locale = this.selectValue = localStorage.getItem('language') : ''
     console.log('window.ethereum.selectedAddress', window.ethereum.selectedAddress)
     if (window.ethereum.selectedAddress) {
-      this.$store.commit('getWalletAddress', window.ethereum.selectedAddress)
-      console.log('store', this.$store.state.walletAddress)
+      this.$store.commit('auth/setWalletAddress', window.ethereum.selectedAddress)
+      this.$store.commit('auth/changeConnectWalletStatus', true)
 
+      console.log('store', this.$store.state.auth)
     }
   },
   methods: {
