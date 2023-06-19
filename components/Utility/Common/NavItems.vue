@@ -81,7 +81,7 @@ export default {
         {
           linkText: this.$t('headerNav.home'),
           child: false,
-          icon: "angle-down"
+          link: '/'
         },
         {
           linkText: this.$t('headerNav.writeBlog'),
