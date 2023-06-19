@@ -41,7 +41,7 @@
                                                     </div>
                                                 </div>
                                                 <h3 class="title">
-                                                    <router-link to="/posts/postOne">
+                                                    <router-link :to="{ name: 'blog-id', params: { id: item.id } }">
                                                         {{ item.title }}
                                                     </router-link>
                                                 </h3>
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12" v-if="categoryBlogs.length > 10">
                                         <div class="pagination-item pt-40">
                                             <nav aria-label="Page navigation example">
                                                 <ul class="pagination">
@@ -86,8 +86,61 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <style-one :datas="posts.slice(1, 6)" />
+                    <div class="col-lg-4 post_gallery_sidebar">
+                        <!-- <style-one :blogs="posts.slice(1, 6)" /> -->
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item" @click.prevent="selectGalleryTab('trendy')">
+                                <a :class="['nav-link', selectedGallery === 'trendy' ? 'active' : '']" data-toggle="pill"
+                                    role="tab" aria-controls="pills-home" aria-selected="true">最熱文章</a>
+                            </li>
+                            <li class="nav-item" @click.prevent="selectGalleryTab('latest')">
+                                <a :class="['nav-link', selectedGallery === 'latest' ? 'active' : '']" data-toggle="pill"
+                                    href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                    aria-selected="false">最新文章</a>
+                            </li>
+                            <li class="nav-item" @click.prevent="selectGalleryTab('popular')">
+                                <a :class="['nav-link', selectedGallery === 'popular' ? 'active' : '']" class="nav-link"
+                                    data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
+                                    aria-selected="false">最受歡迎文章</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div :class="[
+                                'tab-pane fade',
+                                selectedGallery === 'trendy' ? 'show active' : '',
+                            ]" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="post_gallery_items" v-if="blogs && blogs.length > 0">
+                                    <template v-for="(small, index) in blogs.slice(0, 5)">
+                                        <row-card :class="[darkClass && 'item' in darkClass ? darkClass.item : '']"
+                                            :category="true" :datas="small" :key="index" />
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div :class="[
+                                'tab-pane fade',
+                                selectedGallery === 'latest' ? 'show active' : '',
+                            ]" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div v-if="blogs && blogs.length > 0" class="post_gallery_items">
+                                    <template v-for="(small, index) in blogs.slice(0, 5)">
+                                        <row-card :category="true" :datas="small" :key="index" />
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div :class="[
+                                'tab-pane fade',
+                                selectedGallery === 'popular' ? 'show active' : '',
+                            ]" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div v-if="blogs && blogs.length > 0" class="post_gallery_items">
+                                    <template v-for="(small, index) in blogs.slice(0, 5)">
+                                        <row-card :category="true" :datas="small" :key="index" />
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,8 +152,9 @@
 import StyleOne from "../../components/Utility/Sidebar/StyleOne.vue";
 import CategoryLayout from "../../components/Category/CategoryLayout.vue";
 import Posts from "../../components/Data/TrendingHomeThree";
+import RowCard from "../../components/Utility/Cards/RowCard.vue";
 export default {
-    components: { CategoryLayout, StyleOne },
+    components: { CategoryLayout, StyleOne, RowCard },
     async asyncData({ params, $blogApi }) {
         const categoryBlogs = await $blogApi.getBlogList({ categoryId: params.id })
         const blogs = await $blogApi.getBlogList()
@@ -109,11 +163,18 @@ export default {
         return { categoryBlogs: categoryBlogs.data.docs, blogs: blogs.data.docs, category: params.type }
     },
     data: () => ({
+        selectedGallery: "trendy",
         posts: Posts.data,
         categoryBlogs: [],
         blogs: [],
-        category: ''
+        category: '',
+        darkClass: {}
     }),
+    methods: {
+        selectGalleryTab(value) {
+            this.selectedGallery = value;
+        },
+    }
 };
 </script>
   
