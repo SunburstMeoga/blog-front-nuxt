@@ -3,8 +3,8 @@
         <div class="blog-module  mt-10">
             <div class="module-title">封面图片</div>
             <div class="flex-1">
-                <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/"
-                    :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+                <el-upload class="avatar-uploader" :action="imgUploadUrl" :show-file-list="false"
+                    :on-success="handleCoverSuccess" :before-upload="beforeAvatarUpload">
                     <img v-if="imageUrl" :src="imageUrl" class="avatar">
                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
@@ -39,34 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="blog-module">
-            <div class="module-title">
-                Published
-            </div>
-            <div class="flex-1 blog-module items-center">
-                <div class="mr-2">
-                    <el-switch v-model="isPublished" active-color="#1192ff" inactive-color="#ff4949">
-                    </el-switch>
-                </div>
-                <div class="font-bold">
-                    {{ isPublished ? '是' : '否' }}
-                </div>
-            </div>
-        </div>
-        <div class="blog-module">
-            <div class="module-title">
-                Approved
-            </div>
-            <div class="flex-1 blog-module items-center">
-                <div class="mr-2">
-                    <el-switch v-model="isApproved" active-color="#1192ff" inactive-color="#ff4949">
-                    </el-switch>
-                </div>
-                <div class="font-bold">
-                    {{ isApproved ? '是' : '否' }}
-                </div>
-            </div>
-        </div>
+
         <div class="blog-module">
             <div class="module-title">
                 Slug
@@ -127,8 +100,7 @@ export default {
         return {
             blogTitle: '',
             imageUrl: '',
-            isPublished: false,
-            isApproved: false,
+            imgUploadUrl: '',
             categoryList: [{
                 value: '选项1',
                 label: '黄金糕'
@@ -176,7 +148,8 @@ export default {
         // newArr.forEach(item => {
         //   item.appendChild(this.createSpan())
         // })
-
+        this.imgUploadUrl = process.env.BASE_URL + "/api/admin/image";
+        console.log('imgUploadUrl', this.imgUploadUrl)
         this.$nextTick(() => {
             let quill = document.querySelectorAll('.ql-toolbar')
             Array.from(quill).forEach(item => {
@@ -186,20 +159,23 @@ export default {
 
     },
     methods: {
-        handleAvatarSuccess(res, file) {
+        handleCoverSuccess(res, file) {
             this.imageUrl = URL.createObjectURL(file.raw);
+            console.log(this.imgUploadUrl)
+            console.log(process.env.BASE_URL + "/admin/image")
+            console.log('this.imageUrl', file)
         },
         beforeAvatarUpload(file) {
             const isJPG = file.type === 'image/jpeg';
             const isLt2M = file.size / 1024 / 1024 < 2;
 
-            if (!isJPG) {
-                this.$message.error('上传头像图片只能是 JPG 格式!');
-            }
+            // if (!isJPG) {
+            //     this.$message.error('上传头像图片只能是 JPG 格式!');
+            // }
             if (!isLt2M) {
                 this.$message.error('上传头像图片大小不能超过 2MB!');
             }
-            return isJPG && isLt2M;
+            return isLt2M;
         },
         createSpan() {
             let spana = document.createElement('span')
