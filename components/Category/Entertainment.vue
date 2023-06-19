@@ -33,17 +33,12 @@
                     <div class="col-lg-12">
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-1.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-1.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -62,25 +57,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-2.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-2.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -99,25 +87,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-3.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-3.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -136,25 +117,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-4.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-4.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -173,25 +147,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-5.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-5.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -210,25 +177,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-6.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-6.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -247,25 +207,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-1.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-1.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -284,25 +237,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-2.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-2.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -321,25 +267,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-3.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-3.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -358,25 +297,18 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                       <div class="bussiness-post-item mb-40">
                         <div class="bussiness-post-thumb">
-                          <img
-                            src="@/assets/images/business-post/business-post-4.jpg"
-                            alt="business"
-                          />
+                          <img src="@/assets/images/business-post/business-post-4.jpg" alt="business" />
                         </div>
                         <div class="bussiness-post-content">
                           <h3 class="title">
-                            <router-link to="/posts/postOne"
-                              >She tried for many years now finallize pregnant
-                              &amp; happy and</router-link
-                            >
+                            <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                              &amp; happy and</nuxt-link>
                           </h3>
                           <div class="meta-date-link">
                             <span>April 26, 2020</span>
@@ -395,10 +327,8 @@
                             just happens that this pregnancy takes place with
                             this epidemic…
                           </p>
-                          <a href="#"
-                            >LEARN MORE
-                            <img src="@/assets/images/arrow-2.svg" alt=""
-                          /></a>
+                          <a href="#">LEARN MORE
+                            <img src="@/assets/images/arrow-2.svg" alt="" /></a>
                         </div>
                       </div>
                     </div>

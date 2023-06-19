@@ -40,10 +40,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -61,10 +59,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -82,10 +78,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -103,10 +97,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -124,10 +116,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -145,10 +135,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -166,10 +154,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -187,10 +173,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -208,10 +192,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -229,10 +211,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -250,10 +230,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -271,10 +249,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >Japans virus success has from puzzled the running
-                            out?</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">Japans virus success has from puzzled the running
+                            out?</nuxt-link>
                         </h3>
                       </div>
                     </div>
@@ -297,9 +273,7 @@
                           </li>
                           <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true"
-                                ><i class="fas fa-caret-right"></i
-                              ></span>
+                              <span aria-hidden="true"><i class="fas fa-caret-right"></i></span>
                             </a>
                           </li>
                         </ul>

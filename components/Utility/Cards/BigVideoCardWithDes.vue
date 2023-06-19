@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/posts/postOne" class="d-block">
+  <nuxt-link to="/posts/postOne" class="d-block">
     <div class="post_gallery_play">
       <div class="bg-image">
         <img :src="datas.image_url" alt="" style="width: 100%; height: 100%" />
@@ -25,7 +25,7 @@
         <a class="video-popup" href="https://www.youtube.com/watch?v=4mGyYNuG6us" a><i class="fas fa-play"></i></a>
       </div>
     </div>
-  </router-link>
+  </nuxt-link>
 </template>
 
 <script>

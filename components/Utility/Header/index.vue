@@ -6,9 +6,9 @@
         <div class="row align-items-center">
           <div class="col-lg-4">
             <div class="logo">
-              <router-link to="/">
+              <nuxt-link to="/">
                 <img :src="require(`@/assets/images/` + image)" alt="feature" />
-              </router-link>
+              </nuxt-link>
             </div>
           </div>
           <div class="col-lg-8">
@@ -86,7 +86,6 @@ export default {
     if (window.ethereum.selectedAddress) {
       this.$store.commit('auth/setWalletAddress', window.ethereum.selectedAddress)
       this.$store.commit('auth/changeConnectWalletStatus', true)
-
       console.log('store', this.$store.state.auth)
     }
   },

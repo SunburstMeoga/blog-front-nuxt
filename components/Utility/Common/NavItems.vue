@@ -5,24 +5,25 @@
   ]">
     <ul v-if="nav_items">
       <li v-for="(item, index) in nav_items" :key="index" @click="handleNavItem(item, index)">
-        <a v-if="item.child">{{ item.linkText }}
+        <a v-if="item.child">
+          {{ item.linkText }}
           <i v-if="item.child" class="fal fa-angle-down" />
         </a>
-        <router-link v-else :to="{ name: 'categories-type', params: { type: item.link, id: item.id } }">
+        <nuxt-link v-else :to="`${item.link}`">
           {{ item.linkText }}
-        </router-link>
+        </nuxt-link>
         <ul v-if="item.child" class="sub-menu">
           <li v-for="(lvlTwo, index) in item.submenu" :key="index">
-            <router-link :to="{ name: 'categories-type', params: { type: lvlTwo.link, id: lvlTwo.id } }">
+            <nuxt-link :to="{ name: lvlTwo.name, params: { type: lvlTwo.slug, id: lvlTwo.id } }">
               {{ lvlTwo.linkText }}
               <i v-if="lvlTwo.child" class="fal fa-angle-down" />
-            </router-link>
-            <ul v-if="lvlTwo.child" class="sub-menu">
+            </nuxt-link>
+            <!-- <ul v-if="lvlTwo.child" class="sub-menu">
               <li v-for="(lvlThree, index) in lvlTwo.third_menu" :key="index">
-                <router-link :to="{ name: 'categories-type', params: { type: lvlThree.link, id: lvlThree.id } }">
-                  {{ lvlThree.linkText }}</router-link>
+                <nuxt-link :to="{ name: 'categories-type', params: { type: lvlThree.slug, id: lvlThree.id } }">
+                  {{ lvlThree.linkText }}</nuxt-link>
               </li>
-            </ul>
+            </ul> -->
           </li>
         </ul>
       </li>
@@ -88,8 +89,14 @@ export default {
           child: false
         },
         {
+          linkText: '我的博客',
+          link: "/blog/edit",
+          child: false
+        },
+        {
           linkText: this.$t('headerNav.blogCategories'),
           child: true,
+          link: 'categories-type',
           icon: "angle-down"
         },
         {
@@ -117,7 +124,7 @@ export default {
         docs.map(item => {
           let obj = {}
           obj.linkText = item.name
-          obj.link = item.slug
+          obj.slug = item.slug
           obj.id = item.id
           submenu.push(obj)
         })
@@ -129,7 +136,7 @@ export default {
     },
     handleNavItem(item) {
       console.log(item)
-      this.$emit('handleNavItem', item)
+      // this.$emit('handleNavItem', item)
     }
   }
 };

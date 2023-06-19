@@ -1,6 +1,8 @@
 export default {
     login: {
-        connectWallet: 'Connect wallet'
+        connectWallet: 'Connect wallet',
+        login: 'Login',
+        loginOut: 'Log out'
     },
     headerNav: {
         home: 'Home',

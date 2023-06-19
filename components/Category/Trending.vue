@@ -30,14 +30,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-1.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-1.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -50,10 +45,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -66,14 +59,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-2.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-2.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -86,10 +74,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -102,14 +88,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-3.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-3.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -122,10 +103,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -138,14 +117,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-4.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-4.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -158,10 +132,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -174,14 +146,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-5.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-5.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -194,10 +161,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -210,14 +175,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-6.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-6.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -230,10 +190,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -246,14 +204,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-7.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-7.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -266,10 +219,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -282,14 +233,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-1.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-1.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -302,10 +248,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -318,14 +262,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-2.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-2.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -338,10 +277,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -354,14 +291,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-3.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-3.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -374,10 +306,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -390,14 +320,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-4.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-4.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -410,10 +335,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -426,14 +349,9 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="trending-news-item mb-30">
                       <div class="trending-news-thumb">
-                        <img
-                          src="@/assets/images/entertainment-dark-5.jpg"
-                          alt="trending"
-                        />
+                        <img src="@/assets/images/entertainment-dark-5.jpg" alt="trending" />
                         <div class="icon">
-                          <a href="#" tabindex="-1"
-                            ><i class="fas fa-bolt"></i
-                          ></a>
+                          <a href="#" tabindex="-1"><i class="fas fa-bolt"></i></a>
                         </div>
                       </div>
                       <div class="trending-news-content">
@@ -446,10 +364,8 @@
                           </div>
                         </div>
                         <h3 class="title">
-                          <router-link to="/posts/postOne"
-                            >There may be no consoles in the future ea exec
-                            says</router-link
-                          >
+                          <nuxt-link to="/posts/postOne">There may be no consoles in the future ea exec
+                            says</nuxt-link>
                         </h3>
                         <p class="text">
                           The property, complete with 30-seat screening from
@@ -477,9 +393,7 @@
                           </li>
                           <li class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true"
-                                ><i class="fas fa-caret-right"></i
-                              ></span>
+                              <span aria-hidden="true"><i class="fas fa-caret-right"></i></span>
                             </a>
                           </li>
                         </ul>

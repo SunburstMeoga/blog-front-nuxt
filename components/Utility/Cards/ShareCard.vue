@@ -9,7 +9,7 @@
       </div>
     </div>
     <h3 class="title">
-      <router-link to="/posts/postOne">{{ datas.title }}</router-link>
+      <nuxt-link to="/posts/postOne">{{ datas.title }}</nuxt-link>
     </h3>
     <ul>
       <li><i class="fab fa-twitter"></i> 2.2K</li>

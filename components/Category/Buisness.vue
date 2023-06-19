@@ -35,10 +35,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-1.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-1.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -53,10 +50,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -73,10 +68,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-2.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-2.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -91,10 +83,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -111,10 +101,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-3.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-3.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -129,10 +116,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -149,10 +134,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-4.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-4.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -167,10 +149,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -187,10 +167,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-1.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-1.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -205,10 +182,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -225,10 +200,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-2.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-2.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -243,10 +215,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -263,10 +233,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-3.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-3.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -281,10 +248,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -301,10 +266,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-4.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-4.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -319,10 +281,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -339,10 +299,7 @@
                         <div class="row">
                           <div class="col-lg-6 col-md-6">
                             <div class="business-post-thumb">
-                              <img
-                                src="@/assets/images/business-1.jpg"
-                                alt="business"
-                              />
+                              <img src="@/assets/images/business-1.jpg" alt="business" />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-6">
@@ -357,10 +314,8 @@
                                   </div>
                                 </div>
                                 <h3 class="title">
-                                  <router-link to="/posts/postOne"
-                                    >There may be no consoles in the future ea
-                                    exec says</router-link
-                                  >
+                                  <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                    exec says</nuxt-link>
                                 </h3>
                                 <p class="text">
                                   The property, complete with 30-seat screening
@@ -392,9 +347,7 @@
                             </li>
                             <li class="page-item">
                               <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true"
-                                  ><i class="fas fa-caret-right"></i
-                                ></span>
+                                <span aria-hidden="true"><i class="fas fa-caret-right"></i></span>
                               </a>
                             </li>
                           </ul>

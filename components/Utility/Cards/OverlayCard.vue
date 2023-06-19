@@ -1,9 +1,5 @@
 <template>
-  <router-link
-    to="/posts/postOne"
-    v-if="stype === 'small'"
-    class="feature-post d-block"
-  >
+  <nuxt-link to="/posts/postOne" v-if="stype === 'small'" class="feature-post d-block">
     <div class="feature-post-thumb">
       <img :src="require(`@/assets/images/` + datas.image)" alt="feature" />
     </div>
@@ -20,12 +16,8 @@
         <a href="#">{{ datas.title }}</a>
       </h4>
     </div>
-  </router-link>
-  <router-link
-    to="/posts/postOne"
-    v-else-if="stype === 'big'"
-    class="single-play-post-item d-block"
-  >
+  </nuxt-link>
+  <nuxt-link to="/posts/postOne" v-else-if="stype === 'big'" class="single-play-post-item d-block">
     <img :src="require(`@/assets/images/` + datas.image)" alt="feature" />
     <div class="single-play-post-content">
       <div class="post-meta">
@@ -41,14 +33,12 @@
       </h3>
     </div>
     <div v-if="datas.action === 'play'" class="play-btn">
-      <a class="video-popup" @click.prevent="$store.dispatch('toggleVideo')"
-        ><i class="fas fa-play"></i
-      ></a>
+      <a class="video-popup" @click.prevent="$store.dispatch('toggleVideo')"><i class="fas fa-play"></i></a>
     </div>
     <div v-if="datas.action === 'trending'" class="trending-btn">
       <a href="#"><i class="fas fa-bolt"></i></a>
     </div>
-  </router-link>
+  </nuxt-link>
 </template>
 
 <script>

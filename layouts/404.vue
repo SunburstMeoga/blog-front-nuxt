@@ -19,7 +19,7 @@
                                 <a class="main-btn" href @click.prevent="$router.go(-1)">GO Back</a>
                             </li>
                             <li>
-                                <router-link class="main-btn btn-2" to="/contact">CONTACT US</router-link>
+                                <nuxt-link class="main-btn btn-2" to="/contact">CONTACT US</nuxt-link>
                             </li>
                         </ul>
                     </div>

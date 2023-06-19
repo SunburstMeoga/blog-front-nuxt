@@ -1,6 +1,8 @@
 export default {
     login: {
-        connectWallet: '连接钱包'
+        connectWallet: '连接钱包',
+        login: '登录',
+        loginOut: '退出登录'
     },
     headerNav: {
         home: '首页',

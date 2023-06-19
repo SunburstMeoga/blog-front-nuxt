@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-if="category" class="gallery_item">
+  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-if="category" class="gallery_item">
     <template v-if="datas">
       <div class="gallery_item_thumb" style="width: 100px; height: 77px; overflow: hidden;">
         <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
@@ -19,8 +19,8 @@
         </h4>
       </div>
     </template>
-  </router-link>
-  <router-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="countingtwo"
+  </nuxt-link>
+  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="countingtwo"
     class="post-gallery-style-2 most-view-style-2" style="border: 1px solid blue;">
     <div class="post-gallery-thumb">
       <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
@@ -39,8 +39,8 @@
         </div>
       </div>
     </div>
-  </router-link>
-  <router-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="trending" class="gallery_item"
+  </nuxt-link>
+  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="trending" class="gallery_item"
     style="border: 1px solid green;">
     <div class="gallery_item_thumb">
       <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
@@ -60,8 +60,8 @@
       </h4>
       <!-- <span v-if="counting">{{ counting }}</span> -->
     </div>
-  </router-link>
-  <router-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="counting"
+  </nuxt-link>
+  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="counting"
     class="gallery_item gallery_item-style-2" style="border: 1px solid orange;">
     <div class="gallery_item_thumb">
       <img src="@/assets/images/most-post/most-1.jpg" alt="gallery" />
@@ -81,8 +81,8 @@
       </h4>
       <span>{{ count }}</span>
     </div>
-  </router-link>
-  <router-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="sports" class="gallery_item"
+  </nuxt-link>
+  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="sports" class="gallery_item"
     style="border: 1px solid black;">
     <template v-if="datas">
       <div class="gallery_item_thumb">
@@ -103,8 +103,8 @@
         </h4>
       </div>
     </template>
-  </router-link>
-  <router-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else
+  </nuxt-link>
+  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else
     class="single__post d-lg-flex text-center text-lg-left">
     <template v-if="datas">
       <div class="post-thumb mb-3 mb-lg-0" style="width: 100px; height: 77px; overflow: hidden;">
@@ -119,7 +119,7 @@
         <!-- <div v-html="datas.content"></div> -->
       </div>
     </template>
-  </router-link>
+  </nuxt-link>
 </template>
 
 <script>
@@ -148,4 +148,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>

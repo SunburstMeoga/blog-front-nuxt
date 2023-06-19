@@ -1,6 +1,8 @@
 export default {
     login: {
-        connectWallet: '連接錢包'
+        connectWallet: '連接錢包',
+        login: '登錄',
+        loginOut: '退出登錄'
     },
     headerNav: {
         home: '首頁',

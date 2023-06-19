@@ -7,9 +7,9 @@
           <div class="row align-items-center">
             <div class="col-lg-5 col-md-5">
               <div class="logo">
-                <router-link to="/">
+                <nuxt-link to="/">
                   <img src="@/assets/images/logo.png" alt="logo" />
-                </router-link>
+                </nuxt-link>
               </div>
             </div>
             <div class="col-lg-5 col-md-7">

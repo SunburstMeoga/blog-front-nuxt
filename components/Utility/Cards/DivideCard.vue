@@ -10,16 +10,17 @@
         <div class="trending-news-content">
           <div class="post-meta">
             <div class="meta-categories">
-              <router-link to="/buisness">{{
-                datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds && datas.categoryIds[0].category_id.name
-              }}</router-link>
+              <nuxt-link to="/buisness">{{
+                datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds &&
+                datas.categoryIds[0].category_id.name
+              }}</nuxt-link>
             </div>
             <div class="meta-date">
               <span>March 27, 2020</span>
             </div>
           </div>
           <h3 class="title">
-            <router-link to="/posts/postOne">{{ datas.title }}</router-link>
+            <nuxt-link to="/posts/postOne">{{ datas.title }}</nuxt-link>
           </h3>
           <p class="text">
             Lotto Zheng
@@ -35,7 +36,7 @@
     </div>
     <div class="bussiness-post-content">
       <h3 class="title">
-        <router-link to="/posts/postOne">{{ datas.title }}</router-link>
+        <nuxt-link to="/posts/postOne">{{ datas.title }}</nuxt-link>
       </h3>
       <div class="meta-date-link">
         <span>March 27, 2020</span>
@@ -71,7 +72,7 @@
         </div>
       </div>
       <h3 class="title">
-        <router-link to="/posts/postOne">{{ datas.title }}</router-link>
+        <nuxt-link to="/posts/postOne">{{ datas.title }}</nuxt-link>
       </h3>
       <p class="text">
         Lotto Zheng
@@ -88,7 +89,7 @@
     </div>
     <div class="finance-content">
       <h3 class="title">
-        <router-link to="/posts/postOne">{{ datas.title }}</router-link>
+        <nuxt-link to="/posts/postOne">{{ datas.title }}</nuxt-link>
       </h3>
       <p class="line-clumb">
         Lotto Zheng

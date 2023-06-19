@@ -49,9 +49,9 @@
                                                                 </div>
                                                             </div>
                                                             <h3 class="title">
-                                                                <router-link to="/posts/postOne">
+                                                                <nuxt-link to="/posts/postOne">
                                                                     {{ item.title }}
-                                                                </router-link>
+                                                                </nuxt-link>
                                                             </h3>
                                                             <p class="text">
                                                                 The property, complete with 30-seat screening
@@ -71,9 +71,9 @@
                                             </div>
                                             <div class="bussiness-post-content">
                                                 <h3 class="title">
-                                                    <router-link to="/posts/postOne">
+                                                    <nuxt-link to="/posts/postOne">
                                                         {{ item.title }}
-                                                    </router-link>
+                                                    </nuxt-link>
                                                 </h3>
                                                 <div class="meta-date-link">
                                                     <span>April 26, 2020</span>
