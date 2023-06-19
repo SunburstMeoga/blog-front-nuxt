@@ -29,7 +29,8 @@
                             <div class="about-post-items">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="business-post-item mb-10" v-for="(item, index) in categoryBlogs">
+                                        <div class="business-post-item mb-10"
+                                            v-for="(item, index) in categoryBlogs.slice(0, 2)">
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6">
                                                     <div class="business-post-thumb">
@@ -135,8 +136,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 post_gallery_sidebar">
-                        <style-one :datas="blogs.slice(1, 6)" />
-                        <!-- <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <!-- <style-one :blogs="posts.slice(1, 6)" /> -->
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
                             <li class="nav-item" @click.prevent="selectGalleryTab('trendy')">
                                 <a :class="['nav-link', selectedGallery === 'trendy' ? 'active' : '']" data-toggle="pill"
                                     role="tab" aria-controls="pills-home" aria-selected="true">最熱文章</a>
@@ -188,7 +189,7 @@
                                     </template>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
