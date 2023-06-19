@@ -8,5 +8,10 @@ export default {
         blogCategories: 'Blog Category',
         latestBlogs: 'Latest blog',
         hottesBlogs: 'Hottest blogs'
+    },
+    recommend: {
+        latest: 'Latest',
+        hottest: 'Hottest',
+        mostPopular: 'Popular'
     }
 }

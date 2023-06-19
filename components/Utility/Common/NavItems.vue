@@ -44,7 +44,7 @@ export default {
   },
   data: () => ({
     // when you have api then delete json file (dir:components/data/) and add your data this variable
-    nav_items: navItems.data,
+    // nav_items: navItems.data,
     // nav_items: [
     //   {
     //     linkText: this.$t('headerNav.home'),
@@ -74,38 +74,37 @@ export default {
     //   }
     // ]
   }),
-  // computed: {
-  //   nav_items() {
-  //     return [
-  //       {
-  //         linkText: this.$t('headerNav.home'),
-  //         child: false,
-  //         icon: "angle-down"
-  //       },
-  //       {
-  //         linkText: this.$t('headerNav.writeBlog'),
-  //         link: "/blog/edit",
-  //         child: false
-  //       },
-  //       {
-  //         linkText: this.$t('headerNav.blogCategories'),
-  //         child: true,
-  //         submenu: [],
-  //         icon: "angle-down"
-  //       },
-  //       {
-  //         linkText: this.$t('headerNav.latestBlogs'),
-  //         link: "/404",
-  //         child: false
-  //       },
-  //       {
-  //         linkText: this.$t('headerNav.hottesBlogs'),
-  //         link: "/sports",
-  //         child: false
-  //       }
-  //     ]
-  //   }
-  // },
+  computed: {
+    nav_items() {
+      return [
+        {
+          linkText: this.$t('headerNav.home'),
+          child: false,
+          icon: "angle-down"
+        },
+        {
+          linkText: this.$t('headerNav.writeBlog'),
+          link: "/blog/edit",
+          child: false
+        },
+        {
+          linkText: this.$t('headerNav.blogCategories'),
+          child: true,
+          icon: "angle-down"
+        },
+        {
+          linkText: this.$t('headerNav.latestBlogs'),
+          link: "/404",
+          child: false
+        },
+        {
+          linkText: this.$t('headerNav.hottesBlogs'),
+          link: "/sports",
+          child: false
+        }
+      ]
+    }
+  },
   mounted() {
     this.getBlogCategories()
   },

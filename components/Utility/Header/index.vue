@@ -1,7 +1,7 @@
 <template>
   <header class="header-area">
     <top-bar />
-    <div class="header-centerbar">
+    <div class="header-centerbar sm:py-10">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-4">
@@ -12,10 +12,10 @@
             </div>
           </div>
           <div class="col-lg-8">
-            <div class="header-centerbar-ad">
+            <!-- <div class="header-centerbar-ad">
               <a href="#">
                 <img src="@/assets/images/ads/one_ad.png" alt="" /></a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -82,20 +82,14 @@ export default {
   }),
   mounted() {
     localStorage.getItem('language') ? this.$i18n.locale = this.selectValue = localStorage.getItem('language') : ''
+    console.log('window.ethereum.selectedAddress', window.ethereum.selectedAddress)
+    if (window.ethereum.selectedAddress) {
+      this.$store.commit('getWalletAddress', window.ethereum.selectedAddress)
+      console.log('store', this.$store.state.walletAddress)
+
+    }
   },
   methods: {
-    // loginWithIdentityToken(walletAddress, identityToken) {
-    //   this.$authApi.loginWithIdentityToken({ wallet_address: walletAddress, identity_token: identityToken }).then(res => {
-    //     console.log('登录状态', res)
-    //   }).catch(err => {
-    //     console.log('err', err)
-    //   })
-    // },
-    // contractSaveToken(contractToken) {
-    //   let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
-    //   return web3Contract.methods.saveToken(contractToken).call()
-    // },
-
     languageChange(value) {
       console.log('value', value)
       localStorage.setItem('language', value)
@@ -103,7 +97,7 @@ export default {
     },
     showConfirmBox() {
       let _self = this
-      this.$confirm('是否确认登录?', '是否登录', {
+      this.$confirm('连接您的钱包并使用DECME，即表示您同意我们的服务条款和隐私政策。', '欢迎来到DECME', {
         closeOnClickModal: false,
         closeOnPressEscape: false,
         beforeClose: async function (action, instance, done) {
@@ -138,9 +132,9 @@ export default {
             })
           }
         },
-        confirmButtonText: '确认',
+        confirmButtonText: '接受并连接',
         cancelButtonText: '取消',
-        type: 'info',
+        // type: 'info',
         center: true
       }).then(() => {
         // this.getLoginToken()

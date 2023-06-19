@@ -6,22 +6,23 @@
     <ul class="nav nav-pills" id="pills-tab" role="tablist">
       <li class="nav-item" @click.prevent="selectGalleryTab('trendy')">
         <a :class="['nav-link', selectedGallery === 'trendy' ? 'active' : '']" data-toggle="pill" role="tab"
-          aria-controls="pills-home" aria-selected="true">最熱文章</a>
+          aria-controls="pills-home" aria-selected="true">{{ $t('recommend.latest') }}</a>
       </li>
       <li class="nav-item" @click.prevent="selectGalleryTab('latest')">
         <a :class="['nav-link', selectedGallery === 'latest' ? 'active' : '']" data-toggle="pill" href="#pills-profile"
-          role="tab" aria-controls="pills-profile" aria-selected="false">最新文章</a>
+          role="tab" aria-controls="pills-profile" aria-selected="false">{{ $t('recommend.hottest') }}</a>
       </li>
       <li class="nav-item" @click.prevent="selectGalleryTab('popular')">
         <a :class="['nav-link', selectedGallery === 'popular' ? 'active' : '']" class="nav-link" data-toggle="pill"
-          href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">最受歡迎文章</a>
+          href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{
+            $t('recommend.mostPopular') }}</a>
       </li>
     </ul>
     <div class="tab-content">
       <div :class="[
-          'tab-pane fade',
-          selectedGallery === 'trendy' ? 'show active' : '',
-        ]" role="tabpanel" aria-labelledby="pills-home-tab">
+        'tab-pane fade',
+        selectedGallery === 'trendy' ? 'show active' : '',
+      ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="post_gallery_items" v-if="datas && datas.length > 0">
           <template v-for="(small, index) in datas.slice(0, 5)">
             <row-card :class="[darkClass && 'item' in darkClass ? darkClass.item : '']" :category="true" :datas="small"
@@ -32,9 +33,9 @@
     </div>
     <div class="tab-content">
       <div :class="[
-          'tab-pane fade',
-          selectedGallery === 'latest' ? 'show active' : '',
-        ]" role="tabpanel" aria-labelledby="pills-home-tab">
+        'tab-pane fade',
+        selectedGallery === 'latest' ? 'show active' : '',
+      ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div v-if="datas && datas.length > 0" class="post_gallery_items">
           <template v-for="(small, index) in datas.slice(0, 5)">
             <row-card :category="true" :datas="small" :key="index" />
@@ -44,9 +45,9 @@
     </div>
     <div class="tab-content">
       <div :class="[
-          'tab-pane fade',
-          selectedGallery === 'popular' ? 'show active' : '',
-        ]" role="tabpanel" aria-labelledby="pills-home-tab">
+        'tab-pane fade',
+        selectedGallery === 'popular' ? 'show active' : '',
+      ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div v-if="datas && datas.length > 0" class="post_gallery_items">
           <template v-for="(small, index) in datas.slice(0, 5)">
             <row-card :category="true" :datas="small" :key="index" />
