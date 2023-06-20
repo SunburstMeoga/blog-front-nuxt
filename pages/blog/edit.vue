@@ -1,6 +1,69 @@
 <template>
     <div>
-        <blog-edit-tab-information />
+        <div class="container">
+            <div class="blog-module  mt-10">
+                <div class="module-title">封面图片</div>
+                <div class="flex-1">
+                    <el-upload class="avatar-uploader" :action="imgUploadUrl" :show-file-list="false"
+                        :on-success="handleCoverSuccess" :before-upload="beforeAvatarUpload">
+                        <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                    </el-upload>
+                </div>
+            </div>
+            <div class="blog-module">
+                <div class="module-title">
+                    blog分类
+                </div>
+                <div class="flex-1">
+                    <el-select v-model="categoryValue" placeholder="请选择">
+                        <el-option v-for="item in categoryList" :key="item.value" :label="item.label" :value="item.value">
+                        </el-option>
+                    </el-select>
+                </div>
+            </div>
+            <div class="blog-module">
+                <div class="module-title">
+                    blog标题
+                </div>
+                <div class="flex-1">
+                    <el-input v-model="blogTitle" placeholder="请输入内容"></el-input>
+                </div>
+            </div>
+            <div class="blog-module">
+                <div class="module-title">
+                    blog内容
+                </div>
+                <div class="editor-box flex-1">
+                    <blog-edit-tab-information />
+                </div>
+            </div>
+
+            <div class="blog-module">
+                <div class="module-title">
+                    Slug
+                </div>
+                <div class="flex-1">
+                    <el-input v-model="blogTitle" placeholder="请输入内容"></el-input>
+                </div>
+            </div>
+            <div class="blog-module">
+                <div class="module-title">
+                    Tags
+                </div>
+                <div class="flex-1">
+                    <el-select v-model="categoryValue" placeholder="请选择">
+                        <el-option v-for="item in categoryList" :key="item.value" :label="item.label" :value="item.value">
+                        </el-option>
+                    </el-select>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mb-4 sm:justify-end">
+                <div><el-button type="primary" :loading="true">发布</el-button></div>
+                <div class="sm:ml-12"><el-button>取消</el-button></div>
+            </div>
+        </div>
+
         <footer-one />
     </div>
 </template>
@@ -11,8 +74,97 @@ import BlogEditTabInformation from '../../components/Blog/BlogEditTabInformation
 import FooterOne from "../../components/Utility/Footer/FooterOne.vue";
 
 export default {
-    components: { BlogEditTabInformation, FooterOne }
+    components: { BlogEditTabInformation, FooterOne },
+    data() {
+        return {
+            blogTitle: '',
+            imageUrl: '',
+            imgUploadUrl: '',
+            categoryList: [{
+                value: '选项1',
+                label: '黄金糕'
+            }, {
+                value: '选项2',
+                label: '双皮奶'
+            }, {
+                value: '选项3',
+                label: '蚵仔煎'
+            }, {
+                value: '选项4',
+                label: '龙须面'
+            }, {
+                value: '选项5',
+                label: '北京烤鸭'
+            }],
+            categoryValue: '',
+        }
+    },
+    mounted() {
+        // let quillEditor = document.querySelectorAll('.ql-container')
+
+        // let newArr = Array.from(quillEditor)
+        // if (newArr.length < 3) return
+        // newArr.forEach(item => {
+        //   item.appendChild(this.createSpan())
+        // })
+        this.imgUploadUrl = process.env.BASE_URL + "/api/admin/image";
+        console.log('imgUploadUrl', this.imgUploadUrl)
+
+    },
+    methods: {
+        handleCoverSuccess(res, file) {
+            this.imageUrl = URL.createObjectURL(file.raw);
+            console.log(this.imgUploadUrl)
+            console.log(process.env.BASE_URL + "/admin/image")
+            console.log('this.imageUrl', file)
+        },
+        beforeAvatarUpload(file) {
+            const isJPG = file.type === 'image/jpeg';
+            const isLt2M = file.size / 1024 / 1024 < 2;
+
+            // if (!isJPG) {
+            //     this.$message.error('上传头像图片只能是 JPG 格式!');
+            // }
+            if (!isLt2M) {
+                this.$message.error('上传头像图片大小不能超过 2MB!');
+            }
+            return isLt2M;
+        },
+        createSpan() {
+            let spana = document.createElement('span')
+            spana.className = 'suffix-counter'
+            let ema = document.createElement('em')
+            ema.innerHTML = `${this.textLength}`
+            let txt = document.createTextNode(`/${this.maxLength}`)
+            spana.appendChild(ema)
+            spana.appendChild(txt)
+            return spana
+        },
+        handleEditorFocus(event) {
+            // console.log(event);
+            // event.enable(true)
+            // if (this.textLength >= this.maxLength) {
+            //   event.enable(false) // 在获取焦点的时候禁用
+            // }
+        },
+        handleEditorChange(event) {
+            // this.textLength = event.text.length - 1
+            // if (this.textLength >= this.maxLength) {
+            //   event.quill.enable(false)
+            //   return
+            // }
+            this.$emit('change', event)
+        }
+    }
 }
 </script>
 
-<style></style>
+<style scoped>
+.blog-module {
+    @apply flex justify-start items-start mb-10;
+}
+
+.module-title {
+    @apply w-2/12 font-bold;
+}
+</style>

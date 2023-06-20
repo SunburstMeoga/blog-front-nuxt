@@ -33,8 +33,11 @@
           </div>
           <div class="col-lg-4 col-sm-9 col-9">
             <div class="header-menu-rightbar">
-              <div class="header-menu-search" @click="connectWallet">
-                <a href="#" class="font-bold">{{ $t('login.connectWallet') }}</a>
+              <div class="header-menu-search">
+                <el-button type="primary" size="small" :loading="isLoading" @click="handleLogin">
+                  {{ isLoading ? '登录中...' : ($store.state.auth.isConnectWallet ? $t('login.login') :
+                    $t('login.connectWallet')) }}</el-button>
+
               </div>
               <div class="nice-select-item">
                 <el-select size="small" v-model="selectValue" @change="languageChange" placeholder="请选择">
@@ -76,9 +79,8 @@ export default {
       label: 'English'
     }],
     selectValue: '',
-    value: null,
-    options: ["English", "Bangla", "Hinde"],
-    walletAddress: ''
+    walletAddress: '',
+    isLoading: false
   }),
   mounted() {
     localStorage.getItem('language') ? this.$i18n.locale = this.selectValue = localStorage.getItem('language') : ''
@@ -86,7 +88,6 @@ export default {
     if (window.ethereum.selectedAddress) {
       this.$store.commit('auth/setWalletAddress', window.ethereum.selectedAddress)
       this.$store.commit('auth/changeConnectWalletStatus', true)
-      console.log('store', this.$store.state.auth)
     }
   },
   methods: {
@@ -95,58 +96,14 @@ export default {
       localStorage.setItem('language', value)
       this.$i18n.locale = value
     },
-    showConfirmBox() {
-      let _self = this
-      this.$confirm('连接您的钱包并使用DECME，即表示您同意我们的服务条款和隐私政策。', '欢迎来到DECME', {
-        closeOnClickModal: false,
-        closeOnPressEscape: false,
-        beforeClose: async function (action, instance, done) {
-          if (action === 'cancel' || action === 'close') {
-            done()
-          } else {
-            instance.confirmButtonText = '正在登录...'
-            const { contract_token, identity_token, wallet_address } = await _self.$authApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
-            let web3Contract = new _self.Web3.eth.Contract(_self.Config.con_abi, _self.Config.con_addr)
-            let data = web3Contract.methods.saveToken(contract_token).encodeABI() //gas
-            web3Contract.methods.saveToken(contract_token).call().then((result) => {
-              _self.Web3.eth.sendTransaction({
-                to: _self.Config.con_addr,
-                from: window.ethereum.selectedAddress,
-                value: result,
-                data: data
-              })
-                .on('receipt', (receipt) => {
-                  console.log('receipt', receipt)
-                  const { status, user, token } = _self.$authApi.loginWithIdentityToken(receipt.from, identity_token).data
-                  console.log('status', status)
-                  console.log('user', user)
-                  console.log('token', token)
-                })
-                .on('error', (error) => {
-                  console.log(error)
-                  instance.confirmButtonText = '登录失败，点击重新登录'
-                })
-
-            }).catch((err) => {
-              console.log(err)
-            })
-          }
-        },
-        confirmButtonText: '接受并连接',
-        cancelButtonText: '取消',
-        // type: 'info',
-        center: true
-      }).then(() => {
-        // this.getLoginToken()
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消'
-        });
-      });
-    },
-    handleConnect() {
-
+    async handleLogin() {
+      this.isLoading = true
+      if (window.ethereum.selectedAddress) { //已经连接钱包
+        const { contract_token, identity_token } = await this.$authApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
+        this.saveTokenToContract(contract_token, identity_token)
+      } else { //未链接钱包
+        this.connectWallet()
+      }
     },
     async connectWallet() {
       try {
@@ -161,6 +118,83 @@ export default {
     },
     hideSidebar(e) {
       this.$emit("toggleSidebar", e);
+    },
+    async saveTokenToContract(contractToken, identityToken) {
+      let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
+      web3Contract.methods.saveToken(contractToken)
+        .send({ from: window.ethereum.selectedAddress })
+        .on('transationHash', (hash) => {
+          console.log('hash', hash)
+        })
+        .on('receipt', (receipt) => {
+          console.log('receipt', receipt)
+        })
+        .then(res => {
+          console.log('登录成功', res)
+          console.log(window.ethereum.selectedAddress, identityToken)
+          const { status, user, token } = this.$authApi.loginWithIdentityToken(window.ethereum.selectedAddress, identityToken).data
+          console.log(status, user, token)
+          this.$store.state.auth.commit('setAuthToken', token)
+          this.$store.state.auth.commit('changeHasTokenStatus', true)
+          localStorage.setItem('token', this.$store.state.auth.authToken)
+          this.isLoading = false
+        })
+        .catch(err => {
+          console.log('登录失败', err)
+          this.isLoading = false
+
+        })
+      // web3Contract.methods.saveToken(contractToken).call().then((result) => {
+      //   this.Web3.eth.sendTransaction({
+      //     to: this.Config.con_addr,
+      //     from: window.ethereum.selectedAddress,
+      //     value: result,
+      //     data: data
+      //   })
+      //     .on('receipt', (receipt) => {
+      //       console.log('receipt', receipt)
+      //       const { status, user, token } = _self.$authApi.loginWithIdentityToken(receipt.from, identityToken).data
+      //       this.$store.state.auth.commit('setAuthToken', token)
+      //       this.$store.state.auth.commit('changeHasTokenStatus', true)
+      //       localStorage.setItem('token', _self.$store.state.auth.authToken)
+      //     })
+      //     .on('error', (error) => {
+      //       console.log(error)
+
+      //     })
+
+      // }).catch((err) => {
+      //   console.log(err)
+      // })
+    },
+    showConfirmBox() {
+      let _self = this
+      this.$confirm('连接您的钱包并使用DECME，即表示您同意我们的服务条款和隐私政策。', '欢迎来到DECME', {
+        closeOnClickModal: false,
+        closeOnPressEscape: false,
+        beforeClose: async function (action, instance, done) {
+          if (action === 'cancel' || action === 'close') {
+            done()
+          } else {
+            instance.confirmButtonText = '正在登录...'
+            const { contract_token, identity_token, wallet_address } = await _self.$authApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
+            const { data } = await _self.saveTokenToContract(contract_token, identity_token)
+            instance.confirmButtonText = '登录失败，点击重新登录'
+            done()
+          }
+        },
+        confirmButtonText: '接受并连接',
+        cancelButtonText: '取消',
+        // type: 'info',
+        center: true
+      }).then(() => {
+        // this.getLoginToken()
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消'
+        });
+      });
     },
   },
 };

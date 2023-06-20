@@ -5,7 +5,9 @@ Vue.use(Vuex);
 
 const state = () => ({
     walletAddress: '',
-    isConnectWallet: false
+    authToken: '',
+    isConnectWallet: false,
+    hasToken: false,
 });
 
 const mutations = {
@@ -14,6 +16,12 @@ const mutations = {
     },
     changeConnectWalletStatus(state, value) {
         state.isConnectWallet = value
+    },
+    changeHasTokenStatus(state, value) {
+        state.hasToken = value
+    },
+    setAuthToken(state, value) {
+        state.authToken = value
     }
 };
 

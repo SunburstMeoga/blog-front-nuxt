@@ -1,207 +1,124 @@
 <template>
-    <div class="container">
-        <div class="blog-module  mt-10">
-            <div class="module-title">封面图片</div>
-            <div class="flex-1">
-                <el-upload class="avatar-uploader" :action="imgUploadUrl" :show-file-list="false"
-                    :on-success="handleCoverSuccess" :before-upload="beforeAvatarUpload">
-                    <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                </el-upload>
-            </div>
-        </div>
-        <div class="blog-module">
-            <div class="module-title">
-                blog分类
-            </div>
-            <div class="flex-1">
-                <el-select v-model="categoryValue" placeholder="请选择">
-                    <el-option v-for="item in categoryList" :key="item.value" :label="item.label" :value="item.value">
-                    </el-option>
-                </el-select>
-            </div>
-        </div>
-        <div class="blog-module">
-            <div class="module-title">
-                blog标题
-            </div>
-            <div class="flex-1">
-                <el-input v-model="blogTitle" placeholder="请输入内容"></el-input>
-            </div>
-        </div>
-        <div class="blog-module">
-            <div class="module-title">
-                blog内容
-            </div>
-            <div class="editor-box flex-1">
-                <div class="quill-editor" :content="content" v-quill:myQuillEditor="options" :style="cusStyle"
-                    @change="handleEditorChange">
-                </div>
-            </div>
-        </div>
-
-        <div class="blog-module">
-            <div class="module-title">
-                Slug
-            </div>
-            <div class="flex-1">
-                <el-input v-model="blogTitle" placeholder="请输入内容"></el-input>
-            </div>
-        </div>
-        <div class="blog-module">
-            <div class="module-title">
-                Tags
-            </div>
-            <div class="flex-1">
-                <el-select v-model="categoryValue" placeholder="请选择">
-                    <el-option v-for="item in categoryList" :key="item.value" :label="item.label" :value="item.value">
-                    </el-option>
-                </el-select>
-            </div>
-        </div>
-        <div class="flex justify-between items-center mb-4 sm:justify-end">
-            <div><el-button type="primary" :loading="true">发布</el-button></div>
-            <div class="sm:ml-12"><el-button>取消</el-button></div>
+    <div v-loading="isLoading" :element-loading-text="'上传进度' + progress" element-loading-spinner="el-icon-loading"
+        element-loading-background="rgba(0, 0, 0, 0.8)">
+        <input class="file" type="file" style="display:none" id="file" ref="input" @change="doUpload">
+        <div class="quill-editor" :content="content" @change="onEditorChange($event)" @blur="onEditorBlur($event)"
+            style="height: 250px;" @focus="onEditorFocus($event)" @ready="onEditorReady($event)"
+            v-quill:myQuillEditor="editorOption">
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        // 内容
-        content: {
-            type: String,
-            default: ''
-        },
-        // 配置项
-        options: {
-            type: Object,
-            default() {
-                return {}
-            }
-        },
-        // 自定义样式
-        cusStyle: {
-            type: String,
-            default: 'height: 250px;'
-        },
-        // 宽度
-        toolBarwidth: {
-            type: String,
-            default: '500px'
-        },
-        maxLength: {
-            type: Number,
-            default: 100
-        }
-    },
     data() {
+        const self = this
         return {
-            blogTitle: '',
-            imageUrl: '',
-            imgUploadUrl: '',
-            categoryList: [{
-                value: '选项1',
-                label: '黄金糕'
-            }, {
-                value: '选项2',
-                label: '双皮奶'
-            }, {
-                value: '选项3',
-                label: '蚵仔煎'
-            }, {
-                value: '选项4',
-                label: '龙须面'
-            }, {
-                value: '选项5',
-                label: '北京烤鸭'
-            }],
-            categoryValue: '',
+            content: '',
+            isLoading: false,
+            progress: 0,
             editorOption: {
+                // some quill options
                 modules: {
-                    toolbar: [
-                        ['bold', 'italic', 'underline', 'strike'], //加粗，斜体，下划线，删除线
-                        ['blockquote', 'code-block'], //引用，代码块
-                        [{ header: 1 }, { header: 2 }], // 标题，键值对的形式；1、2表示字体大小
-                        [{ list: 'ordered' }, { list: 'bullet' }], //列表
-                        [{ script: 'sub' }, { script: 'super' }], // 上下标
-                        [{ indent: '-1' }, { indent: '+1' }], // 缩进
-                        [{ direction: 'rtl' }], // 文本方向
-                        [{ size: ['small', false, 'large', 'huge'] }], // 字体大小
-                        [{ header: [1, 2, 3, 4, 5, 6, false] }], //几级标题
-                        [{ color: [] }, { background: [] }], // 字体颜色，字体背景颜色
-                        [{ font: [] }], //字体
-                        [{ align: [] }], //对齐方式
-                        ['link', 'image', 'video']
-                        ['clean'], //清除字体样式
-                    ],
+                    toolbar: {
+                        container: [
+                            ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+                            ['blockquote', 'code-block'],
+                            ['link', 'image'],
+
+                            [{ 'header': 1 }, { 'header': 2 }], // custom button values
+                            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                            [{ 'script': 'sub' }, { 'script': 'super' }], // superscript/subscript
+                            [{ 'indent': '-1' }, { 'indent': '+1' }], // outdent/indent
+                            [{ 'direction': 'rtl' }], // text direction
+
+                            [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
+                            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+                            [{ 'color': [] }, { 'background': [] }], // dropdown with defaults from theme
+                            [{ 'font': [] }],
+                            [{ 'align': [] }],
+
+                            ['clean'] // remove formatting button
+                        ],
+                        handlers: {
+                            'image': function () {
+                                this.quill.format('image', false)// 禁用quill内部上传图片方法
+                                self.imgHandler(this)
+                            }
+                        }
+                    }
                 }
             }
         }
     },
-    mounted() {
-        // let quillEditor = document.querySelectorAll('.ql-container')
-
-        // let newArr = Array.from(quillEditor)
-        // if (newArr.length < 3) return
-        // newArr.forEach(item => {
-        //   item.appendChild(this.createSpan())
-        // })
-        this.imgUploadUrl = process.env.BASE_URL + "/api/admin/image";
-        console.log('imgUploadUrl', this.imgUploadUrl)
-        this.$nextTick(() => {
-            let quill = document.querySelectorAll('.ql-toolbar')
-            Array.from(quill).forEach(item => {
-                // item.style.width = this.toolBarwidth
-            })
-        })
-
-    },
     methods: {
-        handleCoverSuccess(res, file) {
-            this.imageUrl = URL.createObjectURL(file.raw);
-            console.log(this.imgUploadUrl)
-            console.log(process.env.BASE_URL + "/admin/image")
-            console.log('this.imageUrl', file)
+        handleRemove(file, fileList) {
+            console.log(file, fileList)
         },
-        beforeAvatarUpload(file) {
-            const isJPG = file.type === 'image/jpeg';
-            const isLt2M = file.size / 1024 / 1024 < 2;
-
-            // if (!isJPG) {
-            //     this.$message.error('上传头像图片只能是 JPG 格式!');
-            // }
-            if (!isLt2M) {
-                this.$message.error('上传头像图片大小不能超过 2MB!');
+        handlePreview(file) {
+            console.log(file)
+        },
+        onEditorBlur(editor) {
+            console.log('editor blur!', editor)
+        },
+        onEditorFocus(editor) {
+            console.log('editor focus!', editor)
+        },
+        onEditorReady(editor) {
+            console.log('editor ready!', editor)
+        },
+        onEditorChange({ editor, html, text }) {
+            console.log('editor change!', editor, html, text)
+            this.content = html
+        },
+        imgHandler(handle) {
+            this.quill = handle.quill
+            var inputfile = document.getElementById('file')
+            inputfile.click()
+        },
+        doUpload: async function () {
+            let file = document.getElementById('file').files[0]
+            let formdata = new FormData()// 创建form对象
+            formdata.append('file', file, file.name)
+            let config = {
+                headers: { 'Content-Type': 'multipart/form-data' },
+                onUploadProgress: progressEvent => {
+                    let complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%'
+                    this.progress = complete
+                }
+            } // 添加请求头
+            this.isLoading = true
+            let res = await this.$blogApi.uploadImage(formdata)
+            this.isLoading = false
+            console.log(res)
+            this.quill.insertEmbed(length, 'image', process.env.BASE_URL + "/api/admin/image" + res.data)
+        },
+        async update() {
+            let params = {
+                title: this.form.title,
+                publish_time: this.form.publish_time,
+                content: this.content,
+                event_id: this.event_id
             }
-            return isLt2M;
-        },
-        createSpan() {
-            let spana = document.createElement('span')
-            spana.className = 'suffix-counter'
-            let ema = document.createElement('em')
-            ema.innerHTML = `${this.textLength}`
-            let txt = document.createTextNode(`/${this.maxLength}`)
-            spana.appendChild(ema)
-            spana.appendChild(txt)
-            return spana
-        },
-        handleEditorFocus(event) {
-            // console.log(event);
-            // event.enable(true)
-            // if (this.textLength >= this.maxLength) {
-            //   event.enable(false) // 在获取焦点的时候禁用
-            // }
-        },
-        handleEditorChange(event) {
-            // this.textLength = event.text.length - 1
-            // if (this.textLength >= this.maxLength) {
-            //   event.quill.enable(false)
-            //   return
-            // }
-            this.$emit('change', event)
+            console.log(params)
+            let res = await axios.post('/api/createEvent', params)
+            if (res.data.ret) {
+                this.$notify.error({
+                    message: res.data.errorMsg,
+                    title: '错误'
+                })
+            } else {
+                this.$notify({
+                    message: res.data.errorMsg,
+                    title: '成功',
+                    type: 'success'
+                })
+            }
         }
+    },
+    async mounted() {
+
     }
 }
 </script>
