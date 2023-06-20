@@ -124,23 +124,24 @@ export default {
       web3Contract.methods.saveToken(contractToken)
         .send({ from: window.ethereum.selectedAddress })
         .on('transationHash', (hash) => {
-          console.log('hash', hash)
+          // console.log('hash', hash)
         })
         .on('receipt', (receipt) => {
-          console.log('receipt', receipt)
+          // console.log('receipt', receipt)
         })
         .then(res => {
-          console.log('登录成功', res)
-          console.log(window.ethereum.selectedAddress, identityToken)
-          const { status, user, token } = this.$authApi.loginWithIdentityToken(window.ethereum.selectedAddress, identityToken).data
-          console.log(status, user, token)
+          console.log('保存contractToken成功', res)
+          console.log('contract_token', contractToken)
+          console.log('identity_token', identityToken)
+          console.log('wallet_address', window.ethereum.selectedAddress)
+          const { status, user, token } = this.$authApi.loginWithIdentityToken({ wallet_address: window.ethereum.selectedAddress, identity_token: identityToken })
           this.$store.state.auth.commit('setAuthToken', token)
           this.$store.state.auth.commit('changeHasTokenStatus', true)
           localStorage.setItem('token', this.$store.state.auth.authToken)
           this.isLoading = false
         })
         .catch(err => {
-          console.log('登录失败', err)
+          console.log('保存contractToken失败', err)
           this.isLoading = false
 
         })
@@ -178,7 +179,7 @@ export default {
           } else {
             instance.confirmButtonText = '正在登录...'
             const { contract_token, identity_token, wallet_address } = await _self.$authApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
-            const { data } = await _self.saveTokenToContract(contract_token, identity_token)
+            await console.log(_self.saveTokenToContract(contract_token, identity_token))
             instance.confirmButtonText = '登录失败，点击重新登录'
             done()
           }

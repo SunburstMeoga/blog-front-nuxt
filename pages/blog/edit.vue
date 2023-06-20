@@ -16,8 +16,8 @@
                     blog分类
                 </div>
                 <div class="flex-1">
-                    <el-select v-model="categoryValue" placeholder="请选择">
-                        <el-option v-for="item in categoryList" :key="item.value" :label="item.label" :value="item.value">
+                    <el-select v-model="categoryValue" multiple placeholder="请选择">
+                        <el-option v-for="item in categorysList" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                     </el-select>
                 </div>
@@ -27,7 +27,7 @@
                     blog标题
                 </div>
                 <div class="flex-1">
-                    <el-input v-model="blogTitle" placeholder="请输入内容"></el-input>
+                    <el-input v-model="blogTitle" placeholder="请输入标题"></el-input>
                 </div>
             </div>
             <div class="blog-module">
@@ -52,8 +52,8 @@
                     Tags
                 </div>
                 <div class="flex-1">
-                    <el-select v-model="categoryValue" placeholder="请选择">
-                        <el-option v-for="item in categoryList" :key="item.value" :label="item.label" :value="item.value">
+                    <el-select v-model="slugValue" multiple placeholder="请选择">
+                        <el-option v-for="item in categorysList" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                     </el-select>
                 </div>
@@ -75,29 +75,25 @@ import FooterOne from "../../components/Utility/Footer/FooterOne.vue";
 
 export default {
     components: { BlogEditTabInformation, FooterOne },
-    data() {
-        return {
-            blogTitle: '',
-            imageUrl: '',
-            imgUploadUrl: '',
-            categoryList: [{
-                value: '选项1',
-                label: '黄金糕'
-            }, {
-                value: '选项2',
-                label: '双皮奶'
-            }, {
-                value: '选项3',
-                label: '蚵仔煎'
-            }, {
-                value: '选项4',
-                label: '龙须面'
-            }, {
-                value: '选项5',
-                label: '北京烤鸭'
-            }],
-            categoryValue: '',
-        }
+    data: () => ({
+        blogTitle: '',
+        imageUrl: '',
+        imgUploadUrl: '',
+        categorysList: [],
+        categoryValue: '',
+        slugValue: ''
+    }),
+    async asyncData({ $blogApi }) {
+        const { data } = await $blogApi.getBlogCategories()
+        let array = []
+        data.docs.map(item => {
+            let obj = {}
+            obj.label = item.slug
+            obj.value = item.id
+            array.push(obj)
+        })
+        console.log(data)
+        return { categorysList: array }
     },
     mounted() {
         // let quillEditor = document.querySelectorAll('.ql-container')
@@ -166,5 +162,9 @@ export default {
 
 .module-title {
     @apply w-2/12 font-bold;
+}
+
+.el-select {
+    width: 100%;
 }
 </style>
