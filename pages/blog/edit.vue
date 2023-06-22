@@ -5,7 +5,7 @@
                 <div class="module-title">封面图片</div>
                 <div class="flex-1">
                     <el-upload class="avatar-uploader" :action="imgUploadUrl" :show-file-list="false"
-                        :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload">
+                        :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload" :headers="headerObj">
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload>
@@ -81,7 +81,9 @@ export default {
         imgUploadUrl: '',
         categorysList: [],
         categoryValue: '',
-        slugValue: ''
+        slugValue: '',
+        headerObj: {}
+
     }),
     async asyncData({ $blogApi }) {
         const { data } = await $blogApi.getBlogCategories()
@@ -95,45 +97,33 @@ export default {
         console.log(data)
         return { categorysList: array }
     },
-    mounted() {
-        this.imgUploadUrl = process.env.BASE_URL + "/api/admin/image";
-        console.log('imgUploadUrl', this.imgUploadUrl)
-
+    create() {
+        this.imgUploadUrl = process.env.BASE_URL + "/api/image";
+        this.headerObj = {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+        }
+        // console.log('imgUploadUrl', this.imgUploadUrl)
     },
     methods: {
         handleCoverSuccess(res, file) {
             this.imageUrl = URL.createObjectURL(file.raw);
-            console.log(this.imageUrl)
+            console.log(res)
+
             console.log('this.imageUrl', file)
         },
         beforeCoverUpload(file) {
-            const isJPG = file.type === 'image/jpeg';
-            const isLt2M = file.size / 1024 / 1024 < 2;
-            console.log('imgUploadUrl', this.imgUploadUrl)
+            console.log('file', file)
+            // const isJPG = file.type === 'image/jpeg';
+            // const isLt2M = file.size / 1024 / 1024 < 2;
+            // console.log('file', file)
 
-            // if (!isJPG) {
-            //     this.$message.error('上传头像图片只能是 JPG 格式!');
+            // // if (!isJPG) {
+            // //     this.$message.error('上传头像图片只能是 JPG 格式!');
+            // // }
+            // if (!isLt2M) {
+            //     this.$message.error('上传头像图片大小不能超过 2MB!');
             // }
-            if (!isLt2M) {
-                this.$message.error('上传头像图片大小不能超过 2MB!');
-            }
-            return isLt2M;
-        },
-
-        handleEditorFocus(event) {
-            // console.log(event);
-            // event.enable(true)
-            // if (this.textLength >= this.maxLength) {
-            //   event.enable(false) // 在获取焦点的时候禁用
-            // }
-        },
-        handleEditorChange(event) {
-            // this.textLength = event.text.length - 1
-            // if (this.textLength >= this.maxLength) {
-            //   event.quill.enable(false)
-            //   return
-            // }
-            this.$emit('change', event)
+            // return isLt2M;
         }
     }
 }
@@ -150,5 +140,32 @@ export default {
 
 .el-select {
     width: 100%;
+}
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+}
+
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+}
+
+.avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
 }
 </style>

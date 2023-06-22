@@ -90,9 +90,10 @@ export default {
     },
   },
   mounted() {
-    console.log('this', this.Config, this.Web3)
-    let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
-    console.log('web3Contract', web3Contract)
+    if (localStorage.getItem('token')) {
+      this.$store.commit('auth/setAuthToken', localStorage.getItem('token'))
+      this.$store.commit('auth/changeHasTokenStatus', true)
+    }
 
   },
   async asyncData({ $blogApi }) {

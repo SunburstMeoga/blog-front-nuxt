@@ -1,6 +1,6 @@
 // 引入我们刚刚创建的index.js api文件
 import blogApi from '@/api/blog.js'
-import authApi from '@/api/authentication.js'
+import userApi from '@/api/user.js'
 
 
 export default function ({ $axios, store }, inject) {
@@ -27,6 +27,7 @@ export default function ({ $axios, store }, inject) {
             config.startTime = new Date().getTime()
             config.headers['Content-Type'] = 'application/json'
             /* 如果你需要token */
+            // const token = store.state.auth.authToken || ''
             const token = store.state.auth.authToken || ''
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`
@@ -41,7 +42,7 @@ export default function ({ $axios, store }, inject) {
             if (status === 200) {
                 // 打印出每个接口的响应时间
                 console.info(response.config.url, '请求时间', response.config.endTime - response.config.startTime + 'ms')
-                console.info(store.state)
+                console.info(response)
                 // 用于调试
                 if (process.env.DEBUG) {
                     console.info('$axios.onResponse', response.data)
@@ -87,7 +88,7 @@ export default function ({ $axios, store }, inject) {
         return $axios
     }
     inject('blogApi', blogApi(axiosConfig($axios.create())))
-    inject('authApi', authApi(axiosConfig($axios.create())))
+    inject('userApi', userApi(axiosConfig($axios.create())))
 
 }
 
