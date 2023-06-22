@@ -90,7 +90,7 @@ export default {
         },
         {
           linkText: '我的博客',
-          link: "/blog/edit",
+          link: "/blog/my",
           child: false
         },
         {

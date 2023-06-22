@@ -27,10 +27,10 @@ export default function ({ $axios, store }, inject) {
             config.startTime = new Date().getTime()
             config.headers['Content-Type'] = 'application/json'
             /* 如果你需要token */
-            // const token = store.state.token || ''
-            // if (token) {
-            //   config.headers.Authorization = `Bearer ${token}`
-            // }
+            const token = store.state.auth.authToken || ''
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`
+            }
             return config
         })
         // 设置响应拦截
@@ -40,8 +40,8 @@ export default function ({ $axios, store }, inject) {
 
             if (status === 200) {
                 // 打印出每个接口的响应时间
-                console.info(response.config.url, '请求时间', response.config.endTime - response.config.startTime + 'ms'
-                )
+                console.info(response.config.url, '请求时间', response.config.endTime - response.config.startTime + 'ms')
+                console.info(store.state)
                 // 用于调试
                 if (process.env.DEBUG) {
                     console.info('$axios.onResponse', response.data)

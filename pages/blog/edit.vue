@@ -5,7 +5,7 @@
                 <div class="module-title">封面图片</div>
                 <div class="flex-1">
                     <el-upload class="avatar-uploader" :action="imgUploadUrl" :show-file-list="false"
-                        :on-success="handleCoverSuccess" :before-upload="beforeAvatarUpload">
+                        :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload">
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload>
@@ -96,13 +96,6 @@ export default {
         return { categorysList: array }
     },
     mounted() {
-        // let quillEditor = document.querySelectorAll('.ql-container')
-
-        // let newArr = Array.from(quillEditor)
-        // if (newArr.length < 3) return
-        // newArr.forEach(item => {
-        //   item.appendChild(this.createSpan())
-        // })
         this.imgUploadUrl = process.env.BASE_URL + "/api/admin/image";
         console.log('imgUploadUrl', this.imgUploadUrl)
 
@@ -110,13 +103,13 @@ export default {
     methods: {
         handleCoverSuccess(res, file) {
             this.imageUrl = URL.createObjectURL(file.raw);
-            console.log(this.imgUploadUrl)
-            console.log(process.env.BASE_URL + "/admin/image")
+            console.log(this.imageUrl)
             console.log('this.imageUrl', file)
         },
-        beforeAvatarUpload(file) {
+        beforeCoverUpload(file) {
             const isJPG = file.type === 'image/jpeg';
             const isLt2M = file.size / 1024 / 1024 < 2;
+            console.log('imgUploadUrl', this.imgUploadUrl)
 
             // if (!isJPG) {
             //     this.$message.error('上传头像图片只能是 JPG 格式!');
@@ -126,16 +119,7 @@ export default {
             }
             return isLt2M;
         },
-        createSpan() {
-            let spana = document.createElement('span')
-            spana.className = 'suffix-counter'
-            let ema = document.createElement('em')
-            ema.innerHTML = `${this.textLength}`
-            let txt = document.createTextNode(`/${this.maxLength}`)
-            spana.appendChild(ema)
-            spana.appendChild(txt)
-            return spana
-        },
+
         handleEditorFocus(event) {
             // console.log(event);
             // event.enable(true)

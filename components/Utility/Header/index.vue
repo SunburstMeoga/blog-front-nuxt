@@ -119,7 +119,7 @@ export default {
     hideSidebar(e) {
       this.$emit("toggleSidebar", e);
     },
-    async saveTokenToContract(contractToken, identityToken) {
+    saveTokenToContract(contractToken, identityToken) {
       let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
       web3Contract.methods.saveToken(contractToken)
         .send({ from: window.ethereum.selectedAddress })
@@ -129,16 +129,21 @@ export default {
         .on('receipt', (receipt) => {
           // console.log('receipt', receipt)
         })
-        .then(res => {
+        .then((res) => {
           console.log('保存contractToken成功', res)
           console.log('contract_token', contractToken)
           console.log('identity_token', identityToken)
           console.log('wallet_address', window.ethereum.selectedAddress)
-          const { status, user, token } = this.$authApi.loginWithIdentityToken({ wallet_address: window.ethereum.selectedAddress, identity_token: identityToken })
-          this.$store.state.auth.commit('setAuthToken', token)
-          this.$store.state.auth.commit('changeHasTokenStatus', true)
-          localStorage.setItem('token', this.$store.state.auth.authToken)
-          this.isLoading = false
+          this.$authApi.loginWithIdentityToken({ wallet_address: window.ethereum.selectedAddress, identity_token: identityToken }).then(userInfo => {
+            const { status, data, token } = userInfo
+            this.$store.commit('auth/setAuthToken', token)
+            this.$store.commit('auth/changeHasTokenStatus', true)
+            localStorage.setItem('token', token)
+            console.log(status, data, token)
+            console.log(userInfo)
+            this.isLoading = false
+          })
+
         })
         .catch(err => {
           console.log('保存contractToken失败', err)
