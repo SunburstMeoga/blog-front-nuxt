@@ -6,14 +6,14 @@
           <div class="about-tab-btn mt-10">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li @click.prevent="selectTab('latest')" class="nav-item" role="presentation">
-                <a :class="[selected === 'latest' ? 'active' : '']" class="nav-link" id="pills-profile-tab"
-                  data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">全部博客</a>
+                <a :class="[selected === 'latest' ? 'active' : '']" class="nav-link" id="pills-home-tab"
+                  data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+                  aria-selected="true">全部博客</a>
               </li>
               <li @click.prevent="selectTab('news')" class="nav-item" role="presentation">
                 <a :class="[selected === 'news' ? 'active' : '']" class="nav-link" id="pills-profile-tab"
                   data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">正在审核</a>
+                  aria-selected="false">正在審核</a>
               </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
@@ -84,7 +84,7 @@
                           <div class="feature-news-thumb">
                             <img src="@/assets/images/feature/feature-news-1.jpg" alt="feature" />
                             <div class="meta-categores">
-                              <span>TECHNOLOGY</span>
+                              <span>正在審核</span>
                             </div>
                           </div>
                           <div class="feature-news-content">
