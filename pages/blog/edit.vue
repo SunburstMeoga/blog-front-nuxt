@@ -4,8 +4,9 @@
             <div class="blog-module  mt-10">
                 <div class="module-title">封面图片</div>
                 <div class="flex-1">
-                    <el-upload class="avatar-uploader" :action="imgUploadUrl" :show-file-list="false"
-                        :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload" :headers="headerObj">
+                    <el-upload class="avatar-uploader" :action="imgUploadUrl" :http-request="httpRequest"
+                        :show-file-list="false" :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload"
+                        :headers="headerObj">
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload>
@@ -107,9 +108,40 @@ export default {
     methods: {
         handleCoverSuccess(res, file) {
             this.imageUrl = URL.createObjectURL(file.raw);
-            console.log(res)
-
-            console.log('this.imageUrl', file)
+            var formdata = new FormData()
+            formdata.append('filename', file)
+            formdata.append('name', 'filename')
+            formdata.append('desc', 'desc')
+            console.log('formdata', formdata)
+            this.$blogApi.uploadImage({ image_path: formdata }).then(res => {
+                this.$message.success('文件上传成功')
+                console.log(res)
+                // if (res.data.code === 100) {
+                //     this.$message.success('文件上传成功')
+                //     console.log(res)
+                // } else {
+                //     this.$message.error('文件上传失败')
+                // }
+            })
+        },
+        httpRequest(params) {
+            console.log(params.file)//拿到上传的文件
+            var formdata = new FormData()
+            formdata.append('filename', params.file)
+            formdata.append('name', 'filename')
+            formdata.append('desc', 'desc')
+            console.log('formdata', formdata)
+            console.log()
+            this.$blogApi.uploadImage({ image_path: formdata }).then(res => {
+                this.$message.success('文件上传成功')
+                console.log(res)
+                // if (res.data.code === 100) {
+                //     this.$message.success('文件上传成功')
+                //     console.log(res)
+                // } else {
+                //     this.$message.error('文件上传失败')
+                // }
+            })
         },
         beforeCoverUpload(file) {
             console.log('file', file)

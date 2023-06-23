@@ -99,7 +99,7 @@ export default {
     async handleLogin() {
       this.isLoading = true
       if (window.ethereum.selectedAddress) { //已经连接钱包
-        const { contract_token, identity_token } = await this.$authApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
+        const { contract_token, identity_token } = await this.$userApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
         this.saveTokenToContract(contract_token, identity_token)
       } else { //未链接钱包
         this.connectWallet()
@@ -134,7 +134,7 @@ export default {
           console.log('contract_token', contractToken)
           console.log('identity_token', identityToken)
           console.log('wallet_address', window.ethereum.selectedAddress)
-          this.$authApi.loginWithIdentityToken({ wallet_address: window.ethereum.selectedAddress, identity_token: identityToken }).then(userInfo => {
+          this.$userApi.loginWithIdentityToken({ wallet_address: window.ethereum.selectedAddress, identity_token: identityToken }).then(userInfo => {
             const { status, data, token } = userInfo
             this.$store.commit('auth/setAuthToken', token)
             this.$store.commit('auth/changeHasTokenStatus', true)
@@ -159,7 +159,7 @@ export default {
       //   })
       //     .on('receipt', (receipt) => {
       //       console.log('receipt', receipt)
-      //       const { status, user, token } = _self.$authApi.loginWithIdentityToken(receipt.from, identityToken).data
+      //       const { status, user, token } = _self.$userApi.loginWithIdentityToken(receipt.from, identityToken).data
       //       this.$store.state.auth.commit('setAuthToken', token)
       //       this.$store.state.auth.commit('changeHasTokenStatus', true)
       //       localStorage.setItem('token', _self.$store.state.auth.authToken)
@@ -183,7 +183,7 @@ export default {
             done()
           } else {
             instance.confirmButtonText = '正在登录...'
-            const { contract_token, identity_token, wallet_address } = await _self.$authApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
+            const { contract_token, identity_token, wallet_address } = await _self.$userApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress })
             await console.log(_self.saveTokenToContract(contract_token, identity_token))
             instance.confirmButtonText = '登录失败，点击重新登录'
             done()
