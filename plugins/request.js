@@ -25,7 +25,7 @@ export default function ({ $axios, store }, inject) {
             }
 
             config.startTime = new Date().getTime()
-            config.headers['Content-Type'] = 'application/json;multipart/form-data'
+            config.headers['Content-Type'] = 'application/json'
             /* 如果你需要token */
             // const token = store.state.auth.authToken || ''
             const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODcxOTkyNWUzZDRkMTFmODk4ODc4NCIsImlhdCI6MTY4NzUxNDU2NSwiZXhwIjoxNjk1MjkwNTY1fQ.rduIGlVjpNInNRIIWf7kX0ATyQULXL3pCtpRimncjMo'

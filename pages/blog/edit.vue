@@ -4,12 +4,20 @@
             <div class="blog-module  mt-10">
                 <div class="module-title">封面图片</div>
                 <div class="flex-1">
-                    <el-upload class="avatar-uploader" :action="imgUploadUrl" :http-request="httpRequest"
-                        :show-file-list="false" :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload"
-                        :headers="headerObj">
+                    <!-- <el-upload class="avatar-uploader" :action="imgUploadUrl" :show-file-list="false"
+                        :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload" :headers="headerObj"
+                        :on-remove="handleRemove">
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                    </el-upload> -->
+                    <el-upload :limit="1" :action="imgUploadUrl" list-type="picture-card" :on-success="handleCoverSuccess"
+                        :before-upload="beforeCoverUpload" :headers="headerObj" :on-preview="handlePictureCardPreview"
+                        :on-remove="handleRemove">
+                        <i class="el-icon-plus"></i>
                     </el-upload>
+                    <el-dialog :visible.sync="dialogVisible">
+                        <img width="100%" :src="dialogImageUrl" alt="">
+                    </el-dialog>
                 </div>
             </div>
             <div class="blog-module">
@@ -83,7 +91,9 @@ export default {
         categorysList: [],
         categoryValue: '',
         slugValue: '',
-        headerObj: {}
+        headerObj: {},
+        dialogImageUrl: '',
+        dialogVisible: false,
 
     }),
     async asyncData({ $blogApi }) {
@@ -106,43 +116,22 @@ export default {
         // console.log('imgUploadUrl', this.imgUploadUrl)
     },
     methods: {
+        handleRemove(file, fileList) {
+            console.log(file, fileList);
+        },
+        handlePictureCardPreview(file) {
+            this.dialogImageUrl = this.imageUrl;
+            this.dialogVisible = true;
+        },
         handleCoverSuccess(res, file) {
-            this.imageUrl = URL.createObjectURL(file.raw);
-            var formdata = new FormData()
-            formdata.append('filename', file)
-            formdata.append('name', 'filename')
-            formdata.append('desc', 'desc')
-            console.log('formdata', formdata)
-            this.$blogApi.uploadImage({ image_path: formdata }).then(res => {
+            this.imageUrl = URL.createObjectURL(file.raw)
+            let formdata = new FormData()
+            formdata.append('image', file.raw)
+            this.$blogApi.uploadImage(formdata).then(res => {
                 this.$message.success('文件上传成功')
-                console.log(res)
-                // if (res.data.code === 100) {
-                //     this.$message.success('文件上传成功')
-                //     console.log(res)
-                // } else {
-                //     this.$message.error('文件上传失败')
-                // }
             })
         },
-        httpRequest(params) {
-            console.log(params.file)//拿到上传的文件
-            var formdata = new FormData()
-            formdata.append('filename', params.file)
-            formdata.append('name', 'filename')
-            formdata.append('desc', 'desc')
-            console.log('formdata', formdata)
-            console.log()
-            this.$blogApi.uploadImage({ image_path: formdata }).then(res => {
-                this.$message.success('文件上传成功')
-                console.log(res)
-                // if (res.data.code === 100) {
-                //     this.$message.success('文件上传成功')
-                //     console.log(res)
-                // } else {
-                //     this.$message.error('文件上传失败')
-                // }
-            })
-        },
+
         beforeCoverUpload(file) {
             console.log('file', file)
             // const isJPG = file.type === 'image/jpeg';
@@ -199,5 +188,11 @@ export default {
     width: 178px;
     height: 178px;
     display: block;
+}
+
+.disabled {}
+
+.el-upload--picture-card {
+    display: none;
 }
 </style>
