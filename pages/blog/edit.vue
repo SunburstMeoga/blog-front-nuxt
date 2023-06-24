@@ -4,7 +4,7 @@
             <div class="blog-module  mt-10">
                 <div class="module-title">封面图片</div>
                 <div class="flex-1">
-                    <!-- <el-upload class="avatar-uploader" :action="imgUploadUrl" :show-file-list="false"
+                    <!-- <el-upload class="avatar-uploader" :limit="1" :action="imgUploadUrl" :show-file-list="false"
                         :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload" :headers="headerObj"
                         :on-remove="handleRemove">
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
@@ -15,9 +15,6 @@
                         :on-remove="handleRemove">
                         <i class="el-icon-plus"></i>
                     </el-upload>
-                    <el-dialog :visible.sync="dialogVisible">
-                        <img width="100%" :src="dialogImageUrl" alt="">
-                    </el-dialog>
                 </div>
             </div>
             <div class="blog-module">
@@ -68,8 +65,13 @@
                 </div>
             </div>
             <div class="flex justify-between items-center mb-4 sm:justify-end">
-                <div><el-button type="primary" :loading="true">发布</el-button></div>
-                <div class="sm:ml-12"><el-button>取消</el-button></div>
+                <div>
+                    <el-button @click="handleBlogs" type="primary" :disabled="loadingHandle || creatSccess"
+                        :loading="loadingHandle">
+                        {{ creatSccess ? '已发布成功' : (loadingHandle ? '正在发布...' : (createFail ? '发布失败，请重新发布' : '发布')) }}
+                    </el-button>
+                </div>
+                <!-- <div class="sm:ml-12"><el-button>取消</el-button></div> -->
             </div>
         </div>
 
@@ -92,9 +94,12 @@ export default {
         categoryValue: '',
         slugValue: '',
         headerObj: {},
+        loadingHandle: false,
         dialogImageUrl: '',
         dialogVisible: false,
-
+        createFail: false,
+        creatSccess: false,
+        imageFile: null
     }),
     async asyncData({ $blogApi }) {
         const { data } = await $blogApi.getBlogCategories()
@@ -116,6 +121,29 @@ export default {
         // console.log('imgUploadUrl', this.imgUploadUrl)
     },
     methods: {
+        handleBlogs() {
+            this.createBlogs()
+        },
+        createBlogs() {
+            this.loadingHandle = true
+            console.log(this.imageFile)
+            this.$blogApi.createOrUpdateBlogs({
+                title: 'test title',
+                slug: '这里是slug',
+                content: 'this is content lotto',
+                image: this.imageFile,
+                id: '',
+                categoryIds: ['647de90e63684f0b1c7cc166', '64855ba24d11eb48c28fb488']
+            }).then(res => {
+                console.log('发布成功', res)
+                this.loadingHandle = false,
+                    this.creatSccess = true
+            }).catch(err => {
+                console.log('发布失败', err)
+                this.loadingHandle = false
+                this.createFail = true
+            })
+        },
         handleRemove(file, fileList) {
             console.log(file, fileList);
         },
@@ -127,8 +155,11 @@ export default {
             this.imageUrl = URL.createObjectURL(file.raw)
             let formdata = new FormData()
             formdata.append('image', file.raw)
+            this.imageFile = file.raw
             this.$blogApi.uploadImage(formdata).then(res => {
                 this.$message.success('文件上传成功')
+                this.imageUrl = res.data.image_path
+                console.log('imageUrl', this.imageUrl)
             })
         },
 
