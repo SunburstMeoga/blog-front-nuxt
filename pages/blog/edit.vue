@@ -127,17 +127,20 @@ export default {
         createBlogs() {
             this.loadingHandle = true
             console.log(this.imageFile)
-            this.$blogApi.createOrUpdateBlogs({
-                title: 'test title',
-                slug: '这里是slug',
-                content: 'this is content lotto',
-                image: this.imageFile,
-                id: '',
-                categoryIds: ['647de90e63684f0b1c7cc166', '64855ba24d11eb48c28fb488']
-            }).then(res => {
+            let formdata = new FormData()
+            formdata.append('image', this.imageFile)
+            formdata.append('title', 'test title')
+            formdata.append('slug', 'blog slug')
+            formdata.append('content', 'blog内容')
+            formdata.append('id', '')
+            formdata.append('categoryIds', '64855ba24d11eb48c28fb488')
+            formdata.append('categoryIds', '64855ba24d11eb48c28fb488')
+
+
+            this.$blogApi.createOrUpdateBlogs(formdata).then(res => {
                 console.log('发布成功', res)
-                this.loadingHandle = false,
-                    this.creatSccess = true
+                this.loadingHandle = false
+                this.creatSccess = true
             }).catch(err => {
                 console.log('发布失败', err)
                 this.loadingHandle = false
@@ -152,15 +155,15 @@ export default {
             this.dialogVisible = true;
         },
         handleCoverSuccess(res, file) {
-            this.imageUrl = URL.createObjectURL(file.raw)
-            let formdata = new FormData()
-            formdata.append('image', file.raw)
+            // this.imageUrl = URL.createObjectURL(file.raw)
+            // let formdata = new FormData()
+            // formdata.append('image', file.raw)
             this.imageFile = file.raw
-            this.$blogApi.uploadImage(formdata).then(res => {
-                this.$message.success('文件上传成功')
-                this.imageUrl = res.data.image_path
-                console.log('imageUrl', this.imageUrl)
-            })
+            // this.$blogApi.uploadImage(formdata).then(res => {
+            //     this.$message.success('文件上传成功')
+            //     this.imageUrl = res.data.image_path
+            //     // console.log('imageUrl', this.imageUrl)
+            // })
         },
 
         beforeCoverUpload(file) {
