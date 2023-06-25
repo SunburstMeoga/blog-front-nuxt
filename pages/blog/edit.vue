@@ -22,7 +22,7 @@
                     blog分类
                 </div>
                 <div class="flex-1">
-                    <el-select v-model="categoryValue" multiple placeholder="请选择">
+                    <el-select v-model="categoryValue" multiple placeholder="请选择" @change="categoryIdsChange">
                         <el-option v-for="item in categorysList" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                     </el-select>
@@ -41,7 +41,7 @@
                     blog内容
                 </div>
                 <div class="editor-box flex-1">
-                    <blog-edit-tab-information />
+                    <blog-edit-tab-information ref="editBlog" />
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                     Slug
                 </div>
                 <div class="flex-1">
-                    <el-input v-model="blogTitle" placeholder="请输入内容"></el-input>
+                    <el-input v-model="blogSlug" placeholder="请输入内容"></el-input>
                 </div>
             </div>
             <div class="blog-module">
@@ -58,8 +58,8 @@
                     Tags
                 </div>
                 <div class="flex-1">
-                    <el-select v-model="slugValue" multiple placeholder="请选择">
-                        <el-option v-for="item in categorysList" :key="item.value" :label="item.label" :value="item.value">
+                    <el-select v-model="tagValue" multiple placeholder="请选择" @change="tagIdsChange">
+                        <el-option v-for="item in tagsList" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                     </el-select>
                 </div>
@@ -83,35 +83,46 @@
 
 import BlogEditTabInformation from '../../components/Blog/BlogEditTabInformation';
 import FooterOne from "../../components/Utility/Footer/FooterOne.vue";
-
+import uslug from 'uslug'
 export default {
     components: { BlogEditTabInformation, FooterOne },
     data: () => ({
         blogTitle: '',
+        blogSlug: '',
         imageUrl: '',
         imgUploadUrl: '',
         categorysList: [],
+        tagsList: [],
         categoryValue: '',
-        slugValue: '',
+        tagValue: '',
         headerObj: {},
         loadingHandle: false,
         dialogImageUrl: '',
         dialogVisible: false,
         createFail: false,
         creatSccess: false,
-        imageFile: null
+        imageFile: null,
+        blogId: '',
+        categoryIds: [],
+        tagsIds: []
     }),
     async asyncData({ $blogApi }) {
-        const { data } = await $blogApi.getBlogCategories()
-        let array = []
-        data.docs.map(item => {
+        const { categories, tags } = await $blogApi.getOptions({ tags: true, categories: true })
+        let categoriesArray = []
+        let tagsArray = []
+        tags.map(item => {
+            let obj = {}
+            obj.label = item
+            obj.value = item
+            tagsArray.push(obj)
+        })
+        categories.map(item => {
             let obj = {}
             obj.label = item.slug
             obj.value = item.id
-            array.push(obj)
+            categoriesArray.push(obj)
         })
-        console.log(data)
-        return { categorysList: array }
+        return { tagsList: tagsArray, categorysList: categoriesArray }
     },
     create() {
         this.imgUploadUrl = process.env.BASE_URL + "/api/image";
@@ -120,23 +131,36 @@ export default {
         }
         // console.log('imgUploadUrl', this.imgUploadUrl)
     },
+    watch: {
+        'blogTitle'(newVal, oldVal) {
+            if (newVal) {
+                console.log(newVal)
+                this.blogSlug = uslug(newVal)
+                console.log(this.blogSlug)
+            }
+        }
+    },
     methods: {
+        tagIdsChange(value) {
+            this.tagsIds = value
+        },
+        categoryIdsChange(value) {
+            console.log('categoryIdsChange', value)
+            this.categoryIds = value
+        },
         handleBlogs() {
             this.createBlogs()
         },
         createBlogs() {
             this.loadingHandle = true
-            console.log(this.imageFile)
             let formdata = new FormData()
             formdata.append('image', this.imageFile)
-            formdata.append('title', 'test title')
-            formdata.append('slug', 'blog slug')
-            formdata.append('content', 'blog内容')
-            formdata.append('id', '')
-            formdata.append('categoryIds', '64855ba24d11eb48c28fb488')
-            formdata.append('categoryIds', '64855ba24d11eb48c28fb488')
-
-
+            formdata.append('title', this.blogTitle)
+            formdata.append('slug', this.blogSlug)
+            formdata.append('content', this.$refs.editBlog.content)
+            formdata.append('id', this.blogId)
+            formdata.append('categoryIds', this.categoryIds)
+            formdata.append('tagIds', this.categoryIds)
             this.$blogApi.createOrUpdateBlogs(formdata).then(res => {
                 console.log('发布成功', res)
                 this.loadingHandle = false
@@ -155,15 +179,7 @@ export default {
             this.dialogVisible = true;
         },
         handleCoverSuccess(res, file) {
-            // this.imageUrl = URL.createObjectURL(file.raw)
-            // let formdata = new FormData()
-            // formdata.append('image', file.raw)
             this.imageFile = file.raw
-            // this.$blogApi.uploadImage(formdata).then(res => {
-            //     this.$message.success('文件上传成功')
-            //     this.imageUrl = res.data.image_path
-            //     // console.log('imageUrl', this.imageUrl)
-            // })
         },
 
         beforeCoverUpload(file) {

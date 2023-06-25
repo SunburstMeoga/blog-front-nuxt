@@ -41,14 +41,14 @@ export default function ({ $axios, store }, inject) {
 
             if (status === 200) {
                 // 打印出每个接口的响应时间
-                console.info(response.config.url, '请求时间', response.config.endTime - response.config.startTime + 'ms')
-                console.info(response)
+                // console.info(response.config.url, '请求时间', response.config.endTime - response.config.startTime + 'ms')
+                // console.info(response)
                 // 用于调试
                 if (process.env.DEBUG) {
                     console.info('$axios.onResponse', response.data)
                 }
                 // 返回接口数据
-                console.log(response.data)
+                // console.log(response.data)
                 return response.data
             } else {
                 // 如果请求失败的，打印出相应的错误信息，更好的修改。

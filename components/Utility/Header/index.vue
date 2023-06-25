@@ -84,11 +84,7 @@ export default {
   }),
   mounted() {
     localStorage.getItem('language') ? this.$i18n.locale = this.selectValue = localStorage.getItem('language') : ''
-    console.log('window.ethereum.selectedAddress', window.ethereum.selectedAddress)
-    if (window.ethereum.selectedAddress) {
-      this.$store.commit('auth/setWalletAddress', window.ethereum.selectedAddress)
-      this.$store.commit('auth/changeConnectWalletStatus', true)
-    }
+
   },
   methods: {
     languageChange(value) {
@@ -143,35 +139,11 @@ export default {
             console.log(userInfo)
             this.isLoading = false
           })
-
         })
         .catch(err => {
           console.log('保存contractToken失败', err)
           this.isLoading = false
-
         })
-      // web3Contract.methods.saveToken(contractToken).call().then((result) => {
-      //   this.Web3.eth.sendTransaction({
-      //     to: this.Config.con_addr,
-      //     from: window.ethereum.selectedAddress,
-      //     value: result,
-      //     data: data
-      //   })
-      //     .on('receipt', (receipt) => {
-      //       console.log('receipt', receipt)
-      //       const { status, user, token } = _self.$userApi.loginWithIdentityToken(receipt.from, identityToken).data
-      //       this.$store.state.auth.commit('setAuthToken', token)
-      //       this.$store.state.auth.commit('changeHasTokenStatus', true)
-      //       localStorage.setItem('token', _self.$store.state.auth.authToken)
-      //     })
-      //     .on('error', (error) => {
-      //       console.log(error)
-
-      //     })
-
-      // }).catch((err) => {
-      //   console.log(err)
-      // })
     },
     showConfirmBox() {
       let _self = this

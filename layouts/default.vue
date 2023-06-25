@@ -17,6 +17,30 @@ export default {
             sidebar: false,
         }
     },
+    mounted() {
+        if (window.ethereum.selectedAddress) {
+            this.$store.commit('auth/setWalletAddress', window.ethereum.selectedAddress)
+            this.$store.commit('auth/changeConnectWalletStatus', true)
+        }
+        if (localStorage.getItem('token')) {
+            this.$store.commit('auth/setAuthToken', localStorage.getItem('token'))
+            this.$store.commit('auth/changeHasTokenStatus', true)
+        }
+        window.ethereum.request({
+            method: 'eth_accounts'
+        })
+            .then(res => {
+                console.log('eth accounts', res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        console.log('this.$store', this.$store.state.auth)
+        console.log('window.ethereum.selectedAddress', window.ethereum)
+        console.log('window.ethereum.selectedAddress', window.ethereum.selectedAddress)
+
+
+    },
     methods: {
         toggleSidebar() {
             this.sidebar = !this.sidebar;

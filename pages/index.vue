@@ -89,22 +89,8 @@ export default {
       this.sidebar = !this.sidebar;
     },
   },
-  mounted() {
-    if (localStorage.getItem('token')) {
-      this.$store.commit('auth/setAuthToken', localStorage.getItem('token'))
-      this.$store.commit('auth/changeHasTokenStatus', true)
-    }
-
-  },
   async asyncData({ $blogApi }) {
-    // $axios.$get('https://blogapi.nickwongon99.top/api/blogs/list').then(res => {
-    //   console.log(res)
-    //   return { docs: [{ slug: 'slugone' }, { slug: 'slugtwo' }] }
-    // }).catch(err => {
-    //   console.log(err)
-    // })
     const { data } = await $blogApi.getBlogList()
-    console.log(data)
     return { blogList: data.docs }
   },
 };

@@ -118,7 +118,7 @@ export default {
   methods: {
     getBlogCategories() {
       this.$blogApi.getBlogCategories().then(res => {
-        console.log('博客分類列表', res)
+        // console.log('博客分類列表', res)
         const { docs } = res.data
         let submenu = []
         docs.map(item => {
@@ -129,7 +129,7 @@ export default {
           submenu.push(obj)
         })
         this.nav_items[2].submenu = submenu
-        console.log('nav_items', this.nav_items)
+        // console.log('nav_items', this.nav_items)
       }).catch(err => {
         console.log(err)
       })

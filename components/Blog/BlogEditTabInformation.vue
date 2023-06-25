@@ -1,7 +1,8 @@
 <template>
-    <div v-loading="isLoading" :element-loading-text="'上传进度' + progress" element-loading-spinner="el-icon-loading"
-        element-loading-background="rgba(0, 0, 0, 0.8)">
-        <input class="file" type="file" style="display:none" id="file" ref="input" @change="doUpload">
+    <div>
+        <el-upload class="avatar-uploader uploader" :action="uploadUrl" :headers="headerObj" name="image"
+            :show-file-list="false" :on-success="uploadSuccess">
+        </el-upload>
         <div class="quill-editor" :content="content" @change="onEditorChange($event)" @blur="onEditorBlur($event)"
             style="height: 250px;" @focus="onEditorFocus($event)" @ready="onEditorReady($event)"
             v-quill:myQuillEditor="editorOption">
@@ -15,10 +16,10 @@ export default {
         const self = this
         return {
             content: '',
-            isLoading: false,
-            progress: 0,
+            headerObj: {},
+            uploadUrl: '',
+            quill: null,
             editorOption: {
-                // some quill options
                 modules: {
                     toolbar: {
                         container: [
@@ -52,74 +53,53 @@ export default {
             }
         }
     },
+    creat() {
+        this.headerObj = {
+            Authorization: "Bearer " + localStorage.getItem("token")
+        }
+        this.uploadUrl = process.env.BASE_URL + "/api/image";
+    },
     methods: {
         handleRemove(file, fileList) {
-            console.log(file, fileList)
+            // console.log(file, fileList)
         },
         handlePreview(file) {
-            console.log(file)
+            // console.log(file)
         },
         onEditorBlur(editor) {
-            console.log('editor blur!', editor)
+            // console.log('editor blur!', editor)
         },
         onEditorFocus(editor) {
-            console.log('editor focus!', editor)
+            // console.log('editor focus!', editor)
         },
         onEditorReady(editor) {
-            console.log('editor ready!', editor)
+            // console.log('editor ready!', editor)
         },
         onEditorChange({ editor, html, text }) {
-            console.log('editor change!', editor, html, text)
+            console.log(html)
             this.content = html
         },
         imgHandler(handle) {
             this.quill = handle.quill
-            var inputfile = document.getElementById('file')
-            inputfile.click()
+            document.querySelector(".uploader input").click();
         },
-        doUpload: async function () {
-            let file = document.getElementById('file').files[0]
-            let formdata = new FormData()// 创建form对象
-            formdata.append('file', file, file.name)
-            let config = {
-                headers: { 'Content-Type': 'multipart/form-data' },
-                onUploadProgress: progressEvent => {
-                    let complete = (progressEvent.loaded / progressEvent.total * 100 | 0) + '%'
-                    this.progress = complete
-                }
-            } // 添加请求头
-            this.isLoading = true
-            let res = await this.$blogApi.uploadImage(formdata)
-            this.isLoading = false
-            console.log(res)
-            this.quill.insertEmbed(length, 'image', process.env.BASE_URL + "/api/admin/image" + res.data)
-        },
-        async update() {
-            let params = {
-                title: this.form.title,
-                publish_time: this.form.publish_time,
-                content: this.content,
-                event_id: this.event_id
-            }
-            console.log(params)
-            let res = await axios.post('/api/createEvent', params)
-            if (res.data.ret) {
-                this.$notify.error({
-                    message: res.data.errorMsg,
-                    title: '错误'
-                })
+        async uploadSuccess(res, file) {
+            console.log(file)
+            let formdata = new FormData()
+            formdata.append('image', file.raw)
+            const { data } = await this.$blogApi.uploadImage(formdata)
+            if (data) {
+                this.doUpload(data.image_path)
             } else {
-                this.$notify({
-                    message: res.data.errorMsg,
-                    title: '成功',
-                    type: 'success'
-                })
+                this.$message.error("图片插入失败！");
             }
-        }
+        },
+        doUpload: async function (imagePath) {
+            let length = this.quill.getSelection().index;
+            this.quill.setSelection(length + 1);
+            this.quill.insertEmbed(length, 'image', imagePath)
+        },
     },
-    async mounted() {
-
-    }
 }
 </script>
 
