@@ -10,6 +10,11 @@
                   data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
                   aria-selected="true">全部博客</a>
               </li>
+              <li @click.prevent="selectTab('publish')" class="nav-item" role="presentation">
+                <a :class="[selected === 'publish' ? 'active' : '']" class="nav-link" id="pills-profile-tab"
+                  data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+                  aria-selected="false">待發佈</a>
+              </li>
               <li @click.prevent="selectTab('news')" class="nav-item" role="presentation">
                 <a :class="[selected === 'news' ? 'active' : '']" class="nav-link" id="pills-profile-tab"
                   data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
@@ -21,27 +26,110 @@
                 role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in aboutDatas">
-                      <div :key="index" class="col-lg-6 col-md-6">
-                        <div class="trending-news-item mb-30">
-                          <div class="trending-news-thumb">
-                            <img :src="require(`@/assets/images/${data.image}`)" alt="trending" />
-                          </div>
-                          <div class="trending-news-content">
-                            <div class="post-meta">
-                              <div class="meta-categories">
-                                <a href="#">{{ data.category.name }}</a>
-                              </div>
-                              <div class="meta-date">
-                                <span>{{ data.category.create_At }}</span>
+                    <template v-for="(data, index) in 7">
+                      <div class="col-lg-12">
+                        <div class="business-post-item mb-10">
+                          <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                              <div class="business-post-thumb">
+                                <img src="@/assets/images/business-1.jpg" alt="business" />
                               </div>
                             </div>
-                            <h3 class="title">
-                              <a href="#">{{ data.title }}</a>
-                            </h3>
-                            <p class="text">
-                              {{ data.article }}
-                            </p>
+                            <div class="col-lg-6 col-md-6">
+                              <div class="trending-news-item">
+                                <div class="trending-news-content">
+                                  <div class="post-meta">
+                                    <div class="meta-categories">
+                                      <a href="#">TECHNOLOGY</a>
+                                    </div>
+                                    <div class="meta-date">
+                                      <span>March 26, 2020</span>
+                                    </div>
+                                  </div>
+                                  <h3 class="title">
+                                    <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                      exec says</nuxt-link>
+                                  </h3>
+                                  <p class="text">
+                                    The property, complete with 30-seat screening
+                                    from room, a 100-seat amphitheater and a
+                                    swimming pond with sandy shower…
+                                  </p>
+                                  <a href="#">查看詳情</a>
+                                  <!-- <el-button size="small" type="primary">查看詳情</el-button> -->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </template>
+                    <div class="col-lg-12">
+                      <div class="pagination-item">
+                        <nav aria-label="Page navigation example">
+                          <ul class="pagination">
+                            <li class="page-item active">
+                              <a class="page-link" href="#">01</a>
+                            </li>
+                            <li class="page-item">
+                              <a class="page-link" href="#">02</a>
+                            </li>
+                            <li class="page-item">
+                              <a class="page-link" href="#">...</a>
+                            </li>
+                            <li class="page-item">
+                              <a class="page-link" href="#">50</a>
+                            </li>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true"><i class="fas fa-caret-right"></i></span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div :class="[selected === 'publish' ? 'show active' : '']" class="tab-pane fade" id="pills-home"
+                role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="about-post-items">
+                  <div class="row">
+                    <template v-for="(data, index) in 7">
+                      <div class="col-lg-12">
+                        <div class="business-post-item mb-10">
+                          <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                              <div class="business-post-thumb">
+                                <img src="@/assets/images/business-1.jpg" alt="business" />
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                              <div class="trending-news-item">
+                                <div class="trending-news-content">
+                                  <div class="post-meta">
+                                    <div class="meta-categories">
+                                      <a href="#">TECHNOLOGY</a>
+                                    </div>
+                                    <div class="meta-date">
+                                      <span>March 26, 2020</span>
+                                    </div>
+                                  </div>
+                                  <h3 class="title">
+                                    <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
+                                      exec says</nuxt-link>
+                                  </h3>
+                                  <p class="text">
+                                    The property, complete with 30-seat screening
+                                    from room, a 100-seat amphitheater and a
+                                    swimming pond with sandy shower…
+                                  </p>
+                                  <!-- <el-button size="small" type="primary">發佈</el-button> -->
+                                  <a href="#">發佈</a>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -78,20 +166,37 @@
                 role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in aboutDatas">
-                      <div class="col-md-6">
-                        <div class="feature-news-item" style="margin-top: 0;">
-                          <div class="feature-news-thumb">
-                            <img src="@/assets/images/feature/feature-news-1.jpg" alt="feature" />
-                            <div class="meta-categores">
-                              <span>正在審核</span>
-                            </div>
+                    <template v-for="(data, index) in 7">
+                      <div class="col-lg-12">
+                        <div class="bussiness-post-item mb-10">
+                          <div class="bussiness-post-thumb">
+                            <img src="@/assets/images/business-post/business-post-1.jpg" alt="business" />
                           </div>
-                          <div class="feature-news-content">
+                          <div class="bussiness-post-content">
+                            <h3 class="title">
+                              <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
+                                &amp; happy and</nuxt-link>
+                            </h3>
+                            <div class="meta-date-link">
+                              <span>April 26, 2020</span>
+                              <ul>
+                                <li>
+                                  <a href="#"><i class="fal fa-bookmark"></i></a>
+                                </li>
+                                <li>
+                                  <a href="#"><i class="fas fa-share"></i></a>
+                                </li>
+                              </ul>
+                            </div>
                             <p>
-                              The worried doctors stood together after their
-                              rounds, weighing the risks.
+                              She tried for so many years and now she finally
+                              pregnant happy and things are going well &amp; it
+                              just happens that this pregnancy takes place with
+                              this epidemic…
                             </p>
+                            <el-button size="small">修改</el-button>
+                            <el-button size="small" type="primary">查看</el-button>
+
                           </div>
                         </div>
                       </div>
@@ -127,10 +232,8 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
-          <styleOne class="mt-10" role="sidebar" :datas="aboutDatas" :signup="true" :trendingShortPost="true"
-            :trendingBigPost="true" :ad="true" />
-
+        <div class="col-lg-4 mt-10">
+          <style-one :datas="posts.slice(1, 6)" :sharePost="false" />
         </div>
       </div>
     </div>
@@ -140,14 +243,30 @@
 <script>
 import styleOne from "../Utility/Sidebar/StyleOne.vue";
 import aboutDatas from "../Data/About";
+import Posts from "../Data/TrendingHomeThree";
+
 
 export default {
   components: { styleOne },
   data: () => ({
     selected: "latest",
     aboutDatas: aboutDatas.data,
-
+    posts: Posts.data,
   }),
+  props: {
+    underReviewBlogs: {
+      type: Array,
+      default: () => []
+    },
+    blogs: {
+      type: Array,
+      default: () => []
+    },
+    toBeReleasedBlogs: {
+      type: Array,
+      default: () => []
+    }
+  },
   methods: {
     selectTab(value) {
       this.selected = value;
@@ -157,5 +276,4 @@ export default {
 };
 </script>
 
-<style>
-</styleOne>
+<style></style>

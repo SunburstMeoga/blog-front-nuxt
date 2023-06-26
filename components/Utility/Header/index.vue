@@ -33,17 +33,45 @@
           </div>
           <div class="col-lg-4 col-sm-9 col-9">
             <div class="header-menu-rightbar">
-              <div class="header-menu-search">
-                <el-button type="primary" size="small" :loading="isLoading" @click="handleLogin">
+              <div class="header-menu-search" v-if="$store.state.auth.hasToken && $store.state.auth.walletAddress">
+                <el-dropdown size="medium">
+                  <el-button type="primary" size="medium">
+                    {{ addressFilter($store.state.auth.walletAddress) }}
+                    <i class="el-icon-arrow-down el-icon-user-solid"></i>
+                  </el-button>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>我的博客</el-dropdown-item>
+                    <el-dropdown-item>
+                      <el-badge :value="12" class="item">
+                        系统消息
+                      </el-badge>
+                    </el-dropdown-item>
+                    <el-dropdown-item>审核通知</el-dropdown-item>
+                    <el-dropdown-item>复制钱包地址</el-dropdown-item>
+                    <el-dropdown-item>设置</el-dropdown-item>
+                    <el-dropdown-item divided>退出登录</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+              </div>
+              <div class="header-menu-search" v-else>
+                <el-button type="primary" size="medium" :loading="isLoading" @click="handleLogin">
                   {{ isLoading ? '登录中...' : ($store.state.auth.isConnectWallet ? $t('login.login') :
                     $t('login.connectWallet')) }}</el-button>
-
               </div>
+
               <div class="nice-select-item">
-                <el-select size="small" v-model="selectValue" @change="languageChange" placeholder="请选择">
-                  <el-option v-for="item in languageOptions" :key="item.value" :label="item.label" :value="item.value">
-                  </el-option>
-                </el-select>
+                <el-dropdown size="medium">
+                  <el-button size="medium">
+                    {{ selectValue }}
+                    <!-- <i class="el-icon-arrow-down el-icon-user-solid"></i> -->
+                  </el-button>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item @click.native="languageChange(item)" v-for="(item, index) in languageOptions"
+                      :key="index">
+                      {{ item.label }}
+                    </el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
               </div>
             </div>
           </div>
@@ -56,6 +84,7 @@
 <script>
 import TopBar from "./TopBar.vue";
 import NavItems from "../Common/NavItems.vue";
+import { addressFilter } from '../../../utils/format'
 export default {
   components: { TopBar, NavItems },
   props: {
@@ -83,14 +112,25 @@ export default {
     isLoading: false
   }),
   mounted() {
-    localStorage.getItem('language') ? this.$i18n.locale = this.selectValue = localStorage.getItem('language') : ''
+    if (localStorage.getItem('language')) {
+      this.$i18n.locale = localStorage.getItem('language')
+      switch (localStorage.getItem('language')) {
+        case 'zh_hk': this.selectValue = '繁體中文'
+          break;
+        case 'en_us': this.selectValue = 'English'
+          break;
+        case 'zh_cn': this.selectValue = '简体中文'
+      }
+    }
 
   },
   methods: {
-    languageChange(value) {
-      console.log('value', value)
-      localStorage.setItem('language', value)
-      this.$i18n.locale = value
+    addressFilter,
+    languageChange(item) {
+      console.log(item)
+      localStorage.setItem('language', item.value)
+      this.$i18n.locale = item.value
+      this.selectValue = item.label
     },
     async handleLogin() {
       this.isLoading = true

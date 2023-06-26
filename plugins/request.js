@@ -27,11 +27,12 @@ export default function ({ $axios, store }, inject) {
             config.startTime = new Date().getTime()
             config.headers['Content-Type'] = 'application/json'
             /* 如果你需要token */
-            // const token = store.state.auth.authToken || ''
-            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODcxOTkyNWUzZDRkMTFmODk4ODc4NCIsImlhdCI6MTY4NzUxNDU2NSwiZXhwIjoxNjk1MjkwNTY1fQ.rduIGlVjpNInNRIIWf7kX0ATyQULXL3pCtpRimncjMo'
+            const token = store.state.auth.authToken || ''
+            // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODcxOTkyNWUzZDRkMTFmODk4ODc4NCIsImlhdCI6MTY4NzUxNDU2NSwiZXhwIjoxNjk1MjkwNTY1fQ.rduIGlVjpNInNRIIWf7kX0ATyQULXL3pCtpRimncjMo'
             if (token) {
                 config.headers.Authorization = `Bearer ${token}`
             }
+            console.log('token', token)
             return config
         })
         // 设置响应拦截

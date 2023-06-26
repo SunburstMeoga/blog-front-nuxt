@@ -18,10 +18,6 @@ export default {
         }
     },
     mounted() {
-        if (window.ethereum.selectedAddress) {
-            this.$store.commit('auth/setWalletAddress', window.ethereum.selectedAddress)
-            this.$store.commit('auth/changeConnectWalletStatus', true)
-        }
         if (localStorage.getItem('token')) {
             this.$store.commit('auth/setAuthToken', localStorage.getItem('token'))
             this.$store.commit('auth/changeHasTokenStatus', true)
@@ -29,8 +25,12 @@ export default {
         window.ethereum.request({
             method: 'eth_accounts'
         })
-            .then(res => {
-                console.log('eth accounts', res)
+            .then(accounts => {
+                console.log('eth accounts', accounts)
+                if (accounts.length !== 0) {
+                    this.$store.commit('auth/setWalletAddress', window.ethereum.selectedAddress)
+                    this.$store.commit('auth/changeConnectWalletStatus', true)
+                }
             })
             .catch(err => {
                 console.log(err)

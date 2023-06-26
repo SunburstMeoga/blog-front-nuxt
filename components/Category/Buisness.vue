@@ -358,7 +358,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 mt-10">
               <style-one :datas="posts.slice(1, 6)" :sharePost="false" />
             </div>
           </div>

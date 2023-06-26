@@ -1,7 +1,7 @@
 <template>
     <div>
-        <about />
-        {{ blogs }}
+        <about :underReviewBlogs="underReviewBlogs" :blogs="blogs" :toBeReleasedBlogs="toBeReleasedBlogs" />
+        <!-- {{ blogs }} -->
     </div>
 </template>
   
@@ -11,13 +11,25 @@ export default {
     components: { About },
     data() {
         return {
-            blogs: []
+            blogs: [],
+            underReviewBlogs: [],
+            toBeReleasedBlogs: []
         }
     },
     async asyncData({ $userApi }) {
         const { data } = await $userApi.getUserBlogs()
         console.log(data)
-        // return { blogs: data.docs }
+        let underReviewBlogs = []
+        let toBeReleasedBlogs = []
+        data.docs.map(item => {
+            if (!item.is_approved && item.is_published) { //正在审核
+                underReviewBlogs.push(item)
+            }
+            if (item.is_approved && !item.is_published) { //已审核待发布
+                toBeReleasedBlogs.push(item)
+            }
+        })
+        return { blogs: data.docs, underReviewBlogs: underReviewBlogs, toBeReleasedBlogs: toBeReleasedBlogs }
     }
 };
 </script>

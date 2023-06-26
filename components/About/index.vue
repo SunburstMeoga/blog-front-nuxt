@@ -3,7 +3,7 @@
     <!-- <drawer @toggleSidebar="toggleSidebar" :sidebar="sidebar" />
     <Header @toggleSidebar="toggleSidebar" /> -->
     <!-- <about-author /> -->
-    <other />
+    <other :underReviewBlogs="underReviewBlogs" :blogs="blogs" :toBeReleasedBlogs="toBeReleasedBlogs" />
     <div class="add-area text-center">
       <a href="#">
         <img src="@/assets/images/ads/one_ad.png" alt="" />
@@ -36,6 +36,20 @@ export default {
     Other,
     FooterOne,
     // Drawer,
+  },
+  props: {
+    underReviewBlogs: {
+      type: Array,
+      default: () => []
+    },
+    blogs: {
+      type: Array,
+      default: () => []
+    },
+    toBeReleasedBlogs: {
+      type: Array,
+      default: () => []
+    }
   },
   data: () => ({
     sidebar: false,
