@@ -16,7 +16,7 @@
             <slider :settings="miniCardsSettings" ref="miniCards">
               <template v-for="(multi, index) in smallPostGallery">
                 <div class="item" :key="index">
-                  <img :src="multi.image_url" alt="post" />
+                  <img :src="multi.image_url" alt="post" style="" />
                 </div>
               </template>
             </slider>
@@ -97,4 +97,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slick-slide {
+  height: 68px;
+  border: 1px solid red;
+}
+</style>

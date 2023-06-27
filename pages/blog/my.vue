@@ -1,8 +1,6 @@
 <template>
     <div>
-        <about :underReviewBlogs="underReviewBlogs" :blogs="blogs" :toBeReleasedBlogs="toBeReleasedBlogs"
-            :blogsInfo="blogsInfo" :toBeReleasedBlogsInfo="toBeReleasedBlogsInfo"
-            :underReviewBlogsInfo="underReviewBlogsInfo" />
+        <about :blogsData="blogsData" :underReviewData="underReviewData" :toBeReleasedData="toBeReleasedData" />
     </div>
 </template>
   
@@ -12,29 +10,32 @@ export default {
     components: { About },
     data() {
         return {
-            blogs: [],
-            underReviewBlogs: [],
-            toBeReleasedBlogs: [],
-            blogsInfo: {},
-            toBeReleasedBlogsInfo: {},
-            underReviewBlogsInfo: {}
+            blogsData: {},
+            underReviewData: {},
+            toBeReleasedData: {},
         }
     },
     async asyncData({ $userApi }) {
-        const { data } = await $userApi.getUserBlogs({ perPage: 6 })
-        console.log(data)
-
-        let underReviewBlogs = []
-        let toBeReleasedBlogs = []
-        data.docs.map(item => {
-            if (!item.is_approved) { //正在审核
-                underReviewBlogs.push(item)
-            }
-            if (item.is_approved && !item.is_published) { //已审核待发布
-                toBeReleasedBlogs.push(item)
-            }
-        })
-        return { blogs: data.docs, underReviewBlogs: underReviewBlogs, toBeReleasedBlogs: toBeReleasedBlogs }
+        // const { data } = await $userApi.getUserBlogs({ perPage: 6, is_approved: true })
+        // const { data } = await $userApi.getUserBlogs({ perPage: 6, is_published: true })
+        let blogsData = {}
+        let underReviewData = {}
+        let toBeReleasedData = {}
+        await $userApi.getUserBlogs({ perPage: 6 }) //blogs
+            .then(res => {
+                console.log(res)
+                blogsData = res.data
+            })
+        await $userApi.getUserBlogs({ perPage: 6, is_approved: false, is_published: false }) //正在审核
+            .then(res => {
+                underReviewData = res.data
+            })
+        await $userApi.getUserBlogs({ perPage: 6, is_approved: true, is_published: false }) //待发布
+            .then(res => {
+                toBeReleasedData = res.data
+            })
+        return { blogsData: blogsData, underReviewData: underReviewData, toBeReleasedData: toBeReleasedData }
+        // return { blogs: [] }
     }
 };
 </script>

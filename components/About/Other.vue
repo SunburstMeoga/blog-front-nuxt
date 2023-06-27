@@ -26,7 +26,7 @@
                 role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in blogs">
+                    <template v-for="(data, index) in blogsData.docs">
                       <div class="col-lg-12">
                         <div class="business-post-item mb-10">
                           <div class="row">
@@ -98,7 +98,7 @@
                 role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in toBeReleasedBlogs">
+                    <template v-for="(data, index) in toBeReleasedData.docs">
                       <div class="col-lg-12">
                         <div class="business-post-item mb-10">
                           <div class="row">
@@ -170,7 +170,7 @@
                 role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in underReviewBlogs">
+                    <template v-for="(data, index) in underReviewData.docs">
                       <div class="col-lg-12">
                         <div class="bussiness-post-item mb-10">
                           <div class="bussiness-post-thumb">
@@ -238,7 +238,7 @@
           </div>
         </div>
         <div class="col-lg-4 mt-10">
-          <style-one :datas="blogs" :sharePost="false" />
+          <style-one :datas="blogsData.docs" :sharePost="false" />
         </div>
       </div>
     </div>
@@ -259,27 +259,15 @@ export default {
     posts: Posts.data,
   }),
   props: {
-    underReviewBlogs: {
-      type: Array,
-      default: () => []
-    },
-    blogs: {
-      type: Array,
-      default: () => []
-    },
-    toBeReleasedBlogs: {
-      type: Array,
-      default: () => []
-    },
-    blogsInfo: {
+    blogsData: {
       type: Object,
       default: () => { }
     },
-    toBeReleasedBlogsInfo: {
+    underReviewData: {
       type: Object,
       default: () => { }
     },
-    underReviewBlogsInfo: {
+    toBeReleasedData: {
       type: Object,
       default: () => { }
     },
