@@ -18,7 +18,7 @@
     <!--====== POST GALLERY PART ENDS ======-->
 
     <!--====== FEATURE PART START ======-->
-    <features />
+    <!-- <features /> -->
 
     <!--====== FEATURE PART ENDS ======-->
 

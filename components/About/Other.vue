@@ -238,7 +238,7 @@
           </div>
         </div>
         <div class="col-lg-4 mt-10">
-          <style-one :datas="posts.slice(1, 6)" :sharePost="false" />
+          <style-one :datas="blogs" :sharePost="false" />
         </div>
       </div>
     </div>
@@ -270,7 +270,19 @@ export default {
     toBeReleasedBlogs: {
       type: Array,
       default: () => []
-    }
+    },
+    blogsInfo: {
+      type: Object,
+      default: () => { }
+    },
+    toBeReleasedBlogsInfo: {
+      type: Object,
+      default: () => { }
+    },
+    underReviewBlogsInfo: {
+      type: Object,
+      default: () => { }
+    },
   },
   methods: {
     selectTab(value) {

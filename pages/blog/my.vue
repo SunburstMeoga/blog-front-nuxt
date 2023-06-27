@@ -1,6 +1,8 @@
 <template>
     <div>
-        <about :underReviewBlogs="underReviewBlogs" :blogs="blogs" :toBeReleasedBlogs="toBeReleasedBlogs" />
+        <about :underReviewBlogs="underReviewBlogs" :blogs="blogs" :toBeReleasedBlogs="toBeReleasedBlogs"
+            :blogsInfo="blogsInfo" :toBeReleasedBlogsInfo="toBeReleasedBlogsInfo"
+            :underReviewBlogsInfo="underReviewBlogsInfo" />
     </div>
 </template>
   
@@ -12,12 +14,16 @@ export default {
         return {
             blogs: [],
             underReviewBlogs: [],
-            toBeReleasedBlogs: []
+            toBeReleasedBlogs: [],
+            blogsInfo: {},
+            toBeReleasedBlogsInfo: {},
+            underReviewBlogsInfo: {}
         }
     },
     async asyncData({ $userApi }) {
-        const { data } = await $userApi.getUserBlogs()
+        const { data } = await $userApi.getUserBlogs({ perPage: 6 })
         console.log(data)
+
         let underReviewBlogs = []
         let toBeReleasedBlogs = []
         data.docs.map(item => {

@@ -3,7 +3,9 @@
     <!-- <drawer @toggleSidebar="toggleSidebar" :sidebar="sidebar" />
     <Header @toggleSidebar="toggleSidebar" /> -->
     <!-- <about-author /> -->
-    <other :underReviewBlogs="underReviewBlogs" :blogs="blogs" :toBeReleasedBlogs="toBeReleasedBlogs" />
+    <other :underReviewBlogs="underReviewBlogs" :blogs="blogs" :toBeReleasedBlogs="toBeReleasedBlogs"
+      :blogsInfo="blogsInfo" :toBeReleasedBlogsInfo="toBeReleasedBlogsInfo"
+      :underReviewBlogsInfo="underReviewBlogsInfo" />
     <div class="add-area text-center">
       <a href="#">
         <img src="@/assets/images/ads/one_ad.png" alt="" />
@@ -49,7 +51,19 @@ export default {
     toBeReleasedBlogs: {
       type: Array,
       default: () => []
-    }
+    },
+    blogsInfo: {
+      type: Object,
+      default: () => { }
+    },
+    toBeReleasedBlogsInfo: {
+      type: Object,
+      default: () => { }
+    },
+    underReviewBlogsInfo: {
+      type: Object,
+      default: () => { }
+    },
   },
   data: () => ({
     sidebar: false,

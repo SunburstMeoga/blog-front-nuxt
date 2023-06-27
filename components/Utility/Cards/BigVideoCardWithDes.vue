@@ -2,7 +2,7 @@
   <nuxt-link to="/posts/postOne" class="d-block">
     <div class="post_gallery_play">
       <div class="bg-image">
-        <img :src="datas.image_url" alt="" style="width: 100%; height: 100%" />
+        <img :src="datas.image_url" alt="" />
       </div>
       <div class="post__gallery_play_content" style="z-index: 10">
         <div class="post-meta">
@@ -34,4 +34,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+</style>

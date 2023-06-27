@@ -24,7 +24,7 @@
         selectedGallery === 'trendy' ? 'show active' : '',
       ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="post_gallery_items" v-if="datas && datas.length > 0">
-          <template v-for="(small, index) in datas.slice(0, 5)">
+          <template v-for="(small, index) in datas.slice(1, 6)">
             <row-card :class="[darkClass && 'item' in darkClass ? darkClass.item : '']" :category="true" :datas="small"
               :key="index" />
           </template>
@@ -37,7 +37,7 @@
         selectedGallery === 'latest' ? 'show active' : '',
       ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div v-if="datas && datas.length > 0" class="post_gallery_items">
-          <template v-for="(small, index) in datas.slice(0, 5)">
+          <template v-for="(small, index) in datas.slice(1, 6)">
             <row-card :category="true" :datas="small" :key="index" />
           </template>
         </div>
@@ -49,7 +49,7 @@
         selectedGallery === 'popular' ? 'show active' : '',
       ]" role="tabpanel" aria-labelledby="pills-home-tab">
         <div v-if="datas && datas.length > 0" class="post_gallery_items">
-          <template v-for="(small, index) in datas.slice(0, 5)">
+          <template v-for="(small, index) in datas.slice(1, 6)">
             <row-card :category="true" :datas="small" :key="index" />
           </template>
         </div>
@@ -64,7 +64,7 @@
         <span @click.prevent="trendingNewsPrev" class="prev slick-arrow" style="display: block"><i
             class="fal fa-angle-left"></i></span>
         <slider :settings="trendingNews" ref="trendingNews">
-          <template v-for="(data, index) in datas">
+          <template v-for="(data, index) in datas.slice(1, 6)">
             <divide-card stype="col" :datas="data" :key="index" />
           </template>
         </slider>
@@ -199,5 +199,10 @@ export default {
   },
 };
 </script>
-
-<style></style>
+<style scoped>
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+</style>

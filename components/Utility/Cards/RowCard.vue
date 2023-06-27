@@ -21,7 +21,7 @@
     </template>
   </nuxt-link>
   <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="countingtwo"
-    class="post-gallery-style-2 most-view-style-2" style="border: 1px solid blue;">
+    class="post-gallery-style-2 most-view-style-2">
     <div class="post-gallery-thumb">
       <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       <span>{{ count }}</span>
@@ -40,8 +40,7 @@
       </div>
     </div>
   </nuxt-link>
-  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="trending" class="gallery_item"
-    style="border: 1px solid green;">
+  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="trending" class="gallery_item">
     <div class="gallery_item_thumb">
       <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       <div v-if="datas.trending" class="icon"><i class="fas fa-bolt"></i></div>
@@ -62,7 +61,7 @@
     </div>
   </nuxt-link>
   <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="counting"
-    class="gallery_item gallery_item-style-2" style="border: 1px solid orange;">
+    class="gallery_item gallery_item-style-2">
     <div class="gallery_item_thumb">
       <img src="@/assets/images/most-post/most-1.jpg" alt="gallery" />
       <div class="icon"><i class="fas fa-bolt"></i></div>
@@ -82,8 +81,7 @@
       <span>{{ count }}</span>
     </div>
   </nuxt-link>
-  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="sports" class="gallery_item"
-    style="border: 1px solid black;">
+  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="sports" class="gallery_item">
     <template v-if="datas">
       <div class="gallery_item_thumb">
         <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
@@ -148,4 +146,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+</style>
