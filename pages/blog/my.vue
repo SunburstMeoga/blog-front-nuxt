@@ -1,7 +1,6 @@
 <template>
     <div>
         <about :underReviewBlogs="underReviewBlogs" :blogs="blogs" :toBeReleasedBlogs="toBeReleasedBlogs" />
-        <!-- {{ blogs }} -->
     </div>
 </template>
   
@@ -22,7 +21,7 @@ export default {
         let underReviewBlogs = []
         let toBeReleasedBlogs = []
         data.docs.map(item => {
-            if (!item.is_approved && item.is_published) { //正在审核
+            if (!item.is_approved) { //正在审核
                 underReviewBlogs.push(item)
             }
             if (item.is_approved && !item.is_published) { //已审核待发布

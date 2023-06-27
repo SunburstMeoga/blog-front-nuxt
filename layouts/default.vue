@@ -28,7 +28,7 @@ export default {
             .then(accounts => {
                 console.log('eth accounts', accounts)
                 if (accounts.length !== 0) {
-                    this.$store.commit('auth/setWalletAddress', window.ethereum.selectedAddress)
+                    this.$store.commit('auth/setWalletAddress', accounts[0])
                     this.$store.commit('auth/changeConnectWalletStatus', true)
                 }
             })
@@ -38,8 +38,6 @@ export default {
         console.log('this.$store', this.$store.state.auth)
         console.log('window.ethereum.selectedAddress', window.ethereum)
         console.log('window.ethereum.selectedAddress', window.ethereum.selectedAddress)
-
-
     },
     methods: {
         toggleSidebar() {

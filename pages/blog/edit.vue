@@ -154,13 +154,17 @@ export default {
         createBlogs() {
             this.loadingHandle = true
             let formdata = new FormData()
+            this.categoryIds.map(item => {
+                formdata.append('categoryIds[]', item)
+            })
+            this.tagsIds.map(item => {
+                formdata.append('tagIds[]', item)
+            })
             formdata.append('image', this.imageFile)
             formdata.append('title', this.blogTitle)
             formdata.append('slug', this.blogSlug)
             formdata.append('content', this.$refs.editBlog.content)
             formdata.append('id', this.blogId)
-            formdata.append('categoryIds', this.categoryIds)
-            formdata.append('tagIds', this.categoryIds)
             this.$blogApi.createOrUpdateBlogs(formdata).then(res => {
                 console.log('发布成功', res)
                 this.loadingHandle = false

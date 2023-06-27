@@ -26,13 +26,13 @@
                 role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in 7">
+                    <template v-for="(data, index) in blogs">
                       <div class="col-lg-12">
                         <div class="business-post-item mb-10">
                           <div class="row">
                             <div class="col-lg-6 col-md-6">
                               <div class="business-post-thumb">
-                                <img src="@/assets/images/business-1.jpg" alt="business" />
+                                <img :src="data.image_url" alt="business" />
                               </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
@@ -40,15 +40,17 @@
                                 <div class="trending-news-content">
                                   <div class="post-meta">
                                     <div class="meta-categories">
-                                      <a href="#">TECHNOLOGY</a>
+                                      <a href="#">{{ data.categoryIds && data.categoryIds.length > 0 &&
+                                        data.categoryIds[0].category_id.name }}</a>
                                     </div>
                                     <div class="meta-date">
                                       <span>March 26, 2020</span>
                                     </div>
                                   </div>
                                   <h3 class="title">
-                                    <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
-                                      exec says</nuxt-link>
+                                    <nuxt-link to="/posts/postOne">
+                                      {{ data.title }}
+                                    </nuxt-link>
                                   </h3>
                                   <p class="text">
                                     The property, complete with 30-seat screening
@@ -96,13 +98,13 @@
                 role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in 7">
+                    <template v-for="(data, index) in toBeReleasedBlogs">
                       <div class="col-lg-12">
                         <div class="business-post-item mb-10">
                           <div class="row">
                             <div class="col-lg-6 col-md-6">
                               <div class="business-post-thumb">
-                                <img src="@/assets/images/business-1.jpg" alt="business" />
+                                <img :src="data.image_url" alt="business" />
                               </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
@@ -110,15 +112,17 @@
                                 <div class="trending-news-content">
                                   <div class="post-meta">
                                     <div class="meta-categories">
-                                      <a href="#">TECHNOLOGY</a>
+                                      <a href="#">{{ data.categoryIds && data.categoryIds.length > 0 &&
+                                        data.categoryIds[0].category_id.name }}</a>
                                     </div>
                                     <div class="meta-date">
                                       <span>March 26, 2020</span>
                                     </div>
                                   </div>
                                   <h3 class="title">
-                                    <nuxt-link to="/posts/postOne">There may be no consoles in the future ea
-                                      exec says</nuxt-link>
+                                    <nuxt-link to="/posts/postOne">
+                                      {{ data.title }}
+                                    </nuxt-link>
                                   </h3>
                                   <p class="text">
                                     The property, complete with 30-seat screening
@@ -166,16 +170,17 @@
                 role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in 7">
+                    <template v-for="(data, index) in underReviewBlogs">
                       <div class="col-lg-12">
                         <div class="bussiness-post-item mb-10">
                           <div class="bussiness-post-thumb">
-                            <img src="@/assets/images/business-post/business-post-1.jpg" alt="business" />
+                            <img :src="data.image_url" alt="business" />
                           </div>
                           <div class="bussiness-post-content">
                             <h3 class="title">
-                              <nuxt-link to="/posts/postOne">She tried for many years now finallize pregnant
-                                &amp; happy and</nuxt-link>
+                              <nuxt-link to="/posts/postOne">
+                                {{ data.title }}
+                              </nuxt-link>
                             </h3>
                             <div class="meta-date-link">
                               <span>April 26, 2020</span>
