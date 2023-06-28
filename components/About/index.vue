@@ -3,7 +3,8 @@
     <!-- <drawer @toggleSidebar="toggleSidebar" :sidebar="sidebar" />
     <Header @toggleSidebar="toggleSidebar" /> -->
     <!-- <about-author /> -->
-    <other :blogsData="blogsData" :underReviewData="underReviewData" :toBeReleasedData="toBeReleasedData" />
+    <other :blogsData="blogsData" :underReviewData="underReviewData" :toBeReleasedData="toBeReleasedData"
+      @handleRelease="handleRelease" />
     <div class="add-area text-center">
       <a href="#">
         <img src="@/assets/images/ads/one_ad.png" alt="" />
@@ -58,6 +59,9 @@ export default {
     document.addEventListener("scroll", this.topToBottom);
   },
   methods: {
+    handleRelease(item) {
+      this.$emit('handleRelease', item)
+    },
     toggleSidebar() {
       this.sidebar = !this.sidebar;
     },

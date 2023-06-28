@@ -31,7 +31,7 @@
                         <div class="business-post-item mb-10">
                           <div class="row">
                             <div class="col-lg-6 col-md-6">
-                              <div class="business-post-thumb">
+                              <div class="business-post-thumb" style="height: 250px;">
                                 <img :src="data.image_url" alt="business" />
                               </div>
                             </div>
@@ -48,16 +48,19 @@
                                     </div>
                                   </div>
                                   <h3 class="title">
-                                    <nuxt-link to="/posts/postOne">
+                                    <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                       {{ data.title }}
                                     </nuxt-link>
                                   </h3>
                                   <p class="text">
-                                    The property, complete with 30-seat screening
-                                    from room, a 100-seat amphitheater and a
-                                    swimming pond with sandy shower…
+                                    {{ data.excerpt }}
                                   </p>
-                                  <a href="#">查看詳情</a>
+                                  <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                    修改
+                                  </nuxt-link>
+                                  <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                    查看
+                                  </nuxt-link>
                                   <!-- <el-button size="small" type="primary">查看詳情</el-button> -->
                                 </div>
                               </div>
@@ -103,7 +106,7 @@
                         <div class="business-post-item mb-10">
                           <div class="row">
                             <div class="col-lg-6 col-md-6">
-                              <div class="business-post-thumb">
+                              <div class="business-post-thumb" style="height: 250px;">
                                 <img :src="data.image_url" alt="business" />
                               </div>
                             </div>
@@ -120,17 +123,23 @@
                                     </div>
                                   </div>
                                   <h3 class="title">
-                                    <nuxt-link to="/posts/postOne">
+                                    <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                       {{ data.title }}
                                     </nuxt-link>
                                   </h3>
                                   <p class="text">
-                                    The property, complete with 30-seat screening
-                                    from room, a 100-seat amphitheater and a
-                                    swimming pond with sandy shower…
+                                    {{ data.excerpt }}
                                   </p>
                                   <!-- <el-button size="small" type="primary">發佈</el-button> -->
-                                  <a href="#">發佈</a>
+                                  <nuxt-link to="" @click.native="handleRelease(data)">
+                                    发布
+                                  </nuxt-link>
+                                  <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                    修改
+                                  </nuxt-link>
+                                  <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                    查看
+                                  </nuxt-link>
                                 </div>
                               </div>
                             </div>
@@ -172,13 +181,14 @@
                   <div class="row">
                     <template v-for="(data, index) in underReviewData.docs">
                       <div class="col-lg-12">
-                        <div class="bussiness-post-item mb-10">
-                          <div class="bussiness-post-thumb">
+                        <div class="bussiness-post-item mb-10 flex items-center">
+                          <div class="bussiness-post-thumb"
+                            style="width: 320px; height: 220px; border: 1px solid rgba(229, 231, 235, 1);">
                             <img :src="data.image_url" alt="business" />
                           </div>
                           <div class="bussiness-post-content">
                             <h3 class="title">
-                              <nuxt-link to="/posts/postOne">
+                              <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                 {{ data.title }}
                               </nuxt-link>
                             </h3>
@@ -194,13 +204,14 @@
                               </ul>
                             </div>
                             <p>
-                              She tried for so many years and now she finally
-                              pregnant happy and things are going well &amp; it
-                              just happens that this pregnancy takes place with
-                              this epidemic…
+                              {{ data.excerpt }}
                             </p>
-                            <el-button size="small">修改</el-button>
-                            <el-button size="small" type="primary">查看</el-button>
+                            <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                              修改
+                            </nuxt-link>
+                            <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                              查看
+                            </nuxt-link>
 
                           </div>
                         </div>
@@ -276,9 +287,59 @@ export default {
     selectTab(value) {
       this.selected = value;
     },
-
+    handleRelease(item) {
+      this.$emit('handleRelease', item)
+    }
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.business-post-thumb {
+  border: 1px solid rgba(229, 231, 235, 1);
+}
+
+.bussiness-post-content>a:hover {
+  border-color: #1091ff !important;
+  background: #1091ff;
+}
+
+.bussiness-post-content>a {
+  border: 2px solid #50585f;
+  line-height: 40px;
+  padding: 0 15px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222;
+}
+
+.bussiness-post-content>a:hover {
+  background: #1091ff;
+  border-color: #1091ff;
+  color: #fff;
+}
+
+.bussiness-post-content>a {
+  border: 2px solid #50585f;
+  line-height: 40px;
+  padding: 0 15px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222;
+  margin-top: 15px;
+}
+
+.bussiness-post-content>a:hover {
+  background: #1091ff;
+  border-color: #1091ff;
+  color: #fff;
+}
+</style>
