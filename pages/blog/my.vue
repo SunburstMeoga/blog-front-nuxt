@@ -27,26 +27,26 @@ export default {
         handleRelease(item) {
             this.showConfirmBox(item.id)
         },
-        addBlogIdToContract(blogId) {
-            let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
-            web3Contract.methods.addBlogId(blogId)
-                .send({ from: window.ethereum.selectedAddress || this.$store.state.auth.walletAddress })
-                .on('transationHash', (hash) => {
-                    console.log('hash', hash)
-                })
-                .on('receipt', (receipt) => {
-                    console.log('receipt', receipt)
-                })
-                .then((res) => {
-                    console.log('addBlogId成功', res)
-                    // this.toPublishBlog(blogId)
-                    return res
-                })
-                .catch(err => {
-                    console.log('addBlogId失败', err)
-                    return err
-                })
-        },
+        // addBlogIdToContract(blogId) {
+        //     let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
+        //     web3Contract.methods.addBlogId(blogId)
+        //         .send({ from: window.ethereum.selectedAddress || this.$store.state.auth.walletAddress })
+        //         .on('transationHash', (hash) => {
+        //             console.log('hash', hash)
+        //         })
+        //         .on('receipt', (receipt) => {
+        //             console.log('receipt', receipt)
+        //         })
+        //         .then((res) => {
+        //             console.log('addBlogId成功', res)
+        //             // this.toPublishBlog(blogId)
+        //             return res
+        //         })
+        //         .catch(err => {
+        //             console.log('addBlogId失败', err)
+        //             return err
+        //         })
+        // },
         toPublishBlog(blogId) {
             this.$blogApi.publisBlog({ blog_id: blogId })
                 .then(res => {
@@ -59,8 +59,6 @@ export default {
                 .catch(err => {
                     console.log('publish blog fail', err)
                     this.$message.error('发布失败，请重新发布');
-
-                    return err
                 })
         },
         showConfirmBox(blogId) {

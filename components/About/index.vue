@@ -5,11 +5,11 @@
     <!-- <about-author /> -->
     <other :blogsData="blogsData" :underReviewData="underReviewData" :toBeReleasedData="toBeReleasedData"
       @handleRelease="handleRelease" />
-    <div class="add-area text-center">
+    <!-- <div class="add-area text-center">
       <a href="#">
         <img src="@/assets/images/ads/one_ad.png" alt="" />
       </a>
-    </div>
+    </div> -->
     <footer-one />
     <div class="go-top-area">
       <div class="go-top-wrap">

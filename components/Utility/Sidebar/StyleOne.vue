@@ -169,7 +169,7 @@ export default {
     },
     ad: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     sharePost: {
       type: Boolean,

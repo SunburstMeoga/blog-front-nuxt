@@ -93,27 +93,27 @@ export default {
           link: "/blog/my",
           child: false
         },
-        {
-          linkText: this.$t('headerNav.blogCategories'),
-          child: true,
-          link: 'categories-type',
-          icon: "angle-down"
-        },
-        {
-          linkText: this.$t('headerNav.latestBlogs'),
-          link: "/404",
-          child: false
-        },
-        {
-          linkText: this.$t('headerNav.hottesBlogs'),
-          link: "/sports",
-          child: false
-        }
+        // {
+        //   linkText: this.$t('headerNav.blogCategories'),
+        //   child: true,
+        //   link: 'categories-type',
+        //   icon: "angle-down"
+        // },
+        // {
+        //   linkText: this.$t('headerNav.latestBlogs'),
+        //   link: "/404",
+        //   child: false
+        // },
+        // {
+        //   linkText: this.$t('headerNav.hottesBlogs'),
+        //   link: "/sports",
+        //   child: false
+        // }
       ]
     }
   },
   mounted() {
-    this.getBlogCategories()
+    // this.getBlogCategories()
   },
   methods: {
     getBlogCategories() {
