@@ -62,7 +62,7 @@
   </nuxt-link>
   <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="counting"
     class="gallery_item gallery_item-style-2">
-    <div class="gallery_item_thumb">
+    <div class="gallery_item_thumb" style="width: 80px; height: 64px;">
       <img :src="datas.image_url" alt="gallery" />
       <div class="icon"><i class="fas fa-bolt"></i></div>
     </div>
