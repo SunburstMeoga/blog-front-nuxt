@@ -11,7 +11,7 @@
             }}</a>
           </div>
           <div class="meta-date">
-            <span>March 27, 2020</span>
+            <span>{{ getLocalTime(datas.updated_at) }}</span>
           </div>
         </div>
         <h4 class="title">
@@ -35,13 +35,13 @@
           <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-post-date">
-          <span>March 27, 2020</span>
+          <span>{{ getLocalTime(datas.updated_at) }}</span>
         </div>
       </div>
     </div>
   </nuxt-link>
   <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="trending" class="gallery_item">
-    <div class="gallery_item_thumb">
+    <div class="gallery_item_thumb" style="width: 100px; height: 77px;">
       <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       <div v-if="datas.trending" class="icon"><i class="fas fa-bolt"></i></div>
     </div>
@@ -51,7 +51,7 @@
           <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
-          <span>March 27, 2020</span>
+          <span>{{ getLocalTime(datas.updated_at) }}</span>
         </div>
       </div>
       <h4 class="title">
@@ -63,7 +63,7 @@
   <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="counting"
     class="gallery_item gallery_item-style-2">
     <div class="gallery_item_thumb">
-      <img src="@/assets/images/most-post/most-1.jpg" alt="gallery" />
+      <img :src="datas.image_url" alt="gallery" />
       <div class="icon"><i class="fas fa-bolt"></i></div>
     </div>
     <div class="gallery_item_content">
@@ -121,6 +121,8 @@
 </template>
 
 <script>
+import { getLocalTime } from '../../../utils/format'
+
 export default {
   props: {
     category: {
@@ -143,6 +145,9 @@ export default {
       type: Number,
     },
   },
+  methods: {
+    getLocalTime
+  }
 };
 </script>
 

@@ -23,7 +23,7 @@
     <!--====== FEATURE PART ENDS ======-->
 
     <!--====== TRENDING NEWS PART START ======-->
-    <trending-news />
+    <trending-news :TrendingPosts="blogList" />
 
     <!--====== TRENDING NEWS PART ENDS ======-->
 

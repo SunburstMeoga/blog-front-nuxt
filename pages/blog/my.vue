@@ -83,7 +83,7 @@ export default {
                                 console.log('receipt', receipt)
                             })
                             .then((res) => {
-                                _self.toPublishBlog({ blog_id: blogId })
+                                _self.toPublishBlog(blogId)
                                 done()
                             })
                             .catch(err => {

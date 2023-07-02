@@ -2,7 +2,7 @@
   <div v-if="stype === 'row'" class="row">
     <div class="col-lg-6 col-md-6">
       <div class="business-post-thumb">
-        <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
+        <img :src="datas.image_url" alt="post" />
       </div>
     </div>
     <div class="col-lg-6 col-md-6">
@@ -16,7 +16,7 @@
               }}</nuxt-link>
             </div>
             <div class="meta-date">
-              <span>March 27, 2020</span>
+              <span>{{ getLocalTime(datas.updated_at) }}</span>
             </div>
           </div>
           <h3 class="title">
@@ -39,7 +39,7 @@
         <nuxt-link to="/posts/postOne">{{ datas.title }}</nuxt-link>
       </h3>
       <div class="meta-date-link">
-        <span>March 27, 2020</span>
+        <span>{{ getLocalTime(datas.updated_at) }}</span>
         <ul>
           <li>
             <a href="#"><i class="fal fa-bookmark"></i></a>
@@ -56,8 +56,8 @@
     </div>
   </div>
   <div v-else-if="stype === 'col'" class="trending-news-item">
-    <div class="trending-news-thumb">
-      <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
+    <div class="trending-news-thumb" style="width: 350px; height: 250px;">
+      <img :src="datas.image_url" alt="post" />
       <div v-if="datas.action === 'trending'" class="icon">
         <a href="#"><i class="fas fa-bolt"></i></a>
       </div>
@@ -68,7 +68,7 @@
           <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
-          <span>March 27, 2020</span>
+          <span>{{ getLocalTime(datas.updated_at) }}</span>
         </div>
       </div>
       <h3 class="title">
@@ -110,6 +110,7 @@
 </template>
 
 <script>
+import { getLocalTime } from '../../../utils/format'
 export default {
   props: {
     datas: {
@@ -123,7 +124,15 @@ export default {
       type: String,
     },
   },
+  methods: { getLocalTime }
+
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>

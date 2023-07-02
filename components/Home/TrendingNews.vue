@@ -16,8 +16,8 @@
               <template v-for="(data, index) in TrendingPosts">
                 <div :key="index" class="px-2">
                   <divide-card :class="[
-                      darkClass && 'item' in darkClass ? darkClass.item : '',
-                    ]" stype="col" :datas="data" />
+                    darkClass && 'item' in darkClass ? darkClass.item : '',
+                  ]" stype="col" :datas="data" />
                 </div>
               </template>
             </slider>
@@ -27,33 +27,33 @@
           <div class="row">
             <div class="col-lg-6 col-md-6">
               <div :class="[
-                  'trending-news-post-items',
-                  darkClass && 'news_section' in darkClass
-                    ? darkClass.news_section
-                    : '',
-                ]">
-                <template v-for="(small, index) in smallPostGallery.slice(0, 3)">
+                'trending-news-post-items',
+                darkClass && 'news_section' in darkClass
+                  ? darkClass.news_section
+                  : '',
+              ]">
+                <template v-for="(small, index) in TrendingPosts.slice(0, 3)">
                   <row-card :class="[
-                      darkClass && 'news_item' in darkClass
-                        ? darkClass.news_item
-                        : '',
-                    ]" :key="index" :trending="true" :datas="small" />
+                    darkClass && 'news_item' in darkClass
+                      ? darkClass.news_item
+                      : '',
+                  ]" :key="index" :trending="true" :datas="small" />
                 </template>
               </div>
             </div>
             <div class="col-lg-6 col-md-6">
               <div :class="[
-                  'trending-news-post-items',
-                  darkClass && 'news_section' in darkClass
-                    ? darkClass.news_section
-                    : '',
-                ]">
-                <template v-for="(small, index) in smallPostGallery.slice(3, 6)">
+                'trending-news-post-items',
+                darkClass && 'news_section' in darkClass
+                  ? darkClass.news_section
+                  : '',
+              ]">
+                <template v-for="(small, index) in TrendingPosts.slice(3, 6)">
                   <row-card :class="[
-                      darkClass && 'news_item' in darkClass
-                        ? darkClass.news_item
-                        : '',
-                    ]" :key="index" :trending="true" :datas="small" />
+                    darkClass && 'news_item' in darkClass
+                      ? darkClass.news_item
+                      : '',
+                  ]" :key="index" :trending="true" :datas="small" />
                 </template>
               </div>
             </div>
@@ -72,21 +72,21 @@
                   class="fal fa-angle-left"></i></span>
               <slider :settings="trendingSidebarSlide" ref="trendingSidebarSlide">
                 <div class="post_gallery_items">
-                  <template v-for="(small, index) in smallPostGallery.slice(0, 6)">
+                  <template v-for="(small, index) in TrendingPosts.slice(0, 6)">
                     <row-card :class="[
-                        darkClass && 'news_item' in darkClass
-                          ? darkClass.news_item
-                          : '',
-                      ]" :key="index" :counting="true" :count="index + 1" :datas="small" />
+                      darkClass && 'news_item' in darkClass
+                        ? darkClass.news_item
+                        : '',
+                    ]" :key="index" :counting="true" :count="index + 1" :datas="small" />
                   </template>
                 </div>
                 <div class="post_gallery_items">
-                  <template v-for="(small, index) in smallPostGallery.slice(0, 6)">
+                  <template v-for="(small, index) in TrendingPosts.slice(0, 6)">
                     <row-card :class="[
-                        darkClass && 'news_item' in darkClass
-                          ? darkClass.news_item
-                          : '',
-                      ]" :key="index" :counting="true" :count="index + 1" :datas="small" />
+                      darkClass && 'news_item' in darkClass
+                        ? darkClass.news_item
+                        : '',
+                    ]" :key="index" :counting="true" :count="index + 1" :datas="small" />
                   </template>
                 </div>
               </slider>
@@ -117,10 +117,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    TrendingPosts: {
+      type: Array,
+      default: () => []
+    }
   },
   data: () => ({
     smallPostGallery: smallPostGallery.data,
-    TrendingPosts: TrendingPosts.data,
+    // TrendingPosts: TrendingPosts.data,
     trendingSettings: {
       arrows: false,
       slidesToShow: 2,

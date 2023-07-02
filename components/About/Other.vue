@@ -44,7 +44,7 @@
                                         data.categoryIds[0].category_id.name }}</a>
                                     </div>
                                     <div class="meta-date">
-                                      <span>March 26, 2020</span>
+                                      <span>{{ getLocalTime(data.created_at) }}</span>
                                     </div>
                                   </div>
                                   <h3 class="title">
@@ -119,7 +119,7 @@
                                         data.categoryIds[0].category_id.name }}</a>
                                     </div>
                                     <div class="meta-date">
-                                      <span>March 26, 2020</span>
+                                      <span>{{ getLocalTime(data.created_at) }}</span>
                                     </div>
                                   </div>
                                   <h3 class="title">
@@ -193,7 +193,7 @@
                               </nuxt-link>
                             </h3>
                             <div class="meta-date-link">
-                              <span>April 26, 2020</span>
+                              <span>{{ getLocalTime(data.created_at) }}</span>
                               <ul>
                                 <li>
                                   <a href="#"><i class="fal fa-bookmark"></i></a>
@@ -260,7 +260,7 @@
 import styleOne from "../Utility/Sidebar/StyleOne.vue";
 import aboutDatas from "../Data/About";
 import Posts from "../Data/TrendingHomeThree";
-
+import { getLocalTime } from '../../utils/format'
 
 export default {
   components: { styleOne },
@@ -284,6 +284,7 @@ export default {
     },
   },
   methods: {
+    getLocalTime,
     selectTab(value) {
       this.selected = value;
     },
