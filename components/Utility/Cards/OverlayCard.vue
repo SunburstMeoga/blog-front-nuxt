@@ -1,15 +1,15 @@
 <template>
   <nuxt-link to="/posts/postOne" v-if="stype === 'small'" class="feature-post d-block">
     <div class="feature-post-thumb">
-      <img :src="require(`@/assets/images/` + datas.image)" alt="feature" />
+      <img :src="datas.image_url" alt="feature" />
     </div>
     <div class="feature-post-content">
       <div class="post-meta">
         <div class="meta-categories">
-          <a href="#">{{ datas.category.name }}</a>
+          <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
-          <span>{{ datas.category.create_At }}</span>
+          <span>{{ getLocalTime(datas.updated_at) }}</span>
         </div>
       </div>
       <h4 class="title">
@@ -17,15 +17,16 @@
       </h4>
     </div>
   </nuxt-link>
-  <nuxt-link to="/posts/postOne" v-else-if="stype === 'big'" class="single-play-post-item d-block">
-    <img :src="require(`@/assets/images/` + datas.image)" alt="feature" />
+  <nuxt-link to="/posts/postOne" v-else-if="stype === 'big'" class="single-play-post-item d-block"
+    style="width: 542px; height: 420px;">
+    <img :src="datas.image_url" alt="feature" />
     <div class="single-play-post-content">
       <div class="post-meta">
         <div class="meta-categories">
-          <a href="#">{{ datas.category.name }}</a>
+          <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
-          <span>{{ datas.category.create_At }}</span>
+          <span>{{ getLocalTime(datas.updated_at) }}</span>
         </div>
       </div>
       <h3 class="title">
@@ -42,6 +43,7 @@
 </template>
 
 <script>
+import { getLocalTime } from '../../../utils/format'
 export default {
   props: {
     datas: {
@@ -51,7 +53,16 @@ export default {
       type: String,
     },
   },
+  methods: {
+    getLocalTime
+  }
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>

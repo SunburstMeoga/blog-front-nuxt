@@ -28,7 +28,7 @@
     <!--====== TRENDING NEWS PART ENDS ======-->
 
     <!--====== SINGLE PLAY POST PART START ======-->
-    <single-play-post />
+    <single-play-post :playPostDatas="blogList" />
 
     <!--====== VIDEO NEWS PART START ======-->
 
