@@ -25,9 +25,13 @@ export default {
     darkClass: {
       type: Object,
     },
+    entertainmentNewsDatas: {
+      type: Array,
+      default: () => []
+    }
   },
   data: () => ({
-    entertainmentNewsDatas: entertainmentNewsDatas.data,
+    // entertainmentNewsDatas: entertainmentNewsDatas.data,
   }),
 };
 </script>

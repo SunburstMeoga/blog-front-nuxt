@@ -60,6 +60,12 @@ export default {
     },
     news: json.datas,
   }),
+  props: {
+    // news: {
+    //   type: Array,
+    //   default: () => []
+    // }
+  },
   methods: {
     next() {
       this.$refs.carousel.next();

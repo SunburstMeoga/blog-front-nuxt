@@ -15,9 +15,11 @@ export default {
     data() {
         return {
             sidebar: false,
+            news: []
         }
     },
     mounted() {
+        this.getNews()
         if (localStorage.getItem('token')) {
             this.$store.commit('auth/setAuthToken', localStorage.getItem('token'))
             this.$store.commit('auth/changeHasTokenStatus', true)
@@ -35,11 +37,22 @@ export default {
             .catch(err => {
                 console.log(err)
             })
-        console.log('this.$store', this.$store.state.auth)
-        console.log('window.ethereum.selectedAddress', window.ethereum)
-        console.log('window.ethereum.selectedAddress', window.ethereum.selectedAddress)
     },
     methods: {
+        getNews() {
+            this.$blogApi.getUserBlogs()
+                .then(res => {
+                    res.data.docs.map(item => {
+                        let obj = {}
+                        obj.news = item.title
+                        this.news.push(obj)
+                    })
+
+                })
+                .catch(err => {
+
+                })
+        },
         toggleSidebar() {
             this.sidebar = !this.sidebar;
         },

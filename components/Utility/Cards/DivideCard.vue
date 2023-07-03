@@ -1,7 +1,7 @@
 <template>
   <div v-if="stype === 'row'" class="row">
     <div class="col-lg-6 col-md-6">
-      <div class="business-post-thumb">
+      <div class="business-post-thumb" style="width: 350px; height: 250px;">
         <img :src="datas.image_url" alt="post" />
       </div>
     </div>

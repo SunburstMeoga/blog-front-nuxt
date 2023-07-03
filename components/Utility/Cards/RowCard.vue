@@ -72,7 +72,7 @@
           <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name }}</a>
         </div>
         <div class="meta-date">
-          <span>March 26, 2020</span>
+          <span>{{ getLocalTime(datas.updated_at) }}</span>
         </div>
       </div>
       <h4 class="title">
@@ -83,7 +83,7 @@
   </nuxt-link>
   <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="sports" class="gallery_item">
     <template v-if="datas">
-      <div class="gallery_item_thumb">
+      <div class="gallery_item_thumb" style="width: 100px; height: 78px;">
         <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       </div>
       <div class="gallery_item_content">
@@ -93,7 +93,7 @@
             }}</a>
           </div>
           <div class="meta-date">
-            <span>March 26, 2020</span>
+            <span>{{ getLocalTime(datas.updated_at) }}</span>
           </div>
         </div>
         <h4 class="title">

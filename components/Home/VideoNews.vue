@@ -17,8 +17,8 @@
                   ? darkClass.section_2
                   : '',
               ]">
-                <div class="video-news-post-thumb">
-                  <img src="@/assets/images/video-post-thumb.jpg" alt="" />
+                <div class="video-news-post-thumb" style="width: 730px; height: 410px;">
+                  <img :src="videoData.image_url" alt="" style="width: 730px; height: 410px; object-fit: cover; " />
                   <div class="play-btn">
                     <a class="video-popup" @click.prevent="$store.dispatch('toggleVideo')"><i
                         class="fab fa-youtube"></i></a>
@@ -27,15 +27,16 @@
                 <div class="video-news-post-content">
                   <div class="post-meta">
                     <div class="meta-categories">
-                      <a href="#">TECHNOLOGY</a>
+                      <a href="#">{{ videoData.categoryIds && videoData.categoryIds.length > 0 &&
+                        videoData.categoryIds[0].category_id.name
+                      }}</a>
                     </div>
                     <div class="meta-date">
-                      <span>March 26, 2020</span>
+                      <span>{{ getLocalTime(videoData.updated_at) }}</span>
                     </div>
                   </div>
                   <h3 class="title">
-                    <nuxt-link to="/posts/postOne">Riots Report Shows London Needs To Maintain Police
-                      Numbers, Says Mayor</nuxt-link>
+                    <nuxt-link :to="{ name: 'blog-id', params: { id: videoData.id } }">{{ videoData.title }}</nuxt-link>
                   </h3>
                 </div>
               </div>
@@ -86,6 +87,8 @@
 import smallPostGallery from "../Data/NewsRowCard";
 import Slider from "../Helpers/Slider.vue";
 import RowCard from "../Utility/Cards/RowCard.vue";
+import { getLocalTime } from '../../utils/format'
+
 export default {
   components: { Slider, RowCard },
   props: {
@@ -96,9 +99,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    smallPostGallery: {
+      type: Array,
+      default: () => []
+    },
+    videoData: {
+      type: Object,
+      default: () => { }
+    }
   },
   data: () => ({
-    smallPostGallery: smallPostGallery.data,
+    // smallPostGallery: smallPostGallery.data,
     videoNewsSlide: {
       arrows: false,
       slidesToShow: 1,
@@ -106,6 +117,7 @@ export default {
     },
   }),
   methods: {
+    getLocalTime,
     tssPrev() {
       this.$refs.trendingSidebarSlide.prev();
     },
@@ -116,4 +128,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>

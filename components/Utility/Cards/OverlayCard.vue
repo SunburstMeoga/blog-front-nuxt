@@ -17,8 +17,9 @@
       </h4>
     </div>
   </nuxt-link>
-  <nuxt-link to="/posts/postOne" v-else-if="stype === 'big'" class="single-play-post-item d-block">
-    <img :src="datas.image_url" alt="feature" style="width: 542px; height: 420px;" />
+  <nuxt-link to="/posts/postOne" v-else-if="stype === 'big'" class="single-play-post-item d-block"
+    style="width: 542px; height: 420px;">
+    <img :src="datas.image_url" alt="feature" />
     <div class="single-play-post-content">
       <div class="post-meta">
         <div class="meta-categories">

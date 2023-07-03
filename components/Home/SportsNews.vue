@@ -19,19 +19,19 @@
             <div class="post_gallery_items">
               <template v-for="(data, index) in sportNews.slice(1, 6)">
                 <row-card :class="[
-                    darkClass && 'news_item' in darkClass
-                      ? darkClass.news_item
-                      : '',
-                  ]" :sports="true" :datas="data" :key="index" />
+                  darkClass && 'news_item' in darkClass
+                    ? darkClass.news_item
+                    : '',
+                ]" :sports="true" :datas="data" :key="index" />
               </template>
             </div>
             <div class="post_gallery_items">
               <template v-for="(data, index) in sportNews.slice(1, 6)">
                 <row-card :class="[
-                    darkClass && 'news_item' in darkClass
-                      ? darkClass.news_item
-                      : '',
-                  ]" :sports="true" :datas="data" :key="index" />
+                  darkClass && 'news_item' in darkClass
+                    ? darkClass.news_item
+                    : '',
+                ]" :sports="true" :datas="data" :key="index" />
               </template>
             </div>
           </slider>
@@ -54,9 +54,13 @@ export default {
     darkClass: {
       type: Object,
     },
+    sportNews: {
+      type: Array,
+      default: () => []
+    }
   },
   data: () => ({
-    sportNews: sportNews.data,
+    // sportNews: sportNews.data,
     trendingSidebarSlide: {
       arrows: false,
       slidesToShow: 1,

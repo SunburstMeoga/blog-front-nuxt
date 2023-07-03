@@ -32,13 +32,13 @@
 
     <!--====== VIDEO NEWS PART START ======-->
 
-    <video-news />
+    <video-news :smallPostGallery="blogList" :videoData="videoData" />
 
     <!--====== VIDEO NEWS PART ENDS ======-->
 
     <!--====== ALL POST PART START ======-->
 
-    <home-one-post-area />
+    <home-one-post-area :entertainmentNewsDatas="blogList" />
 
     <!--====== ALL POST PART ENDS ======-->
 
@@ -82,7 +82,8 @@ export default {
   },
   data: () => ({
     sidebar: false,
-    blogList: []
+    blogList: [],
+    videoData: {}
   }),
   methods: {
     toggleSidebar() {
@@ -91,7 +92,7 @@ export default {
   },
   async asyncData({ $blogApi }) {
     const { data } = await $blogApi.getBlogList()
-    return { blogList: data.docs }
+    return { blogList: data.docs, videoData: data.docs[0] }
   },
 };
 </script>

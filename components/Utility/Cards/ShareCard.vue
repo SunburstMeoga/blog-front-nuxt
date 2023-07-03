@@ -2,10 +2,11 @@
   <div class="most-share-post-item">
     <div class="post-meta">
       <div class="meta-categories">
-        <a href="#">{{ datas.category.name }}</a>
+        <a href="#">{{ datas.categoryIds && datas.categoryIds.length > 0 && datas.categoryIds[0].category_id.name
+        }}</a>
       </div>
       <div class="meta-date">
-        <span>{{ datas.category.create_At }}</span>
+        <span>{{ getLocalTime(datas.updated_at) }}</span>
       </div>
     </div>
     <h3 class="title">
@@ -22,6 +23,8 @@
 </template>
 
 <script>
+import { getLocalTime } from '../../../utils/format'
+
 export default {
   props: {
     datas: {
@@ -31,6 +34,9 @@ export default {
       type: Number,
     },
   },
+  methods: {
+    getLocalTime
+  }
 };
 </script>
 

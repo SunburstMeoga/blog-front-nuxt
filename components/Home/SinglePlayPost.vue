@@ -7,7 +7,7 @@
               class="fal fa-angle-left"></i></span>
           <slider :settings="playPostSettings" ref="playPost">
             <template v-for="(data, index) in playPostDatas">
-              <div :key="index" class="px-3">
+              <div :key="index">
                 <overlay-card :datas="data" stype="big" />
               </div>
             </template>

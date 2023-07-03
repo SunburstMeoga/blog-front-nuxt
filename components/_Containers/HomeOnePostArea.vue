@@ -3,46 +3,46 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <entertainment-news v-if="!dark" />
-          <entertainment-news v-else :darkClass="{
-              item: 'trending-news-item-dark',
-              title: 'section-title-2',
-            }" />
-          <sports-news v-if="!dark" />
-          <sports-news v-else :darkClass="{
-              item: 'trending-news-item-dark',
-              title: 'section-title-2',
-              news_item: 'gallery_item_dark',
-            }" />
+          <entertainment-news :entertainmentNewsDatas="entertainmentNewsDatas" v-if="!dark" />
+          <entertainment-news :entertainmentNewsDatas="entertainmentNewsDatas" v-else :darkClass="{
+            item: 'trending-news-item-dark',
+            title: 'section-title-2',
+          }" />
+          <sports-news :sportNews="entertainmentNewsDatas" v-if="!dark" />
+          <sports-news :sportNews="entertainmentNewsDatas" v-else :darkClass="{
+            item: 'trending-news-item-dark',
+            title: 'section-title-2',
+            news_item: 'gallery_item_dark',
+          }" />
           <div class="post-add mt-30">
             <a href="#"><img src="@/assets/images/ads/one_ad.png" alt="ad" /></a>
           </div>
-          <buisness-news class="pt-40" v-if="!dark" />
-          <buisness-news v-else class="pt-40" :darkClass="{
-              item: 'business-post-item-dark',
-              title: 'section-title-2',
-            }" />
+          <buisness-news :TrendingPosts="entertainmentNewsDatas" class="pt-40" v-if="!dark" />
+          <buisness-news :TrendingPosts="entertainmentNewsDatas" v-else class="pt-40" :darkClass="{
+            item: 'business-post-item-dark',
+            title: 'section-title-2',
+          }" />
         </div>
         <div class="col-lg-4">
           <div class="all-post-sidebar">
-            <share-post v-if="!dark" />
-            <share-post v-else :darkClass="{
-                title: 'section-title-2',
-                item: 'most-share-post-item-dark',
-              }" />
+            <share-post :sharePosts="entertainmentNewsDatas" v-if="!dark" />
+            <share-post :sharePosts="entertainmentNewsDatas" v-else :darkClass="{
+              title: 'section-title-2',
+              item: 'most-share-post-item-dark',
+            }" />
             <div class="upcoming-matches-post mt-35">
               <div :class="[
-                  'section-title d-flex justify-content-between align-items-cente',
-                  dark ? 'section-title-2' : '',
-                ]">
+                'section-title d-flex justify-content-between align-items-cente',
+                dark ? 'section-title-2' : '',
+              ]">
                 <h3 class="title">Upcoming Matches</h3>
                 <a href="#">ALL SEE</a>
               </div>
               <div class="upcoming-matches-post-items">
                 <div :class="[
-                    'upcoming-matches-post-item d-flex align-items-center',
-                    dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]">
+                  'upcoming-matches-post-item d-flex align-items-center',
+                  dark ? 'upcoming-matches-post-item-dark' : '',
+                ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-1.png" alt="flag" />
                   </div>
@@ -60,9 +60,9 @@
                   </div>
                 </div>
                 <div :class="[
-                    'upcoming-matches-post-item d-flex align-items-center',
-                    dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]">
+                  'upcoming-matches-post-item d-flex align-items-center',
+                  dark ? 'upcoming-matches-post-item-dark' : '',
+                ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-2.png" alt="flag" />
                   </div>
@@ -80,9 +80,9 @@
                   </div>
                 </div>
                 <div :class="[
-                    'upcoming-matches-post-item d-flex align-items-center',
-                    dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]">
+                  'upcoming-matches-post-item d-flex align-items-center',
+                  dark ? 'upcoming-matches-post-item-dark' : '',
+                ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-3.png" alt="flag" />
                   </div>
@@ -100,9 +100,9 @@
                   </div>
                 </div>
                 <div :class="[
-                    'upcoming-matches-post-item d-flex align-items-center',
-                    dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]">
+                  'upcoming-matches-post-item d-flex align-items-center',
+                  dark ? 'upcoming-matches-post-item-dark' : '',
+                ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-4.png" alt="flag" />
                   </div>
@@ -120,9 +120,9 @@
                   </div>
                 </div>
                 <div :class="[
-                    'upcoming-matches-post-item d-flex align-items-center',
-                    dark ? 'upcoming-matches-post-item-dark' : '',
-                  ]">
+                  'upcoming-matches-post-item d-flex align-items-center',
+                  dark ? 'upcoming-matches-post-item-dark' : '',
+                ]">
                   <div class="upcoming-matches-flag">
                     <img src="@/assets/images/flag/flag-5.png" alt="flag" />
                   </div>
@@ -142,9 +142,9 @@
               </div>
             </div>
             <div :class="[
-                'newsletter-box mt-45',
-                dark ? 'newsletter-box-dark' : '',
-              ]">
+              'newsletter-box mt-45',
+              dark ? 'newsletter-box-dark' : '',
+            ]">
               <h5 class="title">時事通訊</h5>
               <p>
                 您的電子郵件地址不會被公開。 必填字段
@@ -160,9 +160,9 @@
             </div>
             <div class="Categories-post mt-40">
               <div :class="[
-                  'section-title d-flex justify-content-between align-items-center',
-                  dark ? 'section-title-2' : '',
-                ]">
+                'section-title d-flex justify-content-between align-items-center',
+                dark ? 'section-title-2' : '',
+              ]">
                 <h3 class="title">Categories</h3>
                 <a href="#">ALL SEE</a>
               </div>
@@ -244,6 +244,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    entertainmentNewsDatas: {
+      type: Array,
+      default: () => []
+    }
   },
   components: { EntertainmentNews, SportsNews, BuisnessNews, SharePost },
 };

@@ -10,9 +10,9 @@
     <div class="business-post">
       <template v-for="(data, index) in TrendingPosts.slice(0, 4)">
         <div :key="index" :class="[
-            'business-post-item  mb-40',
-            darkClass && 'item' in darkClass ? darkClass.item : '',
-          ]">
+          'business-post-item  mb-10',
+          darkClass && 'item' in darkClass ? darkClass.item : '',
+        ]">
           <divide-card :readMore="true" stype="row" :datas="data" />
         </div>
       </template>
@@ -29,9 +29,13 @@ export default {
     darkClass: {
       type: Object,
     },
+    TrendingPosts: {
+      type: Array,
+      default: () => []
+    }
   },
   data: () => ({
-    TrendingPosts: TrendingPosts.data,
+    // TrendingPosts: TrendingPosts.data,
   }),
 };
 </script>
