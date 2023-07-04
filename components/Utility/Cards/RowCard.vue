@@ -105,7 +105,7 @@
   <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else
     class="single__post d-lg-flex text-center text-lg-left">
     <template v-if="datas">
-      <div class="post-thumb mb-3 mb-lg-0" style="width: 100px;">
+      <div class="post-thumb mb-3 mb-lg-0" style="width: 100px; height: 77px;">
         <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       </div>
       <div class="post-content">
