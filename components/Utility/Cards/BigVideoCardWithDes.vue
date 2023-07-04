@@ -21,9 +21,11 @@
           amphitheater and a swimming pond with sandy beach and outdoor shower… -->
         </p>
       </div>
-      <div class="post_play_btn" @click.prevent="$store.dispatch('toggleVideo')">
-        <a class="video-popup" href="https://www.youtube.com/watch?v=4mGyYNuG6us" a><i class="fas fa-play"></i></a>
-      </div>
+      <!-- <div class="post_play_btn" @click.prevent="$store.dispatch('toggleVideo')">
+        <a class="video-popup" href="https://www.youtube.com/watch?v=4mGyYNuG6us" a>
+          <i class="fas fa-play"></i>
+        </a>
+      </div> -->
     </div>
   </nuxt-link>
 </template>
