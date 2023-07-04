@@ -1,5 +1,5 @@
 <template>
-  <div class="sports-news-area">
+  <div class="sports-news-area sm:mt-10">
     <div :class="[
       'section-title',
       darkClass && 'title' in darkClass ? darkClass.title : '',

@@ -14,14 +14,14 @@
             title: 'section-title-2',
             news_item: 'gallery_item_dark',
           }" />
-          <div class="post-add mt-30">
+          <!-- <div class="post-add mt-30">
             <a href="#"><img src="@/assets/images/ads/one_ad.png" alt="ad" /></a>
-          </div>
-          <buisness-news :TrendingPosts="entertainmentNewsDatas" class="pt-40" v-if="!dark" />
+          </div> -->
+          <!-- <buisness-news :TrendingPosts="entertainmentNewsDatas" class="pt-40" v-if="!dark" />
           <buisness-news :TrendingPosts="entertainmentNewsDatas" v-else class="pt-40" :darkClass="{
             item: 'business-post-item-dark',
             title: 'section-title-2',
-          }" />
+          }" /> -->
         </div>
         <div class="col-lg-4">
           <div class="all-post-sidebar">
@@ -30,7 +30,7 @@
               title: 'section-title-2',
               item: 'most-share-post-item-dark',
             }" />
-            <div class="upcoming-matches-post mt-35">
+            <!-- <div class="upcoming-matches-post mt-35">
               <div :class="[
                 'section-title d-flex justify-content-between align-items-cente',
                 dark ? 'section-title-2' : '',
@@ -140,8 +140,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div :class="[
+            </div> -->
+            <!-- <div :class="[
               'newsletter-box mt-45',
               dark ? 'newsletter-box-dark' : '',
             ]">
@@ -157,8 +157,8 @@
                 </div>
               </form>
               <span>我們和您一樣討厭垃圾郵件</span>
-            </div>
-            <div class="Categories-post mt-40">
+            </div> -->
+            <div class="Categories-post mt-40 sm:mt-10">
               <div :class="[
                 'section-title d-flex justify-content-between align-items-center',
                 dark ? 'section-title-2' : '',

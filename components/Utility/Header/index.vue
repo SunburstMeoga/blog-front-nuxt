@@ -134,11 +134,14 @@ export default {
     async handleLogin() {
       this.isLoading = true
       if (this.$store.state.auth.walletAddress) { //已经连接钱包
+        console.log('已经连接钱包')
         if (!this.$store.state.auth.authToken) {
+          console.log('已经连接钱包并且已经拥有token')
           const { contract_token, identity_token } = await this.$userApi.getLoginToken({ wallet_address: window.ethereum.selectedAddress || this.$store.state.auth.walletAddress })
           this.saveTokenToContract(contract_token, identity_token)
         }
       } else { //未链接钱包
+        console.log('未连接钱包')
         this.connectWallet()
       }
     },
