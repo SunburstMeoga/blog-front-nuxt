@@ -28,11 +28,11 @@
     <!--====== TRENDING NEWS PART ENDS ======-->
 
     <!--====== SINGLE PLAY POST PART START ======-->
-    <single-play-post :playPostDatas="blogList" />
+    <!-- <single-play-post :playPostDatas="blogList" /> -->
 
     <!--====== VIDEO NEWS PART START ======-->
 
-    <video-news :smallPostGallery="blogList" :videoData="videoData" />
+    <!-- <video-news :smallPostGallery="blogList" :videoData="videoData" /> -->
 
     <!--====== VIDEO NEWS PART ENDS ======-->
 
