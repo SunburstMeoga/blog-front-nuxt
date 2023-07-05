@@ -35,6 +35,7 @@
                                                                 <nuxt-link
                                                                     :to="{ name: 'blog-id', params: { id: data.id } }">
                                                                     {{ data.title }}
+                                                                    {{ index + 1 }}
                                                                 </nuxt-link>
                                                             </h3>
                                                             <div class="meta-date-link">
@@ -58,14 +59,27 @@
                                                     </div>
                                                 </div>
                                             </template>
-                                            <div class="col-lg-12" v-show="totalPages > 1">
+                                            <!-- <div class="col-lg-12" v-show="blogsData.totalPages > 1">
                                                 <div class="pagination-item">
                                                     <nav aria-label="Page navigation example">
+
                                                         <ul class="pagination">
-                                                            <li class="page-item active" v-for="(item, index) in 4">
+                                                            <li class="page-item" v-show="blogsData.hasPrevPage"
+                                                                @click.prevent="handlePrePage">
+                                                                <a class="page-link" href="#" aria-label="Next">
+                                                                    <span aria-hidden="true"><i
+                                                                            class="fas fa-caret-left"></i></span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="page-item"
+                                                                :class="index + 1 === blogsData.page ? 'active' : ''"
+                                                                @click.prevent="handlePages(index)"
+                                                                v-for="(item, index) in blogsData.totalPages / 1"
+                                                                :key="index">
                                                                 <a class="page-link" href="#">{{ index + 1 }}</a>
                                                             </li>
-                                                            <li class="page-item" v-show="hasNextPage">
+                                                            <li class="page-item" v-show="blogsData.hasNextPage"
+                                                                @click.prevent="handleNextPage">
                                                                 <a class="page-link" href="#" aria-label="Next">
                                                                     <span aria-hidden="true"><i
                                                                             class="fas fa-caret-right"></i></span>
@@ -73,6 +87,12 @@
                                                             </li>
                                                         </ul>
                                                     </nav>
+                                                </div>
+                                            </div> -->
+                                            <div class="col-lg-12">
+                                                <div class="bussiness-btn">
+                                                    <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
+                                                        more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -99,59 +119,41 @@ export default {
     async asyncData({ $blogApi }) {
         let categories = await $blogApi.getBlogCategories()
         let blogsData = await $blogApi.getBlogList({ perPage: 10 })
+        console.log('blogsData', blogsData)
         return {
             categories: categories.data.docs,
-            blogsData: blogsData.data,
-            totalPages: blogsData.totalPages,
-            nextPage: blogsData.nextPage,
-            hasNextPage: blogsData.hasNextPage,
-            hasPrevPage: blogsData.hasPrevPage,
-            page: blogsData.page,
+            blogsData: blogsData.data
         }
     },
     data: () => ({
         selected: 'all',
-        // aboutDatas: aboutDatas.data,
-        // posts: Posts.data,
         blogsData: {},
-        underReviewData: {},
-        toBeReleasedData: {},
-        categories: [],
-        categoryId: '',
-        totalPages: 0,
-        nextPage: 0,
-        hasNextPage: false,
-        hasPrevPage: false,
-        page: 0,
     }),
-    // props: {
-    //     blogsData: {
-    //         type: Object,
-    //         default: () => { }
-    //     },
-    //     underReviewData: {
-    //         type: Object,
-    //         default: () => { }
-    //     },
-    //     toBeReleasedData: {
-    //         type: Object,
-    //         default: () => { }
-    //     },
-    // },
     mounted() {
-        // this.getCategories()
     },
     methods: {
         getLocalTime,
-        getBlogs() {
-            this.$blogApi.getBlogList({ categoryId: this.categoryId })
+        handleShowMore() {
+            console.log('this.blogsData', this.blogsData)
+            if (this.blogsData.hasNextPage) {
+                this.getBlogs(this.categoryId, this.blogsData.page + 1)
+            } else {
+                this.$message({
+                    message: '无更多数据',
+                    type: 'warning'
+                });
+            }
+        },
+        loadMoreDatas() {
+
+        },
+        getBlogs(categoryId, page) {
+            this.$blogApi.getBlogList({ categoryId: categoryId, page: page })
                 .then(res => {
                     this.blogsData = res.data
-                    this.totalPages = res.data.totalPages
-                    this.nextPage = res.data.nextPage
-                    this.hasNextPage = res.data.hasNextPage
-                    this.hasPrevPage = res.data.hasPrevPage
-                    this.page = res.data.page
+                    res.data.docs.map(item => {
+                        this.blogsData.docs.push(item)
+                    })
                     console.log(this.blogsData)
                 })
                 .catch(err => {
@@ -171,12 +173,12 @@ export default {
         selectAll() {
             this.selected = 'all';
             this.categoryId = ''
-            this.getBlogs()
+            this.getBlogs(this.categoryId, this.blogsData.page)
         },
         selectTab(item, index) {
             this.selected = index;
             this.categoryId = item.id
-            this.getBlogs()
+            this.getBlogs(this.categoryId, this.blogsData.page)
         },
         handleRelease(item) {
             this.$emit('handleRelease', item)
