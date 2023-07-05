@@ -23,7 +23,7 @@
                                     aria-labelledby="pills-profile-tab">
                                     <div class="about-post-items">
                                         <div class="row">
-                                            <template v-for="(data, index) in blogsData.docs">
+                                            <template v-for="(data, index) in blogsList">
                                                 <div class="col-lg-12">
                                                     <div class="bussiness-post-item mb-40">
                                                         <div class="bussiness-post-thumb"
@@ -122,12 +122,14 @@ export default {
         console.log('blogsData', blogsData)
         return {
             categories: categories.data.docs,
-            blogsData: blogsData.data
+            blogsData: blogsData.data,
+            blogsList: blogsData.data.docs
         }
     },
     data: () => ({
         selected: 'all',
         blogsData: {},
+        blogsList: []
     }),
     mounted() {
     },
@@ -152,7 +154,7 @@ export default {
                 .then(res => {
                     this.blogsData = res.data
                     res.data.docs.map(item => {
-                        this.blogsData.docs.push(item)
+                        this.blogsList.push(item)
                     })
                     console.log(this.blogsData)
                 })
