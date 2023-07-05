@@ -58,23 +58,14 @@
                                                     </div>
                                                 </div>
                                             </template>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-12" v-show="totalPages > 1">
                                                 <div class="pagination-item">
                                                     <nav aria-label="Page navigation example">
                                                         <ul class="pagination">
-                                                            <li class="page-item active">
-                                                                <a class="page-link" href="#">01</a>
+                                                            <li class="page-item active" v-for="(item, index) in 4">
+                                                                <a class="page-link" href="#">{{ index + 1 }}</a>
                                                             </li>
-                                                            <li class="page-item">
-                                                                <a class="page-link" href="#">02</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a class="page-link" href="#">...</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a class="page-link" href="#">50</a>
-                                                            </li>
-                                                            <li class="page-item">
+                                                            <li class="page-item" v-show="hasNextPage">
                                                                 <a class="page-link" href="#" aria-label="Next">
                                                                     <span aria-hidden="true"><i
                                                                             class="fas fa-caret-right"></i></span>
@@ -119,6 +110,11 @@ export default {
         toBeReleasedData: {},
         categories: [],
         categoryId: '',
+        totalPages: 0,
+        nextPage: 0,
+        hasNextPage: false,
+        hasPrevPage: false,
+        page: 0,
     }),
     // props: {
     //     blogsData: {
@@ -143,6 +139,12 @@ export default {
             this.$blogApi.getBlogList({ categoryId: this.categoryId })
                 .then(res => {
                     this.blogsData = res.data
+                    this.totalPages = res.data.totalPages
+                    this.nextPage = res.data.nextPage
+                    this.hasNextPage = res.data.hasNextPage
+                    this.hasPrevPage = res.data.hasPrevPage
+                    this.page = res.data.page
+                    console.log(this.blogsData)
                 })
                 .catch(err => {
                     console.log(err)
