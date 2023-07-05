@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <div class="about-tab-btn mt-10">
+          <div class="about-tab-btn mt-40">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li @click.prevent="selectTab('latest')" class="nav-item" role="presentation">
                 <a :class="[selected === 'latest' ? 'active' : '']" class="nav-link" id="pills-home-tab"
@@ -248,7 +248,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 mt-10">
+        <div class="col-lg-4 mt-40">
           <style-one :datas="blogsData.docs" :sharePost="false" />
         </div>
       </div>

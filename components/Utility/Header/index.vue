@@ -113,6 +113,7 @@ export default {
   mounted() {
     if (localStorage.getItem('language')) {
       this.$i18n.locale = localStorage.getItem('language')
+      this.$store.commit('system/setLanguage', localStorage.getItem('language'))
       switch (localStorage.getItem('language')) {
         case 'zh_hk': this.selectValue = '繁體中文'
           break;
@@ -129,6 +130,7 @@ export default {
       console.log(item)
       localStorage.setItem('language', item.value)
       this.$i18n.locale = item.value
+      this.$store.commit('system/setLanguage', localStorage.getItem('language'))
       this.selectValue = item.label
     },
     async handleLogin() {

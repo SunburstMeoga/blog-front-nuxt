@@ -89,6 +89,11 @@ export default {
           child: false
         },
         {
+          linkText: '博客列表',
+          link: '/blog/list',
+          child: false
+        },
+        {
           linkText: '我的博客',
           link: "/blog/my",
           child: false
