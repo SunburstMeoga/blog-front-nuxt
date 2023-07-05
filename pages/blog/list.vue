@@ -99,7 +99,15 @@ export default {
     async asyncData({ $blogApi }) {
         let categories = await $blogApi.getBlogCategories()
         let blogsData = await $blogApi.getBlogList({ perPage: 10 })
-        return { categories: categories.data.docs, blogsData: blogsData.data }
+        return {
+            categories: categories.data.docs,
+            blogsData: blogsData.data,
+            totalPages: blogsData.totalPages,
+            nextPage: blogsData.nextPage,
+            hasNextPage: blogsData.hasNextPage,
+            hasPrevPage: blogsData.hasPrevPage,
+            page: blogsData.page,
+        }
     },
     data: () => ({
         selected: 'all',
