@@ -50,7 +50,6 @@
                                   <h3 class="title">
                                     <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                       {{ data.title }}
-                                      {{ index + 1 }}
                                     </nuxt-link>
                                   </h3>
                                   <p class="text">
@@ -107,7 +106,6 @@
                                   <h3 class="title">
                                     <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                       {{ data.title }}
-                                      {{ index + 1 }}
                                     </nuxt-link>
                                   </h3>
                                   <p class="text">
@@ -154,7 +152,6 @@
                             <h3 class="title">
                               <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                 {{ data.title }}
-                                {{ index + 1 }}
                               </nuxt-link>
                             </h3>
                             <div class="meta-date-link">
