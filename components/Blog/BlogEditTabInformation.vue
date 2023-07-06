@@ -105,14 +105,6 @@ export default {
 
 
 <style>
-.blog-module {
-    @apply flex justify-start items-start mb-10;
-}
-
-.module-title {
-    @apply w-2/12 font-bold;
-}
-
 .suffix-counter {
     position: absolute;
     right: 0;
@@ -130,6 +122,7 @@ export default {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    display: none;
 }
 
 .avatar-uploader .el-upload:hover {

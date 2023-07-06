@@ -8,7 +8,7 @@
               <li @click.prevent="selectTab('latest')" class="nav-item" role="presentation">
                 <a :class="[selected === 'latest' ? 'active' : '']" class="nav-link" id="pills-home-tab"
                   data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
-                  aria-selected="true">全部博客</a>
+                  aria-selected="true">所有博客</a>
               </li>
               <li @click.prevent="selectTab('publish')" class="nav-item" role="presentation">
                 <a :class="[selected === 'publish' ? 'active' : '']" class="nav-link" id="pills-profile-tab"
@@ -26,7 +26,7 @@
                 role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in blogsData.docs">
+                    <template v-for="(data, index) in blogsList">
                       <div class="col-lg-12">
                         <div class="business-post-item mb-10">
                           <div class="row">
@@ -50,6 +50,7 @@
                                   <h3 class="title">
                                     <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                       {{ data.title }}
+                                      {{ index + 1 }}
                                     </nuxt-link>
                                   </h3>
                                   <p class="text">
@@ -70,28 +71,9 @@
                       </div>
                     </template>
                     <div class="col-lg-12">
-                      <div class="pagination-item">
-                        <nav aria-label="Page navigation example">
-                          <ul class="pagination">
-                            <li class="page-item active">
-                              <a class="page-link" href="#">01</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">02</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">...</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">50</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true"><i class="fas fa-caret-right"></i></span>
-                              </a>
-                            </li>
-                          </ul>
-                        </nav>
+                      <div class="bussiness-btn">
+                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
+                          more</a>
                       </div>
                     </div>
                   </div>
@@ -101,7 +83,7 @@
                 role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in toBeReleasedData.docs">
+                    <template v-for="(data, index) in toBeReleasedList">
                       <div class="col-lg-12">
                         <div class="business-post-item mb-10">
                           <div class="row">
@@ -125,6 +107,7 @@
                                   <h3 class="title">
                                     <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                       {{ data.title }}
+                                      {{ index + 1 }}
                                     </nuxt-link>
                                   </h3>
                                   <p class="text">
@@ -148,28 +131,9 @@
                       </div>
                     </template>
                     <div class="col-lg-12">
-                      <div class="pagination-item">
-                        <nav aria-label="Page navigation example">
-                          <ul class="pagination">
-                            <li class="page-item active">
-                              <a class="page-link" href="#">01</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">02</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">...</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">50</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true"><i class="fas fa-caret-right"></i></span>
-                              </a>
-                            </li>
-                          </ul>
-                        </nav>
+                      <div class="bussiness-btn">
+                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
+                          more</a>
                       </div>
                     </div>
                   </div>
@@ -179,7 +143,7 @@
                 role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="about-post-items">
                   <div class="row">
-                    <template v-for="(data, index) in underReviewData.docs">
+                    <template v-for="(data, index) in underReviewList">
                       <div class="col-lg-12">
                         <div class="bussiness-post-item mb-10 flex items-center">
                           <div class="bussiness-post-thumb"
@@ -190,6 +154,7 @@
                             <h3 class="title">
                               <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
                                 {{ data.title }}
+                                {{ index + 1 }}
                               </nuxt-link>
                             </h3>
                             <div class="meta-date-link">
@@ -218,28 +183,9 @@
                       </div>
                     </template>
                     <div class="col-lg-12">
-                      <div class="pagination-item">
-                        <nav aria-label="Page navigation example">
-                          <ul class="pagination">
-                            <li class="page-item active">
-                              <a class="page-link" href="#">01</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">02</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">...</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">50</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true"><i class="fas fa-caret-right"></i></span>
-                              </a>
-                            </li>
-                          </ul>
-                        </nav>
+                      <div class="bussiness-btn">
+                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
+                          more</a>
                       </div>
                     </div>
                   </div>
@@ -282,11 +228,26 @@ export default {
       type: Object,
       default: () => { }
     },
+    blogsList: {
+      type: Array,
+      default: () => []
+    },
+    underReviewList: {
+      type: Array,
+      default: () => []
+    },
+    toBeReleasedList: {
+      type: Array,
+      default: () => []
+    },
   },
   methods: {
     getLocalTime,
     selectTab(value) {
       this.selected = value;
+    },
+    handleShowMore() {
+      this.$emit('handleShowMore', this.selected)
     },
     handleRelease(item) {
       this.$emit('handleRelease', item)

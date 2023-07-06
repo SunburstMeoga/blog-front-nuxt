@@ -1,7 +1,8 @@
 <template>
     <div>
         <about :blogsData="blogsData" :underReviewData="underReviewData" :toBeReleasedData="toBeReleasedData"
-            @handleRelease="handleRelease" />
+            @handleRelease="handleRelease" :blogsList="blogsList" :underReviewList="underReviewList"
+            :toBeReleasedList="toBeReleasedList" @handleShowMore="handleShowMore" />
     </div>
 </template>
   
@@ -14,6 +15,10 @@ export default {
             blogsData: {},
             underReviewData: {},
             toBeReleasedData: {},
+            blogsList: [],
+            underReviewList: [],
+            toBeReleasedList: [],
+            selected: 'latest'
         }
     },
     async asyncData({ $userApi }) {
@@ -21,32 +26,76 @@ export default {
         let underReviewData = await $userApi.getUserBlogs({ perPage: 6, is_approved: false, is_published: false })
         let toBeReleasedData = await $userApi.getUserBlogs({ perPage: 6, is_approved: true, is_published: false })
         console.log(blogsData.data, underReviewData.data, toBeReleasedData.data)
-        return { blogsData: blogsData.data, underReviewData: underReviewData.data, toBeReleasedData: toBeReleasedData.data }
+        return {
+            blogsData: blogsData.data,
+            underReviewData: underReviewData.data,
+            toBeReleasedData: toBeReleasedData.data,
+            blogsList: blogsData.data.docs,
+            underReviewList: underReviewData.data.docs,
+            toBeReleasedList: toBeReleasedData.data.docs
+        }
     },
     methods: {
         handleRelease(item) {
             this.showConfirmBox(item.id)
         },
-        // addBlogIdToContract(blogId) {
-        //     let web3Contract = new this.Web3.eth.Contract(this.Config.con_abi, this.Config.con_addr)
-        //     web3Contract.methods.addBlogId(blogId)
-        //         .send({ from: window.ethereum.selectedAddress || this.$store.state.auth.walletAddress })
-        //         .on('transationHash', (hash) => {
-        //             console.log('hash', hash)
-        //         })
-        //         .on('receipt', (receipt) => {
-        //             console.log('receipt', receipt)
-        //         })
-        //         .then((res) => {
-        //             console.log('addBlogId成功', res)
-        //             // this.toPublishBlog(blogId)
-        //             return res
-        //         })
-        //         .catch(err => {
-        //             console.log('addBlogId失败', err)
-        //             return err
-        //         })
-        // },
+        handleShowMore(selected) {
+            // latest publish news
+            // { perPage: 6, page: this.blogsData.page + 1, is_approved: isApproved, is_published: isPublished }
+            console.log('handleShowMore', selected)
+            this.selected = selected
+            let blogsObj = {}
+            if (selected === 'latest') {
+                if (!this.blogsData.hasNextPage) {
+                    this.$message.error('无更多数据');
+                    return
+                }
+                blogsObj = { perPage: 6, page: this.blogsData.page + 1 }
+
+            } else if (selected === 'publish') {
+                if (!this.toBeReleasedData.hasNextPage) {
+                    this.$message.error('无更多数据');
+                    return
+                }
+                blogsObj = { perPage: 6, page: this.toBeReleasedData.page + 1, is_approved: true, is_published: false }
+            } else {
+                if (!this.underReviewData.hasNextPage) {
+                    this.$message.error('无更多数据');
+                    return
+                }
+                blogsObj = { perPage: 6, page: this.underReviewData.page + 1, is_approved: false, is_published: false }
+            }
+            this.loadMoreBlogs(blogsObj)
+        },
+        loadMoreBlogs(blogsObj) {
+
+            this.$userApi.getUserBlogs(blogsObj)
+                .then(res => {
+                    if (this.selected === 'latest') {
+                        this.blogsData = res.data
+                        res.data.docs.map(item => {
+                            this.blogsList.push(item)
+                        })
+                    } else if (this.latest === 'publish') {
+                        this.toBeReleasedData = res.data
+                        res.data.docs.map(item => {
+                            this.toBeReleasedList.push(item)
+                        })
+                    } else {
+                        this.underReviewData = res.data
+                        res.data.docs.map(item => {
+                            this.underReviewList.push(item)
+                        })
+                    }
+
+                })
+                .catch(err => {
+                    this.$message({
+                        message: '加载失败，请重新加载',
+                        type: 'warning'
+                    });
+                })
+        },
         toPublishBlog(blogId) {
             this.$blogApi.publisBlog({ blog_id: blogId })
                 .then(res => {

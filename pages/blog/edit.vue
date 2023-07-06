@@ -3,7 +3,7 @@
         <div class="container">
             <div class="blog-module  mt-10">
                 <div class="module-title">封面图片</div>
-                <div class="flex-1">
+                <div class="module-content">
                     <!-- <el-upload class="avatar-uploader" :limit="1" :action="imgUploadUrl" :show-file-list="false"
                         :on-success="handleCoverSuccess" :before-upload="beforeCoverUpload" :headers="headerObj"
                         :on-remove="handleRemove">
@@ -11,8 +11,7 @@
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload> -->
                     <el-upload :limit="1" :action="imgUploadUrl" list-type="picture-card" :on-success="handleCoverSuccess"
-                        :before-upload="beforeCoverUpload" :headers="headerObj" :on-preview="handlePictureCardPreview"
-                        :on-remove="handleRemove">
+                        :headers="headerObj" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
                         <i class="el-icon-plus"></i>
                     </el-upload>
                 </div>
@@ -21,7 +20,7 @@
                 <div class="module-title">
                     blog分类
                 </div>
-                <div class="flex-1">
+                <div class="module-content">
                     <el-select v-model="categoryValue" multiple placeholder="请选择" @change="categoryIdsChange">
                         <el-option v-for="item in categorysList" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
@@ -32,7 +31,7 @@
                 <div class="module-title">
                     blog标题
                 </div>
-                <div class="flex-1">
+                <div class="module-content">
                     <el-input v-model="blogTitle" placeholder="请输入标题"></el-input>
                 </div>
             </div>
@@ -40,7 +39,7 @@
                 <div class="module-title">
                     blog内容
                 </div>
-                <div class="editor-box flex-1">
+                <div class="module-content">
                     <blog-edit-tab-information ref="editBlog" />
                 </div>
             </div>
@@ -49,7 +48,7 @@
                 <div class="module-title">
                     Slug
                 </div>
-                <div class="flex-1">
+                <div class="module-content">
                     <el-input v-model="blogSlug" placeholder="请输入内容"></el-input>
                 </div>
             </div>
@@ -57,14 +56,14 @@
                 <div class="module-title">
                     Tags
                 </div>
-                <div class="flex-1">
+                <div class="module-content">
                     <el-select v-model="tagValue" multiple placeholder="请选择" @change="tagIdsChange">
                         <el-option v-for="item in tagsList" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                     </el-select>
                 </div>
             </div>
-            <div class="flex justify-between items-center mb-4 sm:justify-end">
+            <div class="button-group">
                 <div>
                     <el-button @click="handleBlogs" type="primary" :disabled="loadingHandle || creatSccess"
                         :loading="loadingHandle">
@@ -185,33 +184,47 @@ export default {
         handleCoverSuccess(res, file) {
             this.imageFile = file.raw
         },
-
-        beforeCoverUpload(file) {
-            console.log('file', file)
-            // const isJPG = file.type === 'image/jpeg';
-            // const isLt2M = file.size / 1024 / 1024 < 2;
-            // console.log('file', file)
-
-            // // if (!isJPG) {
-            // //     this.$message.error('上传头像图片只能是 JPG 格式!');
-            // // }
-            // if (!isLt2M) {
-            //     this.$message.error('上传头像图片大小不能超过 2MB!');
-            // }
-            // return isLt2M;
-        }
     }
 }
 </script>
 
 <style scoped>
 .blog-module {
-    @apply flex justify-start items-start mb-10;
+    display: block;
+    margin-top: 20px;
 }
 
 .module-title {
-    @apply w-2/12 font-bold;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 10px;
 }
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media (min-width:640px) {
+    .blog-module {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 30px;
+    }
+
+    .module-title {
+        width: 13%;
+    }
+
+    .module-content {
+        flex: 1;
+    }
+}
+
+
 
 .el-select {
     width: 100%;

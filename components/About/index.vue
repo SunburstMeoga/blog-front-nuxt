@@ -3,8 +3,9 @@
     <!-- <drawer @toggleSidebar="toggleSidebar" :sidebar="sidebar" />
     <Header @toggleSidebar="toggleSidebar" /> -->
     <!-- <about-author /> -->
-    <other :blogsData="blogsData" :underReviewData="underReviewData" :toBeReleasedData="toBeReleasedData"
-      @handleRelease="handleRelease" />
+    <other :blogsData="blogsData" @handleShowMore="handleShowMore" :underReviewData="underReviewData"
+      :toBeReleasedData="toBeReleasedData" :blogsList="blogsList" :underReviewList="underReviewList"
+      :toBeReleasedList="toBeReleasedList" @handleRelease="handleRelease" />
     <!-- <div class="add-area text-center">
       <a href="#">
         <img src="@/assets/images/ads/one_ad.png" alt="" />
@@ -51,6 +52,18 @@ export default {
       type: Object,
       default: () => { }
     },
+    blogsList: {
+      type: Array,
+      default: () => []
+    },
+    underReviewList: {
+      type: Array,
+      default: () => []
+    },
+    toBeReleasedList: {
+      type: Array,
+      default: () => []
+    },
   },
   data: () => ({
     sidebar: false,
@@ -59,6 +72,10 @@ export default {
     document.addEventListener("scroll", this.topToBottom);
   },
   methods: {
+    handleShowMore(selected) {
+      console.log(selected)
+      this.$emit('handleShowMore', selected)
+    },
     handleRelease(item) {
       this.$emit('handleRelease', item)
     },
