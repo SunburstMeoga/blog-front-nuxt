@@ -40,14 +40,6 @@
                                                             </h3>
                                                             <div class="meta-date-link">
                                                                 <span>{{ getLocalTime(data.created_at) }}</span>
-                                                                <!-- <ul>
-                                                                    <li>
-                                                                        <a href="#"><i class="fal fa-bookmark"></i></a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#"><i class="fas fa-share"></i></a>
-                                                                    </li>
-                                                                </ul> -->
                                                             </div>
                                                             <p>
                                                                 {{ data.excerpt }}
@@ -59,36 +51,6 @@
                                                     </div>
                                                 </div>
                                             </template>
-                                            <!-- <div class="col-lg-12" v-show="blogsData.totalPages > 1">
-                                                <div class="pagination-item">
-                                                    <nav aria-label="Page navigation example">
-
-                                                        <ul class="pagination">
-                                                            <li class="page-item" v-show="blogsData.hasPrevPage"
-                                                                @click.prevent="handlePrePage">
-                                                                <a class="page-link" href="#" aria-label="Next">
-                                                                    <span aria-hidden="true"><i
-                                                                            class="fas fa-caret-left"></i></span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="page-item"
-                                                                :class="index + 1 === blogsData.page ? 'active' : ''"
-                                                                @click.prevent="handlePages(index)"
-                                                                v-for="(item, index) in blogsData.totalPages / 1"
-                                                                :key="index">
-                                                                <a class="page-link" href="#">{{ index + 1 }}</a>
-                                                            </li>
-                                                            <li class="page-item" v-show="blogsData.hasNextPage"
-                                                                @click.prevent="handleNextPage">
-                                                                <a class="page-link" href="#" aria-label="Next">
-                                                                    <span aria-hidden="true"><i
-                                                                            class="fas fa-caret-right"></i></span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
-                                                </div>
-                                            </div> -->
                                             <div class="col-lg-12">
                                                 <div class="bussiness-btn">
                                                     <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
@@ -175,12 +137,16 @@ export default {
         selectAll() {
             this.selected = 'all';
             this.categoryId = ''
-            this.getBlogs(this.categoryId, this.blogsData.page)
+            this.blogsData = {}
+            this.blogsList = []
+            this.getBlogs(this.categoryId, 1)
         },
         selectTab(item, index) {
             this.selected = index;
             this.categoryId = item.id
-            this.getBlogs(this.categoryId, this.blogsData.page)
+            this.blogsData = {}
+            this.blogsList = []
+            this.getBlogs(this.categoryId, 1)
         },
         handleRelease(item) {
             this.$emit('handleRelease', item)
