@@ -53,8 +53,9 @@
                                             </template>
                                             <div class="col-lg-12">
                                                 <div class="bussiness-btn">
-                                                    <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
-                                                        more</a>
+                                                    <a @click.prevent="handleShowMore" class="main-btn main-btn-2">
+                                                        {{ loadingFail ? '加载失败，点击重新加载' : (isLoading ? '正在加载...' : '查看更多') }}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -91,13 +92,20 @@ export default {
     data: () => ({
         selected: 'all',
         blogsData: {},
-        blogsList: []
+        blogsList: [],
+        isLoading: false,
+        loadingFail: false
     }),
     mounted() {
     },
     methods: {
         getLocalTime,
         handleShowMore() {
+            if (this.isLoading) {
+                this.$message('正在加载，请稍后...');
+                return
+            }
+            this.loadingFail = false
             console.log('this.blogsData', this.blogsData)
             if (this.blogsData.hasNextPage) {
                 this.getBlogs(this.categoryId, this.blogsData.page + 1)
@@ -112,6 +120,7 @@ export default {
 
         },
         getBlogs(categoryId, page) {
+            this.isLoading = true
             this.$blogApi.getBlogList({ categoryId: categoryId, page: page })
                 .then(res => {
                     this.blogsData = res.data
@@ -119,9 +128,12 @@ export default {
                         this.blogsList.push(item)
                     })
                     console.log(this.blogsData)
+                    this.isLoading = false
                 })
                 .catch(err => {
                     console.log(err)
+                    this.isLoading = false
+                    this.loadingFail = true
                 })
         },
         getCategories() {

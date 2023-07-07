@@ -10,10 +10,19 @@
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload> -->
-                    <el-upload :limit="1" :action="imgUploadUrl" list-type="picture-card" :on-success="handleCoverSuccess"
+
+                    <el-image class="avatar avatar-uploader el-upload" :src="blogDetailsData.image_url" fit="cover">
+                        <div slot="placeholder" class="image-slot">
+                            加载中<span class="dot">...</span>
+                        </div>
+                        <div slot="error" class="image-slot">
+                            加载中<span class="dot">...</span>
+                        </div>
+                    </el-image>
+                    <!-- <el-upload :limit="1" :action="imgUploadUrl" list-type="picture-card" :on-success="handleCoverSuccess"
                         :headers="headerObj" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
                         <i class="el-icon-plus"></i>
-                    </el-upload>
+                    </el-upload> -->
                 </div>
             </div>
             <div class="blog-module">
@@ -21,7 +30,7 @@
                     blog分类
                 </div>
                 <div class="module-content">
-                    <el-select v-model="categoryValue" multiple placeholder="请选择" @change="categoryIdsChange">
+                    <el-select v-model="categoryIds" multiple placeholder="请选择" @change="categoryIdsChange">
                         <el-option v-for="item in categorysList" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                     </el-select>
@@ -57,7 +66,7 @@
                     Tags
                 </div>
                 <div class="module-content">
-                    <el-select v-model="tagValue" multiple placeholder="请选择" @change="tagIdsChange">
+                    <el-select v-model="tagsIds" multiple placeholder="请选择" @change="tagIdsChange">
                         <el-option v-for="item in tagsList" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                     </el-select>
@@ -67,7 +76,7 @@
                 <div>
                     <el-button @click="handleBlogs" type="primary" :disabled="loadingHandle || creatSccess"
                         :loading="loadingHandle">
-                        {{ creatSccess ? '已发布成功' : (loadingHandle ? '正在发布...' : (createFail ? '发布失败，请重新发布' : '发布')) }}
+                        {{ creatSccess ? '已提交成功' : (loadingHandle ? '正在提交...' : (createFail ? '提交失败，请重新期缴' : '确认修改')) }}
                     </el-button>
                 </div>
                 <!-- <div class="sm:ml-12"><el-button>取消</el-button></div> -->
@@ -156,16 +165,6 @@ export default {
                     this.$refs.editBlog.content = content
                     this.categoryIds = categoryIds
                     this.tagsIds = tags
-                    this.categorysList.map(item => {
-                        categoryIds.map(_item => {
-                            if (item.value === _item) {
-                                this.categoryValue.push(item.label)
-                            }
-                        })
-                    })
-                    res.data.categoryIds.map(item => {
-
-                    })
                 })
                 .catch(err => {
                     console.log(err)
@@ -184,19 +183,28 @@ export default {
         },
         createBlogs() {
             this.loadingHandle = true
-            let formdata = new FormData()
-            this.categoryIds.map(item => {
-                formdata.append('categoryIds[]', item)
-            })
-            this.tagsIds.map(item => {
-                formdata.append('tagIds[]', item)
-            })
-            formdata.append('image', this.imageFile)
-            formdata.append('title', this.blogTitle)
-            formdata.append('slug', this.blogSlug)
-            formdata.append('content', this.$refs.editBlog.content)
-            formdata.append('id', this.blogId)
-            this.$blogApi.createOrUpdateBlogs(formdata).then(res => {
+            let blogObj = {}
+            blogObj.categoryIds = this.categoryIds
+            blogObj.tagsIds = this.tagsIds
+            blogObj.id = this.blogDetailsData.id
+            blogObj.slug = this.blogDetailsData.slug
+            blogObj.title = this.blogDetailsData.title
+            blogObj.content = this.$refs.editBlog.content
+
+            console.log('blogObj', blogObj)
+            // return
+            // this.categoryIds.map(item => {
+            //     formdata.append('categoryIds[]', item)
+            // })
+            // this.tagsIds.map(item => {
+            //     formdata.append('tagIds[]', item)
+            // })
+            // formdata.append('image', this.imageFile)
+            // formdata.append('title', this.blogTitle)
+            // formdata.append('slug', this.blogSlug)
+            // formdata.append('content', this.$refs.editBlog.content)
+            // formdata.append('id', this.blogId)
+            this.$blogApi.createOrUpdateBlogs(blogObj).then(res => {
                 console.log('发布成功', res)
                 this.loadingHandle = false
                 this.creatSccess = true
@@ -287,6 +295,7 @@ export default {
     width: 178px;
     height: 178px;
     display: block;
+    position: relative;
 }
 
 .disabled {}

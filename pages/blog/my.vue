@@ -18,7 +18,9 @@ export default {
             blogsList: [],
             underReviewList: [],
             toBeReleasedList: [],
-            selected: 'latest'
+            selected: 'latest',
+            isLoading: false,
+            loadingFail: false
         }
     },
     async asyncData({ $userApi }) {
@@ -42,6 +44,11 @@ export default {
         handleShowMore(selected) {
             // latest publish news
             // { perPage: 6, page: this.blogsData.page + 1, is_approved: isApproved, is_published: isPublished }
+            if (this.isLoading) {
+                this.$message('正在加载，请稍后...');
+                return
+            }
+            this.loadingFail = false
             console.log('handleShowMore', selected)
             this.selected = selected
             let blogsObj = {}
@@ -68,7 +75,7 @@ export default {
             this.loadMoreBlogs(blogsObj)
         },
         loadMoreBlogs(blogsObj) {
-
+            this.isLoading = true
             this.$userApi.getUserBlogs(blogsObj)
                 .then(res => {
                     if (this.selected === 'latest') {
@@ -87,13 +94,15 @@ export default {
                             this.underReviewList.push(item)
                         })
                     }
-
+                    this.isLoading = false
                 })
                 .catch(err => {
                     this.$message({
                         message: '加载失败，请重新加载',
                         type: 'warning'
                     });
+                    this.isLoading = false
+                    this.loadingFail = true
                 })
         },
         toPublishBlog(blogId) {
