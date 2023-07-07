@@ -55,7 +55,7 @@
                                   <p class="text">
                                     {{ data.excerpt }}
                                   </p>
-                                  <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                  <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
                                     修改
                                   </nuxt-link>
                                   <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
@@ -115,7 +115,7 @@
                                   <nuxt-link to="" @click.native="handleRelease(data)">
                                     发布
                                   </nuxt-link>
-                                  <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                  <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
                                     修改
                                   </nuxt-link>
                                   <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
@@ -168,7 +168,7 @@
                             <p>
                               {{ data.excerpt }}
                             </p>
-                            <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                            <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
                               修改
                             </nuxt-link>
                             <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">

@@ -99,7 +99,7 @@ export default {
     return {
       menuOpen: null,
       subMenuHeight: null,
-      menuItems: Navs.data,
+      // menuItems: Navs.data,
     };
   },
   computed: {
@@ -108,6 +108,31 @@ export default {
         "--height": this.subMenuHeight,
       };
     },
+    menuItems() {
+      return [
+        {
+          linkText: this.$t('headerNav.home'),
+          child: false,
+          link: '/'
+        },
+        {
+          linkText: this.$t('headerNav.writeBlog'),
+          link: "/blog/edit",
+          child: false
+        },
+        {
+          linkText: '博客列表',
+          link: '/blog/list',
+          child: false
+        },
+        {
+          linkText: '我的博客',
+          link: "/blog/my",
+          child: false
+        },
+      ]
+    }
+
   },
   methods: {
     hideSidebar(e) {

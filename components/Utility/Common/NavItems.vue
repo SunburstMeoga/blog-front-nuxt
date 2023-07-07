@@ -38,43 +38,8 @@ export default {
     darkClass: {
       type: Object,
     },
-    // nav_items: {
-    //   type: Array,
-    //   default: () => []
-    // }
   },
-  data: () => ({
-    // when you have api then delete json file (dir:components/data/) and add your data this variable
-    // nav_items: navItems.data,
-    // nav_items: [
-    //   {
-    //     linkText: this.$t('headerNav.home'),
-    //     child: false,
-    //     icon: "angle-down"
-    //   },
-    //   {
-    //     linkText: this.$t('headerNav.writeBlog'),
-    //     link: "/blog/edit",
-    //     child: false
-    //   },
-    //   {
-    //     linkText: this.$t('headerNav.blogCategories'),
-    //     child: true,
-    //     submenu: [],
-    //     icon: "angle-down"
-    //   },
-    //   {
-    //     linkText: this.$t('headerNav.latestBlogs'),
-    //     link: "/404",
-    //     child: false
-    //   },
-    //   {
-    //     linkText: this.$t('headerNav.hottesBlogs'),
-    //     link: "/sports",
-    //     child: false
-    //   }
-    // ]
-  }),
+  data: () => ({}),
   computed: {
     nav_items() {
       return [
@@ -121,24 +86,7 @@ export default {
     // this.getBlogCategories()
   },
   methods: {
-    getBlogCategories() {
-      this.$blogApi.getBlogCategories().then(res => {
-        // console.log('博客分類列表', res)
-        const { docs } = res.data
-        let submenu = []
-        docs.map(item => {
-          let obj = {}
-          obj.linkText = item.name
-          obj.slug = item.slug
-          obj.id = item.id
-          submenu.push(obj)
-        })
-        this.nav_items[2].submenu = submenu
-        // console.log('nav_items', this.nav_items)
-      }).catch(err => {
-        console.log(err)
-      })
-    },
+
     handleNavItem(item) {
       console.log(item)
       // this.$emit('handleNavItem', item)

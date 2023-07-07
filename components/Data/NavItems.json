@@ -5,57 +5,6 @@
       "linkText": "首頁",
       "child": false,
       "icon": "angle-down"
-    },
-    {
-      "id": 3,
-      "linkText": "寫博客",
-      "link": "/blog/edit",
-      "child": false
-    },
-    {
-      "id": 4,
-      "linkText": "博客分類",
-      "child": true,
-      "icon": "angle-down",
-      "submenu": [
-        {
-          "id": 41,
-          "link": "/business",
-          "linkText": "商業"
-        },
-        {
-          "id": 42,
-          "link": "/entertainment",
-          "linkText": "娛樂"
-        },
-        {
-          "id": 43,
-          "link": "/features",
-          "linkText": "Features"
-        },
-        {
-          "id": 44,
-          "link": "/sports",
-          "linkText": "運動"
-        },
-        {
-          "id": 45,
-          "link": "/trending",
-          "linkText": "熱門"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "linkText": "最新博客",
-      "link": "/404",
-      "child": false
-    },
-    {
-      "id": 6,
-      "linkText": "最熱博客",
-      "link": "/sports",
-      "child": false
     }
   ]
 }

@@ -105,7 +105,7 @@ export default {
         categoryIds: [],
         tagsIds: []
     }),
-    async asyncData({ $blogApi }) {
+    async asyncData({ $blogApi, params }) {
         const { categories, tags } = await $blogApi.getOptions({ tags: true, categories: true })
         let categoriesArray = []
         let tagsArray = []

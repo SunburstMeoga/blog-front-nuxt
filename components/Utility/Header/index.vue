@@ -1,7 +1,7 @@
 <template>
   <header class="header-area">
     <top-bar />
-    <div class="header-centerbar sm:py-10">
+    <div class="header-centerbar" style="padding: 10px 0;">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-4">
