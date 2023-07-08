@@ -121,12 +121,12 @@ export default {
           child: false
         },
         {
-          linkText: '博客列表',
+          linkText: this.$t('headerNav.blogsList'),
           link: '/blog/list',
           child: false
         },
         {
-          linkText: '我的博客',
+          linkText: this.$t('headerNav.myBlogs'),
           link: "/blog/my",
           child: false
         },

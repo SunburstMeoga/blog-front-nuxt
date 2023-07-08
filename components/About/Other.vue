@@ -7,18 +7,18 @@
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li @click.prevent="selectTab('latest')" class="nav-item" role="presentation">
                 <a :class="[selected === 'latest' ? 'active' : '']" class="nav-link" id="pills-home-tab"
-                  data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
-                  aria-selected="true">所有博客</a>
+                  data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{{
+                    $t('myBlogs.allBlogs') }}</a>
               </li>
               <li @click.prevent="selectTab('publish')" class="nav-item" role="presentation">
                 <a :class="[selected === 'publish' ? 'active' : '']" class="nav-link" id="pills-profile-tab"
                   data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">待發佈</a>
+                  aria-selected="false">{{ $t('myBlogs.toBeReleased') }}</a>
               </li>
               <li @click.prevent="selectTab('news')" class="nav-item" role="presentation">
                 <a :class="[selected === 'news' ? 'active' : '']" class="nav-link" id="pills-profile-tab"
                   data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
-                  aria-selected="false">正在審核</a>
+                  aria-selected="false">{{ $t('myBlogs.underReview') }}</a>
               </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
@@ -56,10 +56,10 @@
                                     {{ data.excerpt }}
                                   </p>
                                   <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
-                                    修改
+                                    {{ $t('operate.modify') }}
                                   </nuxt-link>
                                   <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
-                                    查看
+                                    {{ $t('operate.check') }}
                                   </nuxt-link>
                                   <!-- <el-button size="small" type="primary">查看詳情</el-button> -->
                                 </div>
@@ -71,8 +71,9 @@
                     </template>
                     <div class="col-lg-12">
                       <div class="bussiness-btn">
-                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
-                          more</a>
+                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">
+                          {{ $t('operate.seeMore') }}
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -113,13 +114,13 @@
                                   </p>
                                   <!-- <el-button size="small" type="primary">發佈</el-button> -->
                                   <nuxt-link to="" @click.native="handleRelease(data)">
-                                    发布
+                                    {{ $t('operate.release') }}
                                   </nuxt-link>
                                   <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
-                                    修改
+                                    {{ $t('operate.modify') }}
                                   </nuxt-link>
                                   <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
-                                    查看
+                                    {{ $t('operate.check') }}
                                   </nuxt-link>
                                 </div>
                               </div>
@@ -130,8 +131,9 @@
                     </template>
                     <div class="col-lg-12">
                       <div class="bussiness-btn">
-                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
-                          more</a>
+                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">
+                          {{ $t('operate.seeMore') }}
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -169,10 +171,10 @@
                               {{ data.excerpt }}
                             </p>
                             <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
-                              修改
+                              {{ $t('operate.modify') }}
                             </nuxt-link>
                             <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
-                              查看
+                              {{ $t('operate.check') }}
                             </nuxt-link>
 
                           </div>
@@ -181,8 +183,9 @@
                     </template>
                     <div class="col-lg-12">
                       <div class="bussiness-btn">
-                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">See
-                          more</a>
+                        <a @click.prevent="handleShowMore" class="main-btn main-btn-2">
+                          {{ $t('operate.seeMore') }}
+                        </a>
                       </div>
                     </div>
                   </div>
