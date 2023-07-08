@@ -31,47 +31,102 @@
             </svg>
             <nav-items :darkClass="darkClass" />
           </div>
-          <div class="col-lg-4 col-sm-9 col-9">
+          <div class="col-lg-4 col-sm-9 col-9" style="padding-bottom: 4px;">
             <div class="header-menu-rightbar">
-              <div class="header-menu-search" v-if="$store.state.auth.hasToken && $store.state.auth.walletAddress">
-                <el-dropdown size="medium">
-                  <el-button type="primary" size="medium">
-                    {{ addressFilter($store.state.auth.walletAddress) }}
-                    <i class="el-icon-arrow-down el-icon-user-solid"></i>
-                  </el-button>
-                  <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>我的博客</el-dropdown-item>
-                    <el-dropdown-item>
-                      <el-badge :value="12" class="item">
-                        系统消息
-                      </el-badge>
-                    </el-dropdown-item>
-                    <el-dropdown-item>审核通知</el-dropdown-item>
-                    <el-dropdown-item>复制钱包地址</el-dropdown-item>
-                    <el-dropdown-item>设置</el-dropdown-item>
-                    <el-dropdown-item divided>退出登录</el-dropdown-item>
-                  </el-dropdown-menu>
-                </el-dropdown>
-              </div>
-              <div class="header-menu-search" v-else>
-                <el-button type="primary" size="medium" :loading="isLoading" @click="handleLogin">
-                  {{ isLoading ? '登录中...' : ($store.state.auth.isConnectWallet ? $t('login.login') :
-                    $t('login.connectWallet')) }}</el-button>
-              </div>
+              <div class="header-menu-search setting-mobile">
+                <ul>
+                  <li>
+                    <div v-if="$store.state.auth.hasToken && $store.state.auth.walletAddress">
+                      <el-dropdown size="small">
+                        <el-button type="primary" size="small">
+                          {{ addressFilter($store.state.auth.walletAddress) }}
+                          <i class="el-icon-arrow-down el-icon-user-solid"></i>
+                        </el-button>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item>我的博客</el-dropdown-item>
+                          <!-- <el-dropdown-item>
+                            <el-badge :value="12" class="item">
+                              系统消息
+                            </el-badge>
+                          </el-dropdown-item>
+                          <el-dropdown-item>审核通知</el-dropdown-item> -->
+                          <el-dropdown-item>复制钱包地址</el-dropdown-item>
+                          <!-- <el-dropdown-item>设置</el-dropdown-item> -->
+                          <el-dropdown-item divided>退出登录</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
+                    <!-- <div class="operating account" v-if="$store.state.auth.hasToken && $store.state.auth.walletAddress">
+                      {{ addressFilter($store.state.auth.walletAddress) }}
+                    </div> -->
+                    <div class="header-menu-search" v-else>
+                      <div @click="handleLogin">
+                        {{ isLoading ? '登录中...' : ($store.state.auth.isConnectWallet ? $t('login.login') :
+                          $t('login.connectWallet')) }}</div>
+                    </div>
+                  </li>
+                  <li>
+                    <!-- <div class="operating language">
+                      {{ selectValue }}
+                    </div> -->
+                    <el-dropdown trigger="click">
+                      <a href="#" style="display: flex; align-items: center;">
+                        <span style="font-size: 14px;">
+                          {{ ' ' + selectValue }}
+                        </span>
+                        <i class="el-icon-arrow-down" style="font-size: 12px;" />
+                      </a>
+                      <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item @click.native="languageChange(item)" v-for="(item, index) in languageOptions"
+                          :key="index">
+                          {{ item.label }}
+                        </el-dropdown-item>
+                      </el-dropdown-menu>
+                    </el-dropdown>
 
-              <div class="nice-select-item">
-                <el-dropdown size="medium">
-                  <el-button size="medium">
-                    {{ selectValue }}
-                    <!-- <i class="el-icon-arrow-down el-icon-user-solid"></i> -->
-                  </el-button>
-                  <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item @click.native="languageChange(item)" v-for="(item, index) in languageOptions"
-                      :key="index">
-                      {{ item.label }}
-                    </el-dropdown-item>
-                  </el-dropdown-menu>
-                </el-dropdown>
+                  </li>
+                </ul>
+              </div>
+              <div class="setting-pc">
+                <div class="header-menu-search" v-if="$store.state.auth.hasToken && $store.state.auth.walletAddress">
+                  <el-dropdown size="medium">
+                    <el-button type="primary" size="medium">
+                      {{ addressFilter($store.state.auth.walletAddress) }}
+                      <i class="el-icon-arrow-down el-icon-user-solid"></i>
+                    </el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>我的博客</el-dropdown-item>
+                      <!-- <el-dropdown-item>
+                        <el-badge :value="12" class="item">
+                          系统消息
+                        </el-badge>
+                      </el-dropdown-item>
+                      <el-dropdown-item>审核通知</el-dropdown-item> -->
+                      <el-dropdown-item>复制钱包地址</el-dropdown-item>
+                      <el-dropdown-item>设置</el-dropdown-item>
+                      <el-dropdown-item divided>退出登录</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
+                <div class="header-menu-search" v-else>
+                  <el-button type="primary" size="medium" :loading="isLoading" @click="handleLogin">
+                    {{ isLoading ? '登录中...' : ($store.state.auth.isConnectWallet ? $t('login.login') :
+                      $t('login.connectWallet')) }}</el-button>
+                </div>
+
+                <div class="nice-select-item">
+                  <el-dropdown size="medium">
+                    <el-button size="medium">
+                      {{ selectValue }}
+                    </el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item @click.native="languageChange(item)" v-for="(item, index) in languageOptions"
+                        :key="index">
+                        {{ item.label }}
+                      </el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </div>
               </div>
             </div>
           </div>
@@ -134,6 +189,9 @@ export default {
       this.selectValue = item.label
     },
     async handleLogin() {
+      if (this.isLoading) {
+        return
+      }
       this.isLoading = true
       if (this.$store.state.auth.walletAddress) { //已经连接钱包
         console.log('已经连接钱包')
@@ -228,7 +286,44 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+.operating {
+  padding: 2px 6px;
+
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 2px;
+
+}
+
+.account {
+  background: #1091ff;
+  color: white;
+  border: 1px solid #1091ff
+}
+
+.language {
+  border: 1px solid #dcdfe6
+}
+
+.setting-mobile {
+  display: block;
+}
+
+.setting-pc {
+  display: none;
+}
+
+@media (min-width:640px) {
+  .setting-mobile {
+    display: none;
+  }
+
+  .setting-pc {
+    display: flex;
+  }
+}
+
 .select-lang {
   border: 1px solid #bababa;
   width: 100px;

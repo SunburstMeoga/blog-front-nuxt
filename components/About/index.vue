@@ -5,7 +5,7 @@
     <!-- <about-author /> -->
     <other :blogsData="blogsData" @handleShowMore="handleShowMore" :underReviewData="underReviewData"
       :toBeReleasedData="toBeReleasedData" :blogsList="blogsList" :underReviewList="underReviewList"
-      :toBeReleasedList="toBeReleasedList" :isLoading="isLoading" />
+      :toBeReleasedList="toBeReleasedList" />
     <!-- <div class="add-area text-center">
       <a href="#">
         <img src="@/assets/images/ads/one_ad.png" alt="" />

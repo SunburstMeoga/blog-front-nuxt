@@ -54,6 +54,7 @@
                                             <div class="col-lg-12">
                                                 <div class="bussiness-btn">
                                                     <a @click.prevent="handleShowMore" class="main-btn main-btn-2">
+                                                        <i v-show="isLoading" class="el-icon-loading"></i>
                                                         {{ loadingFail ? '加载失败，点击重新加载' : (isLoading ? '正在加载...' : '查看更多') }}
                                                     </a>
                                                 </div>
