@@ -26,10 +26,10 @@
             <div class="col-lg-5 col-md-7">
               <div class="footer-newaletter">
                 <div class="input-box">
-                  <input type="text" placeholder="您的電子郵件地址" />
-                  <button type="button">報名</button>
+                  <input type="text" :placeholder="$t('message.email')" />
+                  <button type="button">{{ $t('footer.signUp') }}</button>
                 </div>
-                <p>我們和您一樣討厭垃圾郵件</p>
+                <p>{{ $t('message.spam') }}</p>
               </div>
             </div>
           </div>
@@ -42,26 +42,24 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="widget widget-list">
                       <div class="section-title section-title-2">
-                        <h3 class="title">新聞分類</h3>
+                        <h3 class="title">{{ $t('footer.categoriesOfNews') }}</h3>
                       </div>
                       <div class="list d-flex justify-content-between">
                         <ul>
-                          <li><a href="#">政治</a></li>
-                          <li><a href="#">商業</a></li>
-                          <li><a href="#">技術</a></li>
-                          <li><a href="#">科學</a></li>
-                          <li><a href="#">健康</a></li>
-                          <li><a href="#">運動</a></li>
-                          <li><a href="#">娛樂</a></li>
+                          <li><a href="#">{{ $t('footer.politics') }}</a></li>
+                          <li><a href="#">{{ $t('footer.business') }}</a></li>
+                          <li><a href="#">{{ $t('footer.technology') }}</a></li>
+                          <li><a href="#">{{ $t('footer.science') }}</a></li>
+                          <li><a href="#">{{ $t('footer.health') }}</a></li>
+                          <li><a href="#">{{ $t('footer.sports') }}</a></li>
+                          <li><a href="#">{{ $t('footer.entertainment') }}</a></li>
                         </ul>
                         <ul>
-                          <li><a href="#">教育</a></li>
-                          <li><a href="#">訃告</a></li>
-                          <li><a href="#">更正</a></li>
-                          <li><a href="#">教育</a></li>
-                          <li><a href="#">今日新聞</a></li>
-                          <li><a href="#">更正</a></li>
-                          <li><a href="#">食品</a></li>
+                          <li><a href="#">{{ $t('footer.education') }}</a></li>
+                          <!-- <li><a href="#">訃告</a></li> -->
+                          <li><a href="#">{{ $t('footer.todayNews') }}</a></li>
+                          <li><a href="#">{{ $t('footer.correction') }}</a></li>
+                          <li><a href="#">{{ $t('footer.food') }}</a></li>
                         </ul>
                       </div>
                     </div>
@@ -69,26 +67,26 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="widget widget-list widget-list-2">
                       <div class="section-title section-title-2">
-                        <h3 class="title">直播</h3>
+                        <h3 class="title">{{ $t('footer.liveStreaming') }}</h3>
                       </div>
                       <div class="list d-flex justify-content-between">
                         <ul>
-                          <li><a href="#">填字遊戲</a></li>
-                          <li><a href="#">食品</a></li>
-                          <li><a href="#">汽車</a></li>
-                          <li><a href="#">教育</a></li>
-                          <li><a href="#">健康</a></li>
-                          <li><a href="#">雜誌</a></li>
-                          <li><a href="#">婚禮</a></li>
+                          <li><a href="#">{{ $t('footer.crossword') }}</a></li>
+                          <li><a href="#">{{ $t('footer.food') }}</a></li>
+                          <li><a href="#">{{ $t('footer.car') }}</a></li>
+                          <li><a href="#">{{ $t('footer.education') }}</a></li>
+                          <li><a href="#">{{ $t('footer.health') }}</a></li>
+                          <li><a href="#">{{ $t('footer.magazine') }}</a></li>
+                          <li><a href="#">{{ $t('footer.wedding') }}</a></li>
                         </ul>
                         <ul>
-                          <li><a href="#">分類廣告</a></li>
-                          <li><a href="#">攝影作品</a></li>
-                          <li><a href="#">紐約時報商店</a></li>
-                          <li><a href="#">新聞業</a></li>
-                          <li><a href="#">公共編輯器</a></li>
-                          <li><a href="#">工具與服務</a></li>
-                          <li><a href="#">我的賬戶</a></li>
+                          <li><a href="#">{{ $t('footer.classifiedAds') }}</a></li>
+                          <li><a href="#">{{ $t('footer.photography') }}</a></li>
+                          <li><a href="#">{{ $t('footer.theNewYorkTimesStore') }}</a></li>
+                          <li><a href="#">{{ $t('footer.journalism') }}</a></li>
+                          <li><a href="#">{{ $t('footer.publicEditor') }}</a></li>
+                          <li><a href="#">{{ $t('footer.toolsAndServices') }}</a></li>
+                          <li><a href="#">{{ $t('footer.myAccount') }}</a></li>
                         </ul>
                       </div>
                     </div>
@@ -99,54 +97,54 @@
                     <div class="col-lg-5 col-md-5">
                       <div class="widget widget-list">
                         <div class="section-title section-title-2">
-                          <h3 class="title">觀點</h3>
+                          <h3 class="title">{{ $t('footer.view') }}</h3>
                         </div>
                         <div class="list">
                           <ul>
-                            <li><a href="#">今日觀點</a></li>
-                            <li><a href="#">專欄投稿</a></li>
-                            <li><a href="#">Contributing Writers</a></li>
-                            <li><a href="#">商業新闻</a></li>
-                            <li><a href="#">收藏品</a></li>
-                            <li><a href="#">今日新聞</a></li>
-                            <li><a href="#">週六回顧</a></li>
-                            <li><a href="#">產品審核</a></li>
+                            <li><a href="#">{{ $t('footer.todayView') }}</a></li>
+                            <li><a href="#">{{ $t('footer.columnContribution') }}</a></li>
+                            <li><a href="#">{{ $t('footer.contributingWriters') }}</a></li>
+                            <li><a href="#">{{ $t('footer.businessNews') }}</a></li>
+                            <li><a href="#">{{ $t('footer.collections') }}</a></li>
+                            <li><a href="#">{{ $t('footer.todayNews') }}</a></li>
+                            <li><a href="#">{{ $t('footer.saturdayReview') }}</a></li>
+                            <li><a href="#">{{ $t('footer.productReview') }}</a></li>
                           </ul>
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-7 col-md-7">
                       <div class="widget widget-twitter-post">
-                        <div class="twitter-post">
+                        <div class="twitter-post" v-for="(iten, index) in 2">
                           <div class="icon">
                             <i class="fab fa-twitter"></i>
                           </div>
                           <div class="twitter-content">
                             <p>
-                              Cyber Monday Sale, Save 33% on Jannah theme during
-                              our year-end Sale, Purchase a new license for your
-                              next project…
-                              <a href="#">@newspark #technology
-                                https://dribbble.com/subash_chandra</a>
+                              Here is the advertising space Here is the advertising space
+                              Here is the advertising space
+                              Here is the advertising space
+                              <a href="#">@Decme #technology
+                                https://decme.com/</a>
                             </p>
                             <span>March 26, 2020</span>
                           </div>
                         </div>
-                        <div class="twitter-post">
+                        <!-- <div class="twitter-post">
                           <div class="icon">
                             <i class="fab fa-twitter"></i>
                           </div>
                           <div class="twitter-content">
                             <p>
-                              Cyber Monday Sale, Save 33% on Jannah theme during
-                              our year-end Sale, Purchase a new license for your
-                              next project…
-                              <a href="#">@newspark #technology
-                                https://dribbble.com/subash_chandra</a>
+                              Here is the advertising space Here is the advertising space
+                              Here is the advertising space
+                              Here is the advertising space
+                              <a href="#">@Decme #technology
+                                https://decme.com/</a>
                             </p>
                             <span>March 26, 2020</span>
                           </div>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -158,8 +156,8 @@
                 <div class="row">
                   <div class="col-lg-12 col-md-6">
                     <div class="widget widget-news">
-                      <div class="section-title section-title-2">
-                        <h3 class="title">新聞分類</h3>
+                      <!-- <div class="section-title section-title-2">
+                        <h3 class="title">{{ $t('headerNav.blogCategories') }}</h3>
                       </div>
                       <div class="footer-news">
                         <div class="
@@ -260,24 +258,24 @@
                             <span>5</span>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                   <div class="col-lg-12 col-md-6">
-                    <div class="widget wedget-service">
+                    <div class="widget wedget-service" style="border:none; padding: 0; margin: 0;">
                       <div class="section-title section-title-2">
-                        <h3 class="title">Decme新聞服務</h3>
+                        <h3 class="title">{{ $t('footer.newsService') }}</h3>
                       </div>
                       <div class="service-item">
                         <ul>
                           <li>
-                            <a href="#"><i class="fal fa-mobile-android-alt"></i> 在您的手機上</a>
+                            <a href="#"><i class="fal fa-mobile-android-alt"></i> {{ $t('footer.onYourPhone') }}</a>
                           </li>
                           <li>
-                            <a href="#"><i class="fal fa-microphone-alt"></i> 關於智能音箱</a>
+                            <a href="#"><i class="fal fa-microphone-alt"></i> {{ $t('footer.about') }}</a>
                           </li>
                           <li>
-                            <a href="#"><i class="fal fa-envelope"></i> 聯繫 Decme新聞</a>
+                            <a href="#"><i class="fal fa-envelope"></i> {{ $t('footer.contactDecmeNews') }}</a>
                           </li>
                         </ul>
                       </div>
@@ -302,10 +300,10 @@
               ">
               <p>© Copyright 2020, All Rights Reserved</p>
               <ul>
-                <li><a href="#">關於</a></li>
-                <li><a href="#">廣告</a></li>
-                <li><a href="#">隱私政策</a></li>
-                <li><a href="#">聯繫我們</a></li>
+                <li><a href="#">{{ $t('footer.about') }}</a></li>
+                <li><a href="#">{{ $t('footer.advertise') }}</a></li>
+                <li><a href="#">{{ $t('footer.privacyPolicy') }}</a></li>
+                <li><a href="#">{{ $t('footer.contactus') }}</a></li>
               </ul>
             </div>
           </div>

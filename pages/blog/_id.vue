@@ -10,10 +10,8 @@
                         <div class="about-author-content">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Worldnews</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">
-                                        健康
+                                    <li class="breadcrumb-item" v-for="(item, index) in blogInfo.tags" :key="index">
+                                        <a href="index.html">{{ item }}</a>
                                     </li>
                                 </ol>
                             </nav>
@@ -28,7 +26,7 @@
                       align-content-center
                     ">
                                 <div class="categories-item">
-                                    <span>HEALTH</span>
+                                    <span>{{ blogInfo.tags[0] }}</span>
                                 </div>
                                 <div class="categories-share">
                                     <ul>
@@ -55,32 +53,31 @@
                                     </div>
                                     <h5 class="title">Lotto Zheng</h5>
                                     <ul>
-                                        <li>March 26, 2020</li>
-                                        <li>Updated 1:58 p.m. ET</li>
+                                        <li>{{ getLocalTime(blogInfo.updated_at) }}</li>
                                     </ul>
                                 </div>
                                 <div class="author-social">
                                     <ul>
                                         <li>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                            <a><i class="fab fa-facebook-f"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a><i class="fab fa-twitter"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fab fa-youtube"></i></a>
+                                            <a><i class="fab fa-youtube"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a><i class="fab fa-instagram"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fal fa-heart"></i></a>
+                                            <a><i class="fal fa-heart"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fal fa-bookmark"></i></a>
+                                            <a><i class="fal fa-bookmark"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                                            <a><i class="fas fa-ellipsis-v"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -90,18 +87,18 @@
                             <div class="post-tags">
                                 <ul>
                                     <li>
-                                        <a href="#"><i class="fas fa-tag"></i> Tags</a>
+                                        <a><i class="fas fa-tag"></i> Tags</a>
                                     </li>
                                     <li><a href="#" v-for="(item, index) in blogInfo.tags" :key="index">{{ item }}</a></li>
                                 </ul>
                             </div>
-                            <div class="post-reader-text pt-50">
+                            <!-- <div class="post-reader-text pt-50">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="post-reader-prev">
                                             <span>PREVIOUS NEWS</span>
                                             <h4 class="title">
-                                                <a href="#">Kushner puts himself in middle of white house’s
+                                                <a>Kushner puts himself in middle of white house’s
                                                     chaotic coronavirus response.</a>
                                             </h4>
                                         </div>
@@ -110,17 +107,17 @@
                                         <div class="post-reader-prev">
                                             <span>NEXT NEWS</span>
                                             <h4 class="title">
-                                                <a href="#">C.I.A. Hunts for authentic virus totals in china,
+                                                <a>C.I.A. Hunts for authentic virus totals in china,
                                                     dismissing government tallies</a>
                                             </h4>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <style-one :datas="Posts" />
+                        <style-one :datas="Posts" :sharePost="false" :trendingShortPost="false" />
                     </div>
                 </div>
             </div>
@@ -136,7 +133,7 @@
 
         <!--====== POST FORM PART START ======-->
 
-        <div class="post-form-area">
+        <!-- <div class="post-form-area">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
@@ -171,13 +168,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!--====== POST FORM PART ENDS ======-->
 
         <!--====== 發表評論 PART START ======-->
 
-        <section class="post-comments-area pb-100">
+        <!-- <section class="post-comments-area pb-100">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
@@ -190,7 +187,7 @@
                                     <img src="@/assets/images/comments-1.png" alt="comments" />
                                 </div>
                                 <div class="post">
-                                    <a href="#">回复</a>
+                                    <a>回复</a>
                                     <h5 class="title">Rafiqul islam</h5>
                                     <p>
                                         We’ve invested every aspect of how we serve our users over
@@ -204,7 +201,7 @@
                                     <img src="@/assets/images/comments-2.png" alt="comments" />
                                 </div>
                                 <div class="post">
-                                    <a href="#">回复</a>
+                                    <a>回复</a>
                                     <h5 class="title">Rafiqul islam</h5>
                                     <p>
                                         We’ve invested every aspect of how we serve our users over
@@ -218,7 +215,7 @@
                                     <img src="@/assets/images/comments-3.png" alt="comments" />
                                 </div>
                                 <div class="post">
-                                    <a href="#">回复</a>
+                                    <a>回复</a>
                                     <h5 class="title">Rafiqul islam</h5>
                                     <p>
                                         We’ve invested every aspect of how we serve our users over
@@ -232,7 +229,7 @@
                                     <img src="@/assets/images/comments-4.png" alt="comments" />
                                 </div>
                                 <div class="post">
-                                    <a href="#">回复</a>
+                                    <a>回复</a>
                                     <h5 class="title">Rafiqul islam</h5>
                                     <p>
                                         We’ve invested every aspect of how we serve our users over
@@ -248,14 +245,14 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!--====== 發表評論 PART ENDS ======-->
 
         <!--====== ADD PART ENDS ======-->
 
         <div class="add-area text-center">
-            <a href="#">
+            <a>
                 <img src="@/assets/images/ads/one_ad.png" alt="" />
             </a>
         </div>
@@ -282,6 +279,7 @@ import StyleOne from "../../components/Utility/Sidebar/StyleOne.vue";
 import Posts from "../../components/Data/NewsRowCard";
 import FooterOne from "../../components/Utility/Footer/FooterOne.vue";
 import OurLatestNews from "../../components/Utility/Common/OurLatestNews.vue";
+import { getLocalTime } from '../../utils/format'
 import Drawer from "../../components/Mobile/Drawer.vue";
 export default {
     components: { Header, StyleOne, FooterOne, OurLatestNews, Drawer },
@@ -302,6 +300,7 @@ export default {
         document.addEventListener("scroll", this.topToBottom);
     },
     methods: {
+        getLocalTime,
         toggleSidebar() {
             this.sidebar = !this.sidebar;
         },

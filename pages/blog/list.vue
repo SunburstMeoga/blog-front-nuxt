@@ -14,8 +14,8 @@
                                 <li class="nav-item" v-for="(item, index) in categories" :key="index"
                                     @click.prevent="selectTab(item, index)">
                                     <div :class="[selected === index ? 'active' : '']" class="nav-link" id="pills-home-tab">
-                                        {{ $store.state.system.language === 'zh_hk' ?
-                                            item.contents[0].name : item.contents[1].name }}</div>
+                                        {{ $store.state.system.language === 'zh_cn' ?
+                                            item.contents[1].name : item.contents[0].name }}</div>
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent">

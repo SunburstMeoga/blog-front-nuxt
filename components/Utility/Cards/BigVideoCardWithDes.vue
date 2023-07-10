@@ -10,7 +10,7 @@
             <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
           </div>
           <div class="meta-date">
-            <span>March 27, 2020</span>
+            <span>{{ getLocalTime(datas.updated_at) }}</span>
           </div>
         </div>
         <h2 class="title">
@@ -31,8 +31,13 @@
 </template>
 
 <script>
+import { getLocalTime } from '../../../utils/format'
+
 export default {
   props: ["datas"],
+  methods: {
+    getLocalTime,
+  }
 };
 </script>
 

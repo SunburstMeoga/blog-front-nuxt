@@ -113,7 +113,7 @@
           <a href="#" class="line-clumb">{{ datas.title }}</a>
         </h4>
         <!-- <p class="line-clumb-one">{{ datas.slug }}</p> -->
-        <p class="line-clumb-one"> People have been infected in United</p>
+        <p class="line-clumb-one"> {{ getLocalTime(datas.updated_at) }}</p>
         <!-- <div v-html="datas.content"></div> -->
       </div>
     </template>
