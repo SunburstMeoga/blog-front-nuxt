@@ -152,7 +152,7 @@
               </div>
             </div>
             <div class="col-lg-4">
-              <div class="footer-rightbar mt-60">
+              <div class="footer-rightbar mt-16">
                 <div class="row">
                   <div class="col-lg-12 col-md-6">
                     <div class="widget widget-news">
