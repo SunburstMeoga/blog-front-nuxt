@@ -1,6 +1,7 @@
 import i18n from './plugins/i18n'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: 'static',
   head: {
     title: 'blog-front-nuxt',
     htmlAttrs: {
@@ -55,6 +56,11 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss'
   ],
+  axios: {
+    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+    baseURL: process.env.BASE_URL,
+    browserBaseURL: process.env.BASE_URL,
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -64,6 +70,7 @@ export default {
       i18n
     ]
   ],
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

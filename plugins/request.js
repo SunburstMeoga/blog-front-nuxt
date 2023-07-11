@@ -7,7 +7,7 @@ export default function ({ $axios, store }, inject) {
     function axiosConfig($axios) {
         let requestConfig = {}
         // 设置API的域名
-        $axios.setBaseURL(process.env.BASE_URL)
+        //$axios.setBaseURL(process.env.BASE_URL)
         // 设置请求拦截
         $axios.onRequest((config) => {
             // console.log('process.env.BASE_URL', process.env)
