@@ -94,6 +94,16 @@ export default {
     const { data } = await $blogApi.getBlogList()
     return { blogList: data.docs, videoData: data.docs[0] }
   },
+  // mounted() {
+  //   this.$axios.blogApi.getBlogList()
+  //     .then(res => {
+  //       this.blogList = res.data.docs
+  //       this.videoData = res.data.docs[0]
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }
 };
 </script>
 

@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development BASE_URL=https://blogapi.nickwongon99.top nuxt",
     "prod": "cross-env NODE_ENV=production BASE_URL=https://blogapi.nickwongon99.top nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build BASE_URL=https://blogapi.nickwongon99.top nuxt",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate BASE_URL=https://blogapi.nickwongon99.top nuxt"
   },
   "dependencies": {
     "@babel/core": "^7.12.0",
