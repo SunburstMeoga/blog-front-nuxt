@@ -194,7 +194,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 mt-40">
+        <div class="col-lg-4 mt-10">
           <style-one :datas="blogsData.docs" :sharePost="false" />
         </div>
       </div>
