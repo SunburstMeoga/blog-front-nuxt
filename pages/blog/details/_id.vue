@@ -174,7 +174,7 @@
 
         <!--====== 發表評論 PART START ======-->
 
-        <section class="post-comments-area pb-100">
+        <!-- <section class="post-comments-area pb-100">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
@@ -245,7 +245,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!--====== 發表評論 PART ENDS ======-->
 
