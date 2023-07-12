@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
-          <div class="about-tab-btn mt-40">
+          <div class="about-tab-btn mt-10">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li @click.prevent="selectTab('latest')" class="nav-item" role="presentation">
                 <a :class="[selected === 'latest' ? 'active' : '']" class="nav-link" id="pills-home-tab"
@@ -48,17 +48,17 @@
                                     </div>
                                   </div>
                                   <h3 class="title">
-                                    <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                    <nuxt-link :to="'/blog/details/' + data.id">
                                       {{ data.title }}
                                     </nuxt-link>
                                   </h3>
                                   <p class="text">
                                     {{ data.excerpt }}
                                   </p>
-                                  <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
+                                  <nuxt-link :to="'/blog/updata/' + data.id">
                                     {{ $t('operate.modify') }}
                                   </nuxt-link>
-                                  <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                  <nuxt-link :to="'/blog/details/' + data.id">
                                     {{ $t('operate.check') }}
                                   </nuxt-link>
                                   <!-- <el-button size="small" type="primary">查看詳情</el-button> -->
@@ -105,7 +105,7 @@
                                     </div>
                                   </div>
                                   <h3 class="title">
-                                    <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                    <nuxt-link :to="'/blog/details/' + data.id">
                                       {{ data.title }}
                                     </nuxt-link>
                                   </h3>
@@ -116,10 +116,10 @@
                                   <nuxt-link to="" @click.native="handleRelease(data)">
                                     {{ $t('operate.release') }}
                                   </nuxt-link>
-                                  <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
+                                  <nuxt-link :to="'/blog/updata/' + data.id">
                                     {{ $t('operate.modify') }}
                                   </nuxt-link>
-                                  <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                                  <nuxt-link :to="'/blog/details/' + data.id">
                                     {{ $t('operate.check') }}
                                   </nuxt-link>
                                 </div>
@@ -152,7 +152,7 @@
                           </div>
                           <div class="bussiness-post-content">
                             <h3 class="title">
-                              <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                              <nuxt-link :to="'/blog/details/' + data.id">
                                 {{ data.title }}
                               </nuxt-link>
                             </h3>
@@ -170,10 +170,10 @@
                             <p>
                               {{ data.excerpt }}
                             </p>
-                            <nuxt-link :to="{ name: 'blog-updata', params: { id: data.id } }">
+                            <nuxt-link :to="'/blog/updata/' + data.id">
                               {{ $t('operate.modify') }}
                             </nuxt-link>
-                            <nuxt-link :to="{ name: 'blog-id', params: { id: data.id } }">
+                            <nuxt-link :to="'/blog/details/' + data.id">
                               {{ $t('operate.check') }}
                             </nuxt-link>
 

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-if="category" class="gallery_item">
+  <nuxt-link :to="'/blog/details/' + datas.id" v-if="category" class="gallery_item">
     <template v-if="datas">
       <div class="gallery_item_thumb" style="width: 100px; height: 77px; overflow: hidden;">
         <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
@@ -20,8 +20,7 @@
       </div>
     </template>
   </nuxt-link>
-  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="countingtwo"
-    class="post-gallery-style-2 most-view-style-2">
+  <nuxt-link :to="'/blog/details/' + datas.id" v-else-if="countingtwo" class="post-gallery-style-2 most-view-style-2">
     <div class="post-gallery-thumb">
       <img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       <span>{{ count }}</span>
@@ -40,7 +39,7 @@
       </div>
     </div>
   </nuxt-link>
-  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="trending" class="gallery_item">
+  <nuxt-link :to="'/blog/details/' + datas.id" v-else-if="trending" class="gallery_item">
     <div class="gallery_item_thumb" style="width: 100px; height: 77px;">
       <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
       <div v-if="datas.trending" class="icon"><i class="fas fa-bolt"></i></div>
@@ -60,8 +59,7 @@
       <!-- <span v-if="counting">{{ counting }}</span> -->
     </div>
   </nuxt-link>
-  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="counting"
-    class="gallery_item gallery_item-style-2">
+  <nuxt-link :to="'/blog/details/' + datas.id" v-else-if="counting" class="gallery_item gallery_item-style-2">
     <div class="gallery_item_thumb" style="width: 80px; height: 64px;">
       <img :src="datas.image_url" alt="gallery" />
       <div class="icon"><i class="fas fa-bolt"></i></div>
@@ -81,7 +79,7 @@
       <span>{{ count }}</span>
     </div>
   </nuxt-link>
-  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else-if="sports" class="gallery_item">
+  <nuxt-link :to="'/blog/details/' + datas.id" v-else-if="sports" class="gallery_item">
     <template v-if="datas">
       <div class="gallery_item_thumb" style="width: 100px; height: 78px;">
         <img img v-if="datas.image_url" :src="datas.image_url" alt="post" />
@@ -102,8 +100,7 @@
       </div>
     </template>
   </nuxt-link>
-  <nuxt-link :to="{ name: 'blog-id', params: { id: datas.id } }" v-else
-    class="single__post d-lg-flex text-center text-lg-left">
+  <nuxt-link :to="'/blog/details/' + datas.id" v-else class="single__post d-lg-flex text-center text-lg-left">
     <template v-if="datas">
       <div class="post-thumb mb-3 mb-lg-0" style="width: 100px; height: 77px;">
         <img v-if="datas.image_url" :src="datas.image_url" alt="post" />

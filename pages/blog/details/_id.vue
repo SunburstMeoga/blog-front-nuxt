@@ -138,7 +138,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                         <div class="section-title">
-                            <h3 class="title">發表意見</h3>
+                            <h3 class="title">發表评论</h3>
                         </div>
                         <div class="post-form-box">
                             <form action="#">
@@ -157,7 +157,7 @@
                                         <div class="input-box">
                                             <textarea name="#" id="#" cols="30" rows="10"
                                                 placeholder="告訴我們您的意見……"></textarea>
-                                            <button class="main-btn" type="button">
+                                            <button class="main-btn" type="button" @click.prevent="handlePublication">
                                                 發表意見
                                             </button>
                                         </div>
@@ -251,11 +251,11 @@
 
         <!--====== ADD PART ENDS ======-->
 
-        <div class="add-area text-center">
+        <!-- <div class="add-area text-center">
             <a>
                 <img src="@/assets/images/ads/one_ad.png" alt="" />
             </a>
-        </div>
+        </div> -->
 
         <!--====== ADD PART ENDS ======-->
 
@@ -274,13 +274,13 @@
 </template>
 
 <script>
-import Header from "../../components//Utility/Header/index";
-import StyleOne from "../../components/Utility/Sidebar/StyleOne.vue";
-import Posts from "../../components/Data/NewsRowCard";
-import FooterOne from "../../components/Utility/Footer/FooterOne.vue";
-import OurLatestNews from "../../components/Utility/Common/OurLatestNews.vue";
-import { getLocalTime } from '../../utils/format'
-import Drawer from "../../components/Mobile/Drawer.vue";
+import Header from "../../../components//Utility/Header/index";
+import StyleOne from "../../../components/Utility/Sidebar/StyleOne.vue";
+import Posts from "../../../components/Data/NewsRowCard";
+import FooterOne from "../../../components/Utility/Footer/FooterOne.vue";
+import OurLatestNews from "../../../components/Utility/Common/OurLatestNews.vue";
+import { getLocalTime } from '../../../utils/format'
+import Drawer from "../../../components/Mobile/Drawer.vue";
 export default {
     components: { Header, StyleOne, FooterOne, OurLatestNews, Drawer },
     data: () => ({
@@ -301,6 +301,12 @@ export default {
     },
     methods: {
         getLocalTime,
+        handlePublication() {
+            this.leaveComment()
+        },
+        leaveComment() {
+
+        },
         toggleSidebar() {
             this.sidebar = !this.sidebar;
         },
