@@ -7,7 +7,7 @@
       <div class="post__gallery_play_content" style="z-index: 10">
         <div class="post-meta">
           <div class="meta-categories">
-            <a href="#">{{ datas.categoryIds[0].category_id.name }}</a>
+            <!-- <a href="#">{{ datas.categoryIds[0].category_id.name }}</a> -->
           </div>
           <div class="meta-date">
             <span>{{ getLocalTime(datas.updated_at) }}</span>

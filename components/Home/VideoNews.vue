@@ -27,9 +27,9 @@
                 <div class="video-news-post-content">
                   <div class="post-meta">
                     <div class="meta-categories">
-                      <a href="#">{{ videoData.categoryIds && videoData.categoryIds.length > 0 &&
+                      <!-- <a href="#">{{ videoData.categoryIds && videoData.categoryIds.length > 0 &&
                         videoData.categoryIds[0].category_id.name
-                      }}</a>
+                      }}</a> -->
                     </div>
                     <div class="meta-date">
                       <span>{{ getLocalTime(videoData.updated_at) }}</span>

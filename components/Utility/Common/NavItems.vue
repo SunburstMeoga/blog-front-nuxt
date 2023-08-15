@@ -64,6 +64,34 @@ export default {
           child: false
         },
         // {
+        //   linkText: '博客分類',
+        //   child: true,
+        //   "icon": "angle-down",
+        //   "submenu": [
+        //     {
+        //       "id": 23,
+        //       "link": "/contact",
+        //       "linkText": "區塊鏈"
+        //     },
+        //     {
+        //       "id": 21,
+        //       "link": "/about-us",
+        //       "linkText": "本港新聞"
+        //     },
+        //     {
+        //       "id": 22,
+        //       "link": "/archive",
+        //       "linkText": "娛樂新聞"
+        //     },
+
+        //     {
+        //       "id": 24,
+        //       "link": "/404",
+        //       "linkText": '國際新聞'
+        //     }
+        //   ]
+        // },
+        // {
         //   linkText: this.$t('headerNav.blogCategories'),
         //   child: true,
         //   link: 'categories-type',
@@ -83,10 +111,19 @@ export default {
     }
   },
   mounted() {
-    // this.getBlogCategories()
+    this.getBlogCategories()
   },
   methods: {
-
+    //获取新闻分类
+    getBlogCategories() {
+      this.$blogApi.getBlogCategories()
+        .then(res => {
+          console.log('新闻列表分类', res)
+        })
+        .catch(err => {
+          console.log('err', err)
+        })
+    },
     handleNavItem(item) {
       console.log(item)
       // this.$emit('handleNavItem', item)

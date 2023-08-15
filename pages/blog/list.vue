@@ -35,7 +35,7 @@
                                                                 <nuxt-link
                                                                     :to="{ name: 'blog-id', params: { id: data.id } }">
                                                                     {{ data.title }}
-                                                                    {{ index + 1 }}
+                                                                    <!-- {{ index + 1 }} -->
                                                                 </nuxt-link>
                                                             </h3>
                                                             <div class="meta-date-link">
@@ -155,6 +155,8 @@ export default {
             this.getBlogs(this.categoryId, 1)
         },
         selectTab(item, index) {
+            console.log('categoryId', item.id)
+            // return
             this.selected = index;
             this.categoryId = item.id
             this.blogsData = {}

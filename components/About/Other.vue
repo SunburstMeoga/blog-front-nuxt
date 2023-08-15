@@ -40,8 +40,8 @@
                                 <div class="trending-news-content">
                                   <div class="post-meta">
                                     <div class="meta-categories">
-                                      <a href="#">{{ data.categoryIds && data.categoryIds.length > 0 &&
-                                        data.categoryIds[0].category_id.name }}</a>
+                                      <!-- <a href="#">{{ data.categoryIds && data.categoryIds.length > 0 &&
+                                        data.categoryIds[0].category_id.name }}</a> -->
                                     </div>
                                     <div class="meta-date">
                                       <span>{{ getLocalTime(data.created_at) }}</span>
@@ -97,8 +97,8 @@
                                 <div class="trending-news-content">
                                   <div class="post-meta">
                                     <div class="meta-categories">
-                                      <a href="#">{{ data.categoryIds && data.categoryIds.length > 0 &&
-                                        data.categoryIds[0].category_id.name }}</a>
+                                      <!-- <a href="#">{{ data.categoryIds && data.categoryIds.length > 0 &&
+                                        data.categoryIds[0].category_id.name }}</a> -->
                                     </div>
                                     <div class="meta-date">
                                       <span>{{ getLocalTime(data.created_at) }}</span>
